@@ -1,0 +1,60 @@
+body{
+	min-height: 640px;
+	min-width: 1024px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#wrap{
+	width: 100%;
+	height: 100%;
+	/*overflow: hidden;*/
+}
+
+#bg{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -960px;
+	margin-top: -540px;
+}
+
+#people{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -558px;
+	margin-top: -348px;
+}
+
+#btn-main{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -150px;
+	margin-top: 40px;
+}
+
+.btn-pchome{
+	position: absolute;
+	bottom: 50%;
+	margin-bottom: -300px;
+}
+
+#btn-b{
+	left: 50%;
+	margin-left: -570px;
+}
+#btn-g{
+	left: 50%;
+	margin-left: -270px;
+}
+#btn-y{
+	left: 50%;
+	margin-left: 30px;
+}
+#btn-p{
+	left: 50%;
+	margin-left: 330px;
+}

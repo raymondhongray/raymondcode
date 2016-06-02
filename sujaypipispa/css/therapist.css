@@ -1,0 +1,261 @@
+header,.side,footer{
+	-webkit-transition: background 0.3s !important;
+	-moz-transition: background 0.3s !important;
+	transition: background 0.3s !important;
+}
+
+#content{
+	border: 20px solid #fff;
+	overflow: hidden;
+}
+
+.section,.slide{
+	position: relative;
+	height: 100% !important;
+	overflow: hidden;
+}
+
+.therapist-background{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -960px;
+	margin-top: -410px;
+	width: 1920px;
+	height: 820px;
+	opacity: 0;
+	z-index: 0;
+	-webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+.therapist-background.active{
+	opacity: 1;
+}
+
+.therapist-wrap{
+    position: absolute;
+    top: 50%;
+    margin-top: -440px;
+	opacity: 0;
+	-webkit-transform: translateX(-100px);
+	-moz-transform: translateX(-100px);
+	transform: translateX(-100px);
+	-webkit-transition: -webkit-transform 1s ,opacity 1s ;
+	-moz-transition: -moz-transform 1s ,opacity 1s ;
+	transition: transform 1s ,opacity 1s ;
+}
+.therapist-wrap.active{
+	opacity: 1;
+	-webkit-transform: translate(0);
+	-moz-transform: translate(0);
+	transform: translate(0);
+}
+
+#blue .therapist-wrap, #yellow .therapist-wrap{
+	right: 50%;
+	margin-right: -625px;
+}
+#pink .therapist-wrap, #green .therapist-wrap{
+	left: 50%;
+	margin-left: -625px;
+}
+#yellow .therapist-wrap{
+	margin-right: -546px;
+}
+
+.therapist-content{
+	position: absolute;
+	opacity: 0;
+	-webkit-transform: translateX(100px);
+	-moz-transform: translateX(100px);
+	transform: translateX(100px);
+	-webkit-transition: transform 1s ,opacity 1s ;
+	-moz-transition: transform 1s ,opacity 1s ;
+	transition: transform 1s ,opacity 1s ;
+}
+.therapist-content.active{
+	opacity: 1;
+	-webkit-transform: translate(0);
+	-moz-transform: translate(0);
+	transform: translate(0);
+}
+
+.text-background{
+	background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(249,249,249,1) 30%, rgba(246,246,246,0.62) 47%, rgba(241,241,241,0) 70%, rgba(237,237,237,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(30%,rgba(249,249,249,1)), color-stop(47%,rgba(246,246,246,0.62)), color-stop(70%,rgba(242,242,242,0.1)), color-stop(100%,rgba(237,237,237,0.1))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(249,249,249,1) 30%,rgba(246,246,246,0.62) 47%,rgba(241,241,241,0) 70%,rgba(237,237,237,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(249,249,249,1) 30%,rgba(246,246,246,0.62) 47%,rgba(241,241,241,0) 70%,rgba(237,237,237,0) 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(249,249,249,1) 30%,rgba(246,246,246,0.62) 47%,rgba(241,241,241,0) 70%,rgba(237,237,237,0) 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(249,249,249,1) 30%,rgba(246,246,246,0.62) 47%,rgba(241,241,241,0) 70%,rgba(237,237,237,0.1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1aededed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+/*#blue .text-background{
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    opacity: 0;
+    left: 50%;
+    bottom: 210px;
+    margin-left: -830px;
+}*/
+
+#pink .text-background{
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    opacity: 0;
+    bottom: 114px;
+    margin-right: -664px;
+    right: 50%;
+}
+
+#green .text-background{
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    opacity: 0;
+    bottom: 114px;
+    margin-right: -664px;
+    right: 50%;
+}
+
+/*#yellow .text-background{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    opacity: 0;
+    left: 50%;
+    bottom: 223px;
+    margin-left: -474px;
+}*/
+
+.text-background.active{
+	opacity: 0.7 !important;
+}
+
+.therapist-text{
+    top: 50%;
+    margin-top: -515px;
+}
+
+#blue .therapist-text, #yellow .therapist-text{
+	left: 50%;
+	margin-left: -765px;
+}
+#pink .therapist-text, #green .therapist-text{
+	right: 50%;
+}
+#green .therapist-text{
+	margin-right: -682px;
+}
+#pink .therapist-text{
+	margin-right: -635px;
+}
+#yellow .therapist-text{
+	margin-left: -689px;
+}
+
+.experience-btn{
+	position: absolute;
+    width: 368px;
+    height: 45px;
+    top: 50%;
+    margin-top: -25px;
+}
+.experience-btn img{
+	-webkit-transition: top 0.2s;
+	-moz-transition: top 0.2s;
+	transition: top 0.2s;
+}
+
+#blue .experience-btn,#yellow .experience-btn{
+	left: 50%;
+}
+#blue .experience-btn{
+	margin-top: -11px;
+	margin-left: -435px;
+}
+#yellow .experience-btn{
+	margin-left: -348px;
+	margin-top: -4px;
+}
+
+#pink .experience-btn, #green .experience-btn{
+	right: 50%;
+	margin-right: -407px;
+}
+#green .experience-btn{
+	margin-top: -24px;
+}
+#pink .experience-btn{
+	margin-top: 35px;
+}
+
+
+.experience-btn h3{
+	position: relative;
+	top: 11px;
+}
+
+.on-background{
+	z-index: 1;
+}
+
+#nav-dot{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+}
+#nav-dot.active{
+	opacity: 1;
+	-webkit-transition: opacity 0.3s;
+	-moz-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+.nav-dot{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 1px solid #70d3d6;
+    margin: 0 10px;
+    background: rgba(0,0,0,0);
+}
+
+.nav-dot.blue-border.active{
+    background: #70d3d6;
+}
+.nav-dot.pink-border.active{
+    background: #fcabab;
+}
+.nav-dot.green-border.active{
+    background: #37bc98;
+}
+.nav-dot.yellow-border.active{
+    background: #ffd778;
+}
+
+.nav-arrow{
+    position: absolute; 
+    top: 50%;
+    margin-top: -26px;;
+    width: 45px;
+    height: 55px;
+}
+#arrow-right{
+    right: 50px;
+}
+#arrow-left{
+    left: 50px;
+}

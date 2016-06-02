@@ -1,0 +1,124 @@
+body{
+	min-width: 1600px;
+	min-height: 830px;
+	/*在大什麼*/
+}
+
+.logo-big{
+	position: relative;
+	text-align: center;
+	margin-top: 50px;
+}
+
+#vip-content{
+	position: relative;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.vip-text, #tissue{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.vip-text{
+	width: 385px;
+	text-align: justify;
+	cursor: default;
+}
+
+.vip-text h2{
+	font-size: 28px;
+}
+
+.vip-text p{
+	margin-top: 25px;
+	text-align: justify;
+　text-justify: inter-ideograph;
+　-ms-text-justify: inter-ideograph; /*IE9*/
+　-moz-text-align-last:justify; /*Firefox*/
+　-webkit-text-align-last:justify; /*Chrome*/
+}
+
+.vip-text p:nth-of-type(2){
+	margin-top: 15px;
+}
+
+#tissue{
+    position: relative;
+    margin: 0 50px;
+    height: 291px;
+    overflow: hidden;
+    width: 435px;
+}
+
+#tissue img{
+	position: absolute;
+	top: 0px;
+	left: 0;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	transition: opacity 1s;
+}
+
+#tissue img:nth-of-type(2){
+	opacity: 0;
+}
+
+#spa-btn{
+	position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+.img-wrap:hover{
+	width: 850px;
+}
+.img-wrap:hover img{
+	top: -54px !important;
+}
+
+.img-wrap{
+	position: absolute;
+	width: 288px;
+	height: 62px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	overflow: hidden;
+
+	-webkit-transition: width 0.3s 0.3s;
+	-moz-transition: width 0.3s 0.3s;
+	transition: width 0.3s 0.3s;
+}
+
+#spa-btn img{
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 745px;
+    left: 50%;
+    margin-left: -333px;
+
+    -webkit-transition: top 0.3s;
+    -moz-transition: top 0.3s;
+    transition: top 0.3s;
+}
+
+.btn-btn{
+	position: absolute;
+	width: 215px;
+	height: 62px;
+	display: inline-block;
+}
+
+#btn-btn-1{
+	left: 0;
+}
+
+#btn-btn-2{
+	right: 0;
+	width: 300px;
+}
+

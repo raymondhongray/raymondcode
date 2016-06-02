@@ -1,0 +1,182 @@
+.text-center{
+	text-align: center;
+}
+.block{
+	display: block;
+}
+p{
+	font-size: 20px;
+}
+
+/*   slide   */
+
+#wrap,#content{
+    /*height: 100%;*/
+}
+
+#content{
+    position: relative;
+    width: 470px;
+    min-height: 100%;
+    background: #fff;
+    margin: 0 auto;
+    padding-top: 1px;
+    margin-top: 40px;
+    padding-bottom: 1px;
+    margin-bottom: -1px;
+    left: 0;
+    right: 0;
+}
+
+
+
+.flexslider{
+    /*height: 100%;*/
+    width: 100%;
+}
+
+.slides{
+    height: 470px;
+}
+.slide-pic{
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/*#img-1{
+	position: relative;
+	right: 294px;
+	top: 0;
+}
+#img-2{
+	position: relative;
+	right: 267px;
+}
+#img-3{
+	position: relative;
+	right: 409px;
+}*/
+.slide-pic img{
+	width: 100%;
+	height: 100%;
+}
+
+.flex-control-paging{
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+}
+
+
+/*   slide end  */
+
+.material-content{
+	width: 500px;
+	position: relative;
+	text-align: center;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.spa-btn{
+	position: relative;
+	width: 322px;
+	height: 60px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+
+.logo,.product,.describe,.spa-btn{
+	margin-top: 20px;
+}
+
+.logo{
+	margin-right: 40px;
+}
+
+.product{
+	margin-top: 60px;
+
+/*	opacity: 0;
+	transform: translateY(100px);
+	transition: transform 0.5s, opacity 0.5s;*/
+}
+
+.product.active{
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
+	transform: translateY(0);
+}
+
+#productA{
+	margin-top: 0;
+}
+
+.product-name{
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+#product-name-A{
+	margin-top: 15px;
+}
+
+.describe{
+	text-align: left;
+}
+
+.btn-active:active img{
+	top: -75px;
+	/*transition: top,0.2s;*/
+}
+
+#control-zone{
+	position: relative;
+	/*bottom: 30px;*/
+	text-align: center;
+	left: 0;
+	right: 0;
+	margin: -55px auto 0 auto;
+}
+
+.flex-control-nav li{
+	margin-top: 20px;
+	position: relative;
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	border: 1px solid #70d3d6;
+	background: rgba(0,0,0,0);
+	margin-right: 10px;
+}
+
+.flex-control-nav .flex-active {
+	background: #70d3d6;
+}
+
+
+.text-zone{
+	margin-top: 35px;
+	margin-bottom: 25px;
+}
+.right{
+	margin-left: 108px;
+}
+
+#text-1{
+	margin-bottom: 20px;
+
+}
+
+#text-1 p:nth-of-type(1){
+	margin-bottom: 20px;
+}
+#text-1 h1{
+	font-size: 37px;
+	margin-bottom: 5px;
+}

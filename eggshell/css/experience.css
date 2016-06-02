@@ -1,0 +1,176 @@
+#wrap{
+	min-height: 100%;
+}
+
+#content{
+	height: 860px;
+	/*min-height: 860px;*/
+	overflow: hidden;
+}
+.blue #content{
+	background-image: url('../img/experience/b_bg-2.jpg');
+    /*opacity: 0; */
+}
+
+.background,.people{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.people{
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    transform: translateY(100px);
+    -webkit-transition: -webkit-transform 1s ,opacity 1s ;
+    -moz-transition: -moz-transform 1s ,opacity 1s ;
+    transition: transform 1s ,opacity 1s ;
+}
+.people.active{
+    opacity: 1;
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    transform: translate(0);
+}
+
+.text{
+    position: absolute;
+    width: 535px;
+    top: 50px;
+    left: 50%;
+    margin-left: -267px;
+    opacity:0;
+    -webkit-transform: translateY(-100px);
+    -moz-transform: translateY(-100px);
+    transform: translateY(-100px);
+    -webkit-transition: -webkit-transform 1s ,opacity 1s ;
+    -moz-transition: -moz-transform 1s ,opacity 1s ;
+    transition: transform 1s ,opacity 1s ;
+}
+.text.active{
+    opacity: 1;
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    transform: translate(0);
+}
+
+#yellow .text{
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    transform: translate(0);
+    opacity: 1;
+}
+
+.experience-btn{
+	position: absolute;
+	width: 250px;
+	height: 75px;
+	margin: 0 auto;
+	bottom: 70px;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+}
+.experience-btn.active{
+    opacity: 1;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.feather{
+	position: absolute;
+	top: -100px;
+}
+
+.bubble{
+	position: absolute;
+	top: 100%;
+}
+.light{
+	position: absolute;
+	-webkit-animation: light-move 4s ease 2s infinite;
+	-moz-animation: light-move 4s ease 2s infinite;
+	animation: light-move 4s ease 2s infinite;
+}
+.drop{
+    position: absolute;
+    width: 20px;
+    height: 28px;
+}
+.drop-pic{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.drop-pic img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.slide{
+    position: absolute;
+    top: 0;
+    height: 0px;
+    width: 50px;
+    overflow: hidden;
+}
+
+/*-------------animation---------------*/
+
+/*-webkit-@keyframes light-move{
+
+    0%{ -webkit-transform: rotate(0deg);
+     }
+    100%{
+    	-webkit-transform: rotate(360deg);
+    } 
+}
+-moz-@keyframes light-move{
+
+    0%{ -moz-transform: rotate(0deg);
+     }
+    100%{
+    	-moz-transform: rotate(360deg);
+    } 
+}
+@keyframes light-move{
+
+    0%{ transform: rotate(0deg);
+     }
+    100%{
+    	transform: rotate(360deg);
+    } 
+}*/
+
+#light-1{
+    left: 0%;
+}
+#light-2{
+    left: 2%;
+}
+#light-3{
+    left: 4%;
+}
+#light-4{
+    left: 6%;
+}
+#light-5{
+    left: 97%;
+}
+#light-6{
+    left: 99%;
+}
+#light-7{
+    top: 10%;
+    left: 50%;
+}
+#light-8{
+    top: 15%;
+    left: 70%;
+}
+#light-9{
+    top: 30%;
+    left: 40%;
+}
+

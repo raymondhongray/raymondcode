@@ -1,89 +1,13 @@
-#content{
-	height: 1055px;
-	text-align: center;
+#bxslider-div {
+    margin-top: 20px;
 }
 
-#big-logo{
-	position: relative;
-	margin: auto;
-	margin-top: 25px;
-	width: 244px;
+.recommend_btn {
+    text-align: center;
+    border: 2px solid;
+    padding: 8px 1px 8px 1px;
 }
 
-#sub{
-	position: relative;
-	margin: auto;
-	margin-top: 20px;
-	width: 478px;
-}
-
-.face{
-	position: relative;
-	width: 477px;
-	height: 116px;
-	margin: auto;
-	margin-top: 20px;
-	overflow: hidden;
-}
-
-.face-img{
-	position: absolute;
-	top: 0;
-	left: 0;
-	-webkit-transition: opacity 0.8s;
-	-moz-transition: opacity 0.8s;
-	transition: opacity 0.8s;
-}
-
-.name{
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.name-2{
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	-webkit-transition: opacity 0.8s;
-	-moz-transition: opacity 0.8s;
-	transition: opacity 0.8s;
-}
-.name-2.active{
-	opacity: 1;
-}
-
-.face:active .face-img{
-	top: -116px;
-}
-
-.face:active .cover{
-	opacity: 0;
-}
-
-.cover{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 477px;
-	height: 116px;
-	opacity: 0.5;
-	-webkit-transition: opacity 0.7s;
-	-moz-transition: opacity 0.7s;
-	transition: opacity 0.7s;
-}
-
-/*#content a:nth-of-type(1) .face-img{
-	top: -116px;
-}
-#content a:nth-of-type(1) .cover{
-	opacity: 0;
-}*/
-
-#product{
-	position: relative;
-	width: 189px;
-	height: 112px;
-	margin: 12px auto;
+.recommend_btn-group {
+    margin-top: 40px;
 }

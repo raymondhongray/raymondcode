@@ -1,0 +1,107 @@
+
+
+#wrap{
+}
+
+#content{
+    height: 860px !important;
+    /*以免被套件高度吃掉*/
+}
+
+.blue,.pink,.green,.yellow{
+    /*transition: border-color 0.4s, background 0.4s;*/
+}
+
+
+.slide{
+    position: relative;
+	height: 100%;
+    width: 25%;
+    background: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.fp-tableCell{
+    height: 100% !important;
+}
+
+.section{
+	height: 100% !important;
+}
+
+#nav-dot{
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 10;
+}
+
+.nav-dot{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 1px solid #70d3d6;
+    margin: 0 5px;
+    background: rgba(0,0,0,0);
+
+    -webkit-transition: border-color 0.3s, background 0.3s;
+    -moz-transition: border-color 0.3s, background 0.3s;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.nav-arrow{
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 45px;
+    height: 55px;
+    z-index: 10;
+}
+#arrow-right{
+    right: 50px;
+}
+#arrow-left{
+    left: 50px;
+}
+
+.name{
+    position: absolute;
+    width: 460px;
+    top: 40px;
+    left: 50%;
+    margin-left: -230px;
+    z-index: 2;
+}
+.text{
+    position: absolute;
+    width: 460px;
+    top: 175px;
+    left: 50%;
+    margin-left: -230px;
+    z-index: 2;
+}
+
+.people{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -320px;
+    z-index: 1;
+}
+
+.therapist-btn{
+    position: absolute;
+    bottom: 70px;
+    width: 322px;
+    margin: 0 auto;
+    height: 60px;
+    z-index: 5;
+    left: 0;
+    right: 0;
+
+}

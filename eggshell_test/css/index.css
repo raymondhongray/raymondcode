@@ -1,0 +1,157 @@
+#face-zone{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 20px solid #fff;
+}
+
+#shit{
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+    top: 15px;
+    display: none;
+    opacity: 0;
+}
+
+.face{
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.face-img{
+    width: 100%;
+    height: 200%;
+}
+
+
+#face-1 img:nth-of-type(1),
+#face-3 img:nth-of-type(1),
+#face-4 img:nth-of-type(1){
+    position: absolute;
+    right: 0;
+}
+#face-2 img:nth-of-type(1){
+    position: absolute;
+    left: 0;
+}
+
+.name{
+    position: absolute;
+    display: block;
+    bottom: 85px;
+    left: 50%;
+    margin-left: -25px;
+    z-index: 1;
+}
+.name.active{
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.name-2{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    margin: 0 auto;
+    -webkit-transition: transform 1s;
+    -moz-transition: transform 1s;
+    transition: transform 1s;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    transform: translateY(100%);
+}
+.name-2.active{
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.face:nth-of-type(1),.face:nth-of-type(2){
+    border-right: 10px solid #fff;
+}
+.face:nth-of-type(4),.face:nth-of-type(5){
+    border-left: 10px solid #fff;
+}
+
+.face img{
+    /*transition: transform 0.3s;
+    height: 100%;
+    width: 100%;*/
+    
+}
+
+.logo-zone img{
+    position: relative;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 25px auto 40px auto
+}
+
+.logo-zone img:nth-of-type(2){
+    position: absolute;
+    bottom: 50%;
+    margin-bottom: -220px;
+}
+
+.face .cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    /*background: #70d3d6;*/
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    transition: background 0.3s;
+}
+
+.face:hover img{
+    /*transform: scale(1.1);*/
+}
+
+footer{
+    text-align: center;
+}
+
+footer img:nth-of-type(3){
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.popup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.popup .popup-opacity{
+    background: url('../img/opacity.png');
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.popup iframe{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -200px;
+}

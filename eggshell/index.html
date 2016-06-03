@@ -20,106 +20,17 @@
     <!-- bxSlider CSS file -->
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <!-- CSS -->
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-    #nav-bar {
-        border-top: 5px solid #70d3d6;
-        border-bottom: 2px solid #70d3d6;
-    }
-    
-    #nav-bar > ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #fff;
-    }
-    
-    #nav-bar > ul > li {
-        float: left;
-    }
-    
-    #nav-bar > ul > li a {
-        display: block;
-        color: #000;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    
-    #nav-btn-line {
-        width: 25px;
-        height: 3px;
-        border-radius: 5px;
-        background: #70d3d6;
-    }
-    
-    #nav-btn-line:before,
-    #nav-btn-line:after {
-        content: "";
-        width: 25px;
-        height: 3px;
-        border-radius: 5px;
-        background: #70d3d6;
-    }
-    
-    #nav-btn-line:before {
-        position: absolute;
-        top: 8px;
-    }
-    
-    #nav-btn-line:after {
-        position: absolute;
-        bottom: 8px;
-    }
-    
-    #nav-btn-line-div {
-        float: right !important;
-        margin-right: 20px;
-    }
-    
-    #nav-btn-line-div::before {
-        content: '';
-        width: 0;
-        height: 100%;
-        display: inline-block;
-        position: relative;
-        vertical-align: middle;
-        background: #f00;
-    }
-    
-    #bxslider-div {
-        margin-top: 20px;
-    }
-    
-    .recommend_btn {
-        text-align: center;
-        border: 2px solid;
-        padding: 8px 1px 8px 1px;
-    }
-    
-    .index-footer {
-        /* 設定footer的高度 */
-        /*height: 40px;*/
-        box-sizing: border-box;
-        /* 設定footer絕對位置在底部 */
-        position: absolute;
-        bottom: 0;
-        /* 展開footer寬度 */
-        width: 100%;
-        border-top: 2px solid #70d3d6;
-        padding-top: 15px;
-    }
-    
-    .index-footer > p {
-        text-align: right;
-    }
+
     </style>
 </head>
 
 <body>
     <div id="nav-bar">
         <ul>
-            <li><a href="#home">LOGO</a></li>
+            <li><a href="">LOGO</a></li>
             <li id="nav-btn-line-div">
                 <div style="position: relative;">
                     <div id="nav-btn-line"></div>
@@ -136,15 +47,36 @@
                 <li><img src="img/index_y.jpg" /></li>
             </ul>
         </div>
-        <!-- 在行動或桌面設備，column 寬度總是 50% 寬度 -->
-        <div class="row">
-            <div class="col-xs-6 recommend_btn">超可惜景點特輯</div>
-            <div class="col-xs-6 recommend_btn">盛夏推薦裝備</div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6 recommend_btn">親子團行程
+        <div class="row" style="text-align: center;">
+            <div class="col-xs-4">精選推薦</div>
+            <div class="col-xs-4">
+                <div class="dropdown">
+                    <button class="btn btn-info btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                        地區
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北部</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中部</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">南部</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-xs-6 recommend_btn">關於小鹿山丘</div>
+            <div class="col-xs-4">
+                <button type="button" class="btn btn-default btn-xs">搜尋</button>
+            </div>
+        </div>
+        <div class="recommend_btn-group">
+            <!-- 在行動或桌面設備，column 寬度總是 50% 寬度 -->
+            <div class="row">
+                <div class="col-xs-6 recommend_btn">超可惜景點特輯</div>
+                <div class="col-xs-6 recommend_btn">盛夏推薦裝備</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 recommend_btn">親子團行程
+                </div>
+                <div class="col-xs-6 recommend_btn">關於小鹿山丘</div>
+            </div>
         </div>
     </div>
     <footer class="index-footer">
@@ -166,7 +98,7 @@
             captions: true
         });
         $("#nav-btn-line").click(function() {
-            alert("The paragraph was clicked.");
+            window.location = "menu.html";
         });
     });
     </script>

@@ -17,6 +17,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- bxSlider CSS file -->
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <!-- CSS -->
     <style type="text/css">
     #nav-bar {
@@ -84,6 +86,33 @@
         vertical-align: middle;
         background: #f00;
     }
+    
+    #bxslider-div {
+        margin-top: 20px;
+    }
+    
+    .recommend_btn {
+        text-align: center;
+        border: 2px solid;
+        padding: 8px 1px 8px 1px;
+    }
+    
+    .index-footer {
+        /* 設定footer的高度 */
+        /*height: 40px;*/
+        box-sizing: border-box;
+        /* 設定footer絕對位置在底部 */
+        position: absolute;
+        bottom: 0;
+        /* 展開footer寬度 */
+        width: 100%;
+        border-top: 2px solid #70d3d6;
+        padding-top: 15px;
+    }
+    
+    .index-footer > p {
+        text-align: right;
+    }
     </style>
 </head>
 
@@ -99,27 +128,48 @@
         </ul>
     </div>
     <div class="container">
-        <!-- 製作一個 100% 寬度和兩個 50% 寬度，在行動設備上堆疊的 column -->
-        <div class="row">
-            <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
-            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-        </div>
-        <!-- 一開始，在行動設備上 column 會是 50% 寬度，提升至桌面大小後，寬度會平均為 33.3% -->
-        <div class="row">
-            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        <div id="bxslider-div">
+            <ul class="bxslider">
+                <li><img src="img/index_b.jpg" /></li>
+                <li><img src="img/index_g.jpg" /></li>
+                <li><img src="img/index_p.jpg" /></li>
+                <li><img src="img/index_y.jpg" /></li>
+            </ul>
         </div>
         <!-- 在行動或桌面設備，column 寬度總是 50% 寬度 -->
         <div class="row">
-            <div class="col-xs-6">.col-xs-6</div>
-            <div class="col-xs-6">.col-xs-6</div>
+            <div class="col-xs-6 recommend_btn">超可惜景點特輯</div>
+            <div class="col-xs-6 recommend_btn">盛夏推薦裝備</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 recommend_btn">親子團行程
+            </div>
+            <div class="col-xs-6 recommend_btn">關於小鹿山丘</div>
         </div>
     </div>
+    <footer class="index-footer">
+        <p>COPYRIGHT 2016.
+        </p>
+        <p>. ALL RIGHTS RESERVED.
+        </p>
+    </footer>
     <!-- jQuery (Bootstrap 所有外掛均需要使用) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- 最新編譯和最佳化的 JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- bxSlider Javascript file -->
+    <script src="js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.bxslider').bxSlider({
+            auto: true,
+            captions: true
+        });
+        $("#nav-btn-line").click(function() {
+            alert("The paragraph was clicked.");
+        });
+    });
+    </script>
 </body>
 
 </html>

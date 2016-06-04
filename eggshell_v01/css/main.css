@@ -372,14 +372,14 @@ nav .nav-ul {
     top: 20%;
     width: 100%;
     height: 50%;*/
-    background-color: #fff;
+    /*background-color: #fff;*/
 }
 
 nav .nav-ul li {
     position: relative;
     /* color: #70d3d6;
     background-color: #fff;*/
-    margin: -1px;
+    margin: 0;
     color: #669900;
     background-color: #669900;
     width: 100%;
@@ -482,8 +482,9 @@ nav .nav-ul li h1 {
     left: 0;
     width: 100%;
     min-height: 100%;
-    /*border: 20px solid #70d3d6;*/
-    border: 20px solid #fff;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px; 
     border-top: none;
     padding-top: 100px;
     /*height: 100%;*/
@@ -605,7 +606,7 @@ header.active {
     position: fixed;
     left: 0;
     opacity: 1;
-    z-index: -1;
+    z-index: 0;
     padding-top: 0;
     -webkit-transition: left 0.7s;
     -moz-transition: left 0.7s;

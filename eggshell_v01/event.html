@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>eggshell 小鹿山丘</title>
+    <meta name="keywords" content="eggshell 小鹿山丘">
+    <meta name="description" content="eggshell 小鹿山丘">
+    <meta name="viewport" content="width=640">
+    <meta property="og:title" content="eggshell 小鹿山丘" />
+    <meta property="og:image" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="eggshell 小鹿山丘" />
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- CSS -->
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/flexslider.css" rel="stylesheet" />
+    <style type="text/css">
+    .tab-theme {
+        display: inline-block;
+        margin-right: -4px;
+    }
+    
+    .margin-customize {
+        margin-right: 2px;
+    }
+    
+    #map-search p {
+        display: inline;
+        color: #723000;
+    }
+    
+    #map-search .map-search {
+        width: 320px;
+        height: 35px;
+        font-size: 20px;
+        /* margin-left: 5px;*/
+        margin-right: 12px;
+    }
+    
+    #map-search .map-submit {
+        width: 95px;
+        height: 35px;
+        font-size: 20px;
+        border-radius: 17px;
+        background-color: #acbc1e;
+        color: #fff;
+    }
+    
+    .currnent-path {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    
+    .currnent-path p {
+        color: #723000;
+    }
+    
+    .green-line {
+        width: 90%;
+        height: 1px;
+        background: #a3b932;
+        margin: 20px auto;
+    }
+    
+    .popup {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        /*display: none;*/
+        z-index: 200;
+        /*background: #000;
+        opacity: 0.5;*/
+    }
+    
+    .popup-box {
+        position: relative;
+        z-index: 100;
+        margin: 0 auto;
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        top: 20px;
+        background: #679a01;
+        box-shadow: 0px 0px 100px 10px rgba(87, 69, 47, 0.5);
+        border: solid 1px #C1DA75;
+        border-radius: 30px;
+        animation: shadow 2s infinite;
+    }
+    
+    .popup-opacity {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: #000000;
+        top: 0;
+        opacity: 0.5;
+    }
+    
+    .img_box {
+        margin-top: 60px;
+        text-align: center;
+    }
+    
+    .upload-img-theme {
+        position: relative;
+        width: 180px;
+        height: 180px;
+        display: inline-block;
+        background: #679a01;
+        border: 2px solid #fff;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .upload-img-theme > img {
+        max-width: 180px;
+        max-height: 180px;
+    }
+    
+    .theme-middle {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .img_fileToUpload {
+        border: 1px solid #fff;
+    }
+    
+    .remove-icon {
+        position: absolute;
+        top: -10px;
+        right: 0px;
+        margin: auto;
+        width: 40px;
+        height: 40px;
+        z-index: 1000;
+        cursor: pointer;
+        background-color: #C1DA75;
+        border: 2px solid #fff;
+        border-radius: 99em;
+    }
+    
+    .remove-icon:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 25px;
+        height: 3px;
+        top: 17px;
+        background: #fff;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    
+    .remove-icon:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 25px;
+        height: 3px;
+        top: 17px;
+        background: #fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    
+    .preview-btn {
+        position: relative;
+        z-index: 300;
+        top: -45px;
+        right: -50%;
+        transform: translateX(-50%);
+    }
+    
+    .remove-popup-icon {
+        position: fixed;
+        z-index: 300;
+        top: 0;
+        right: 10px;
+        width: 75px;
+        height: 75px;
+        cursor: pointer;
+        background-color: #C1DA75;
+        border: 2px solid #fff;
+        border-radius: 20px;
+    }
+    
+    .remove-popup-icon:before {
+        content: "";
+        position: fixed;
+        z-index: 300;
+        top: 10px;
+        right: 40px;
+        width: 12px;
+        height: 55px;
+        background: #fff;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    
+    .remove-popup-icon:after {
+        content: "";
+        position: fixed;
+        z-index: 300;
+        top: 10px;
+        right: 40px;
+        width: 12px;
+        height: 55px;
+        background: #fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    
+    .recommend-title {
+        margin-top: 110px;
+        margin-left: 40px;
+    }
+    
+    .recommend-title > p {
+        color: #fff;
+        font-size: 22px;
+        vertical-align: bottom;
+    }
+    
+    .recommend-title > input {
+        margin-left: 10px;
+        width: 365px;
+        height: 35px;
+    }
+    
+    .recommend-select {
+        margin-top: 30px;
+        margin-left: 40px;
+    }
+    
+    .recommend-select > p {
+        color: #fff;
+        font-size: 22px;
+        vertical-align: bottom;
+    }
+    
+    .recommend-select > select {
+        margin-left: 10px;
+        width: 170px;
+        height: 35px;
+    }
+    
+    .recommend-textarea {
+        margin-top: 30px;
+        margin-left: 40px;
+    }
+    
+    .recommend-textarea > p {
+        color: #fff;
+        font-size: 22px;
+    }
+    
+    .recommend-textarea > textarea {
+        resize: none;
+        margin-top: 10px;
+        width: 92%;
+        height: 220px;
+    }
+
+    .display-recommend-title {
+        margin-top: 110px;
+        margin-left: 40px;
+    }
+
+    .display-recommend-title > p {
+        color: #fff;
+        font-size: 22px;
+        vertical-align: bottom;
+    }
+    
+    .display-recommend-title > p.recommend-title-text {
+        margin-left: 10px;
+    }
+
+    .display-recommend-select {
+        margin-top: 30px;
+        margin-left: 40px;
+    }
+
+    .display-recommend-select > p {
+        color: #fff;
+        font-size: 22px;
+        vertical-align: bottom;
+    }
+    
+    .display-recommend-select > p.recommend-select-text {
+        margin-left: 10px;
+    }
+
+    .display-recommend-textarea {
+        margin-top: 30px;
+        margin-left: 40px;
+    }
+
+    .display-recommend-textarea > p {
+        color: #fff;
+        font-size: 22px;
+        vertical-align: bottom;
+    }
+    
+    .display-recommend-textarea > div {
+        margin-top: 10px;
+        color: #fff;
+        font-size: 22px;
+        margin-left: 10px;
+    }
+    </style>
+</head>
+
+<body id="index-body">
+    <div class="popup">
+        <div class="popup-box">
+            <!--test by pop.html-->
+            <form action="" method="post" enctype="multipart/form-data">
+                <div style="display: none;">
+                    Select image to upload:
+                    <input type="file" name="fileToUpload_01" id="fileToUpload_01">
+                    <input type="file" name="fileToUpload_02" id="fileToUpload_02">
+                    <input type="file" name="fileToUpload_03" id="fileToUpload_03">
+                    <input type="submit" value="Upload Image" name="submit">
+                </div>
+                <div id="input-area">
+                    <div class="recommend-title">
+                        <p>景點名稱 : </p>
+                        <input type="text" name="title">
+                    </div>
+                    <div class="recommend-select">
+                        <p>景點地區 : </p>
+                        <select>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
+                    <div class="recommend-textarea">
+                        <p>景點簡介 : </p>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div id="display-area" style="">
+                    <div class="display-recommend-title">
+                        <p>景點名稱 : </p>
+                        <p class="recommend-title-text"></p>
+                    </div>
+                    <div class="display-recommend-select">
+                        <p>景點地區 : </p>
+                        <p class="recommend-select-text"></p>
+                    </div>
+                    <div class="display-recommend-textarea">
+                        <p>景點簡介 : </p>
+                        <div class="recommend-textarea-text"></div>
+                    </div>
+                </div>
+            </form>
+            <div id="img_box" class="img_box">
+                <div id="upload_btn" class="upload-img-theme">
+                    <img class="upload_btn theme-middle" src="img/pop/upload_btn.png" />
+                </div>
+            </div>
+        </div>
+        <div id="remove-popup" class="remove-popup-icon"></div>
+        <img id="preview-btn" class="preview-btn" src="img/pop/preview_btn.png" />
+        <div class="popup-opacity"></div>
+    </div>
+    <!--所有頁面共用的 Menu-->
+    <nav class="nav-menu">
+        <div class="nav-content">
+            <ul class="nav-ul">
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+    <header class="">
+        <div class="header-content">
+            <!-- 選單 -->
+            <input type="checkbox" id="nav-btn-active">
+            <label for="nav-btn-active">
+                <div id="nav-btn" class="nav-btn btn">
+                    <div id="nav-btn-line" class="nav-btn-line"></div>
+                </div>
+            </label>
+        </div>
+    </header>
+    <div id="wrap">
+        <div id="content">
+            <div class="currnent-path">
+                <p>首頁 > 超可惜景點特輯</p>
+            </div>
+            <div>
+                <img src="img/event/intro.png" />
+            </div>
+            <div class="green-line"></div>
+            <div style="margin-top: 60px;">
+                <div class="tab-theme">
+                    <a href=""><img src="img/event/tab_1_1.png" /></a>
+                </div>
+                <div class="tab-theme">
+                    <a href=""><img src="img/event/tab_1_2.png" /></a>
+                </div>
+                <div class="tab-theme">
+                    <a href=""><img src="img/event/tab_1_3.png" /></a>
+                </div>
+                <div class="tab-theme" style="margin-right: 0;">
+                    <a href=""><img src="img/event/tab_1_4.png" /></a>
+                </div>
+            </div>
+            <div class="tab-theme-content">
+                <a href=""><img src="img/event/tab_1_1_content.png" /></a>
+            </div>
+            <div style="margin-top: 60px;">
+                <div class="tab-theme margin-customize">
+                    <a href=""><img src="img/event/tab_2_1.png" /></a>
+                </div>
+                <div class="tab-theme margin-customize">
+                    <a href=""><img src="img/event/tab_2_2.png" /></a>
+                </div>
+                <div class="tab-theme margin-customize">
+                    <a href=""><img src="img/event/tab_2_3.png" /></a>
+                </div>
+                <div class="tab-theme margin-customize" style="margin-right: 0;">
+                    <a href=""><img src="img/event/tab_2_4.png" /></a>
+                </div>
+            </div>
+            <div>
+                <div class="tab-theme-content" style="position: relative;">
+                    <a href=""><img style="position: relative;top: 0;right: 0;" src="img/event/tab_2_1_1_content.png" /></a>
+                    <a href=""><img style="position: absolute;top: 194px;right: 30px;" src="img/event/tab_2_1_btn.png" /></a>
+                </div>
+                <div class="tab-theme-content" style="position: relative;">
+                    <a href=""><img style="position: relative;top: 0;right: 0;" src="img/event/tab_2_1_2_content.png" /></a>
+                    <a href=""><img style="position: absolute;top: 194px;right: 30px;" src="img/event/tab_2_1_btn.png" /></a>
+                </div>
+                <div class="tab-theme-content" style="position: relative;">
+                    <a href=""><img style="position: relative;top: 0;right: 0;" src="img/event/tab_2_1_3_content.png" /></a>
+                    <a href=""><img style="position: absolute;top: 194px;right: 30px;" src="img/event/tab_2_1_btn.png" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <img src="img/main/eggshell_footer.png" />
+    </footer>
+    <script src="js/GA.pageview.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="js/libs/jqueryEasing-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/libs/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+    });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#fileToUpload_01').change(function() {
+
+            $('<div class="upload-img-theme"><img id="img_fileToUpload_01" class="theme-middle img_fileToUpload" src="" /><div id="remove-icon_01" class="remove-icon"></div></div>').insertBefore("#upload_btn");
+
+            var input = document.getElementById("fileToUpload_01");
+            if (typeof input.files[0] != 'undefined') {
+                var fReader = new FileReader();
+                fReader.readAsDataURL(input.files[0]);
+                fReader.onloadend = function(event) {
+                    var img = document.getElementById("img_fileToUpload_01");
+                    img.src = event.target.result;
+
+                    if ($('#img_box').children().length == 4) {
+                        $("#upload_btn").css('display', 'none');
+                    }
+
+                    $("#remove-icon_01").click(function(event) {
+                        event.preventDefault();
+                        $(this).parent().remove();
+                        if ($('#img_box').children().length < 4 && $("#upload_btn").css('display') == 'none') {
+                            $("#upload_btn").css('display', 'inline-block');
+                        }
+                        document.getElementById("fileToUpload_01").value = '';
+                    });
+                }
+            }
+        });
+        $('#fileToUpload_02').change(function() {
+
+            $('<div class="upload-img-theme"><img id="img_fileToUpload_02" class="theme-middle img_fileToUpload" src="" /><div id="remove-icon_02" class="remove-icon"></div></div>').insertBefore("#upload_btn");
+
+            var input = document.getElementById("fileToUpload_02");
+            if (typeof input.files[0] != 'undefined') {
+                var fReader = new FileReader();
+                fReader.readAsDataURL(input.files[0]);
+                fReader.onloadend = function(event) {
+                    var img = document.getElementById("img_fileToUpload_02");
+                    img.src = event.target.result;
+
+                    if ($('#img_box').children().length == 4) {
+                        $("#upload_btn").css('display', 'none');
+                    }
+
+                    $("#remove-icon_02").click(function(event) {
+                        event.preventDefault();
+                        $(this).parent().remove();
+                        if ($('#img_box').children().length < 4 && $("#upload_btn").css('display') == 'none') {
+                            $("#upload_btn").css('display', 'inline-block');
+                        }
+                        document.getElementById("fileToUpload_02").value = '';
+                    });
+                }
+            }
+        });
+        $('#fileToUpload_03').change(function() {
+
+            $('<div class="upload-img-theme"><img id="img_fileToUpload_03" class="theme-middle img_fileToUpload" src="" /><div id="remove-icon_03" class="remove-icon"></div></div>').insertBefore("#upload_btn");
+
+            var input = document.getElementById("fileToUpload_03");
+            if (typeof input.files[0] != 'undefined') {
+                var fReader = new FileReader();
+                fReader.readAsDataURL(input.files[0]);
+                fReader.onloadend = function(event) {
+                    var img = document.getElementById("img_fileToUpload_03");
+                    img.src = event.target.result;
+
+                    if ($('#img_box').children().length == 4) {
+                        $("#upload_btn").css('display', 'none');
+                    }
+
+                    $("#remove-icon_03").click(function(event) {
+                        event.preventDefault();
+                        $(this).parent().remove();
+                        if ($('#img_box').children().length < 4 && $("#upload_btn").css('display') == 'none') {
+                            $("#upload_btn").css('display', 'inline-block');
+                        }
+                        document.getElementById("fileToUpload_03").value = '';
+                    });
+                }
+            }
+        });
+        $("#upload_btn > .upload_btn").click(function(event) {
+            event.preventDefault();
+
+            if ($('#img_fileToUpload_01').length == 0) {
+
+                $('#fileToUpload_01').trigger('click');
+            } else {
+                if ($('#img_fileToUpload_02').length == 0) {
+
+                    $('#fileToUpload_02').trigger('click');
+                } else {
+                    if ($('#img_fileToUpload_03').length == 0) {
+
+                        $('#fileToUpload_03').trigger('click');
+                    }
+                }
+            }
+        });
+
+        $("#remove-popup").click(function(event) {
+            event.preventDefault();
+
+            $(".popup").css('display', 'none');
+        });
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>eggshell 小鹿山丘</title>
+    <meta name="keywords" content="eggshell 小鹿山丘">
+    <meta name="description" content="eggshell 小鹿山丘">
+    <meta name="viewport" content="width=640">
+    <meta property="og:title" content="eggshell 小鹿山丘" />
+    <meta property="og:image" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="eggshell 小鹿山丘" />
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- CSS -->
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    .upload-img-theme {
+        position: relative;
+        width: 190px;
+        height: 190px;
+        display: inline-block;
+        vertical-align: middle;
+        background: #679a01;
+        border: 2px solid #fff;
+    }
+    
+    .upload-img-theme > img {
+        max-width: 190px;
+        max-height: 190px;
+    }
+    
+    .theme-middle {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .img_fileToUpload {
+        border: 1px solid #fff;
+    }
+    
+    .remove-icon {
+        position: absolute;
+        top: -10px;
+        right: 0px;
+        margin: auto;
+        width: 40px;
+        height: 40px;
+        z-index: 1000;
+        cursor: pointer;
+        background-color: #C1DA75;
+        border: 2px solid #fff;
+        border-radius: 99em;
+    }
+
+    .remove-icon:before, .remove-icon:after{
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 25px;
+        height: 3px;
+        top: 17px;
+        background: #fff;
+    }
+    
+    .remove-icon:before {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    
+    .remove-icon:after {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    </style>
+</head>
+
+<body id="index-body">
+    <!--所有頁面共用的 Menu-->
+    <nav class="nav-menu">
+        <div class="nav-content">
+            <ul class="nav-ul">
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+                <a href="" onClick="">
+                    <li class="">
+                        <img src="img/menu/menu_01.png" />
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+    <header class="">
+        <div class="header-content">
+            <!-- 選單 -->
+            <input type="checkbox" id="nav-btn-active">
+            <label for="nav-btn-active">
+                <div id="nav-btn" class="nav-btn btn">
+                    <div id="nav-btn-line" class="nav-btn-line"></div>
+                </div>
+            </label>
+        </div>
+    </header>
+    <div id="wrap">
+        <div id="content">
+            <div class="currnent-path">
+                <p>首頁 > 上傳圖片</p>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data" style="display: none;">
+                Select image to upload:
+                <input type="file" name="fileToUpload_01" id="fileToUpload_01">
+                <input type="file" name="fileToUpload_02" id="fileToUpload_02">
+                <input type="file" name="fileToUpload_03" id="fileToUpload_03">
+                <input type="submit" value="Upload Image" name="submit">
+            </form>
+           
+            <div id="img_box" style="margin-top: 60px;">
+                <div id="upload_btn" class="upload-img-theme">
+                    <img class="upload_btn theme-middle" src="img/pop/upload_btn.png" />
+                </div>
+            </div>
+        </div>
+        <footer>
+            <img src="img/main/eggshell_footer.png" />
+        </footer>
+        <script src="js/GA.pageview.js"></script>
+        <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery-ui-1.10.2.custom.min.js"></script>
+        <script type="text/javascript" src="js/libs/jqueryEasing-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/libs/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fileToUpload_01').change(function() {
+
+                $('<div class="upload-img-theme"><img id="img_fileToUpload_01" class="theme-middle img_fileToUpload" src="" /><div id="remove-icon_01" class="remove-icon"></div></div>').insertBefore("#upload_btn");
+
+                var input = document.getElementById("fileToUpload_01");
+                if (typeof input.files[0] != 'undefined') {
+                    var fReader = new FileReader();
+                    fReader.readAsDataURL(input.files[0]);
+                    fReader.onloadend = function(event) {
+                        var img = document.getElementById("img_fileToUpload_01");
+                        img.src = event.target.result;
+
+                        if ($('#img_block').children().length == 4) {
+                            $("#upload_btn").css('display', 'none');
+                        }
+
+                        $("#remove-icon_01").click(function(event) {
+                            event.preventDefault();
+                            $(this).parent().remove();
+                            if ($('#img_box').children().length < 4 && $("#upload_btn").css('display') == 'none') {
+                                $("#upload_btn").css('display', 'inline-block');
+                            }
+                            document.getElementById("fileToUpload_01").value = '';
+                        });
+                    }
+                }
+            });
+            $('#fileToUpload_02').change(function() {
+
+                $('<div class="upload-img-theme"><img id="img_fileToUpload_02" class="theme-middle img_fileToUpload" src="" /><div id="remove-icon_02" class="remove-icon"></div></div>').insertBefore("#upload_btn");
+
+                var input = document.getElementById("fileToUpload_02");
+                if (typeof input.files[0] != 'undefined') {
+                    var fReader = new FileReader();
+                    fReader.readAsDataURL(input.files[0]);
+                    fReader.onloadend = function(event) {
+                        var img = document.getElementById("img_fileToUpload_02");
+                        img.src = event.target.result;
+
+                        if ($('#img_block').children().length == 4) {
+                            $("#upload_btn").css('display', 'none');
+                        }
+
+                        $("#remove-icon_02").click(function(event) {
+                            event.preventDefault();
+                            $(this).parent().remove();
+                            if ($('#img_box').children().length < 4 && $("#upload_btn").css('display') == 'none') {
+                                $("#upload_btn").css('display', 'inline-block');
+                            }
+                            document.getElementById("fileToUpload_02").value = '';
+                        });
+                    }
+                }
+            });
+            $('#fileToUpload_03').change(function() {
+
+                $('<div class="upload-img-theme"><img id="img_fileToUpload_03" class="theme-middle img_fileToUpload" src="" /><div id="remove-icon_03" class="remove-icon"></div></div>').insertBefore("#upload_btn");
+
+                var input = document.getElementById("fileToUpload_03");
+                if (typeof input.files[0] != 'undefined') {
+                    var fReader = new FileReader();
+                    fReader.readAsDataURL(input.files[0]);
+                    fReader.onloadend = function(event) {
+                        var img = document.getElementById("img_fileToUpload_03");
+                        img.src = event.target.result;
+
+                        if ($('#img_block').children().length == 4) {
+                            $("#upload_btn").css('display', 'none');
+                        }
+
+                        $("#remove-icon_03").click(function(event) {
+                            event.preventDefault();
+                            $(this).parent().remove();
+                            if ($('#img_box').children().length < 4 && $("#upload_btn").css('display') == 'none') {
+                                $("#upload_btn").css('display', 'inline-block');
+                            }
+                            document.getElementById("fileToUpload_03").value = '';
+                        });
+                    }
+                }
+            });
+            $("#upload_btn > .upload_btn").click(function(event) {
+                event.preventDefault();
+
+                if ($('#img_fileToUpload_01').length == 0) {
+
+                    $('#fileToUpload_01').trigger('click');
+                } else {
+                    if ($('#img_fileToUpload_02').length == 0) {
+
+                        $('#fileToUpload_02').trigger('click');
+                    } else {
+                        if ($('#img_fileToUpload_03').length == 0) {
+
+                            $('#fileToUpload_03').trigger('click');
+                        }
+                    }
+                }
+            });
+        });
+        </script>
+</body>
+
+</html>

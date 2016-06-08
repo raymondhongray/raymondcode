@@ -139,13 +139,14 @@
             </div>
             <!--Google Map-->
             <div id="google-map">
-                <input id="pac-input" class="controls" type="text" placeholder="Search Box">
                 <div id="map"></div>
             </div>
-            <div id="map-search">
-                <p>地圖搜尋 : </p>
-                <input class="map-search" type="text" name="map_search" value="">
-                <input class="map-submit" type="submit" value="搜尋">
+            <div>
+                <div id="map-search" action="">
+                    <p>地圖搜尋 : </p>
+                    <input class="map-search" type="text" name="map_search" value="">
+                    <input class="map-submit" type="submit" value="搜尋">
+                </div>
             </div>
             <div style="margin-top: 60px;">
                 <div class="main-theme">
@@ -172,86 +173,84 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-    // This example adds a search box to a map, using the Google Place Autocomplete
-    // feature. People can enter geographical searches. The search box will return a
-    // pick list containing a mix of places and predicted search terms.
+    // The following example creates complex markers to indicate recommend_sitees near
+    // Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
+    // to the base of the flagpole.
 
-    function initAutocomplete() {
+    var contentString = '';
+
+    function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
             center: {
+                // lat: -33.9,
+                // lng: 151.2
                 lat: 25.067724,
                 lng: 121.573927
-            },
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-
-        // Create the search box and link it to the UI element.
-        var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
-            searchBox.setBounds(map.getBounds());
-        });
-
-        var markers = [];
-        // [START region_getplaces]
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-            var places = searchBox.getPlaces();
-            if (places.length == 0) {
-                return;
             }
-
-            // Clear out the old markers.
-            markers.forEach(function(marker) {
-                marker.setMap(null);
-            });
-            markers = [];
-
-            // For each place, get the icon, name and location.
-            var bounds = new google.maps.LatLngBounds();
-
-            places.forEach(function(place) {
-                var icon = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
-
-                // Create a marker for each place.
-                // markers.push(new google.maps.Marker({
-                //     map: map,
-                //     icon: icon,
-                //     title: place.name,
-                //     position: place.geometry.location
-                // }));
-
-                if (place.geometry.viewport) {
-                    // Only geocodes have viewport.
-                    bounds.union(place.geometry.viewport);
-                } else {
-                    bounds.extend(place.geometry.location);
-                }
-            });
-            map.fitBounds(bounds);
         });
 
-        setRecommendMarkers(map);
+        // var uluru = {
+        //     lat: -25.363,
+        //     lng: 131.044
+        // };
+        // var map = new google.maps.Map(document.getElementById('map'), {
+        //     zoom: 4,
+        //     center: uluru
+        // });
 
-        // [END region_getplaces]
+
+        contentString = '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+            '<div id="bodyContent">' +
+            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+            'sandstone rock formation in the southern part of the ' +
+            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
+            'south west of the nearest large town, Alice Springs; 450&#160;km ' +
+            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
+            'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
+            'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
+            'Aboriginal people of the area. It has many springs, waterholes, ' +
+            'rock caves and ancient paintings. Uluru is listed as a World ' +
+            'Heritage Site.</p>' +
+            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+            'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
+            '(last visited June 22, 2009).</p>' +
+            '</div>' +
+            '</div>';
+
+        // var infowindow = new google.maps.InfoWindow({
+        //     content: contentString
+        // });
+
+        setMarkers(map);
     }
 
-    function setRecommendMarkers(map) {
-        var recommend_sites = [
-            ['內湖運動中心', 25.067724, 121.573927, 1],
-            ['天母', 25.109224, 121.530924, 1],
-        ];
+    // Data for the markers consisting of a name, a LatLng and a zIndex for the
+    // order in which these markers should display on top of each other.
+    // var recommend_sites = [
+    //     ['Bondi recommend_site', -33.890542, 151.274856, 4],
+    //     ['Coogee recommend_site', -33.923036, 151.259052, 5],
+    //     ['Cronulla recommend_site', -34.028249, 151.157507, 3],
+    //     ['Manly recommend_site', -33.80010128657071, 151.28747820854187, 2],
+    //     ['Maroubra recommend_site', -33.950198, 151.259302, 1]
+    // ];
+    var recommend_sites = [
+        
+        ['天母', 25.109224, 121.530924, 1],
+        ['內湖運動中心', 25.067724, 121.573927, 1]
+    ];
+
+    function setMarkers(map) {
+        // Adds markers to the map.
+
+        // Marker sizes are expressed as a Size of X,Y where the origin of the image
+        // (0,0) is located in the top left of the image.
+
+        // Origins, anchor positions and coordinates of the marker increase in the X
+        // direction to the right and in the Y direction down.
         var image = {
             url: 'img/map/marker_icon.png',
             // This marker is 20 pixels wide by 32 pixels high.
@@ -261,9 +260,16 @@
             // The anchor for this image is the base of the flagpole at (0, 32).
             anchor: new google.maps.Point(0, 32)
         };
+        // Shapes define the clickable region of the icon. The type defines an HTML
+        // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+        // The final coordinate closes the poly by connecting to the first coordinate.
+        // var shape = {
+        //     coords: [1, 1, 1, 20, 18, 20, 18, 1],
+        //     type: 'poly'
+        // };
         for (var i = 0; i < recommend_sites.length; i++) {
             var recommend_site = recommend_sites[i];
-            var marker01 = new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 position: {
                     lat: recommend_site[1],
                     lng: recommend_site[2]
@@ -272,28 +278,25 @@
                 icon: image,
                 // shape: shape,
                 title: recommend_site[0],
-                title1: recommend_site[0],
                 zIndex: recommend_site[3]
             });
 
-
-            marker01.addListener('click', function() {
-                console.log(this);
+            marker.addListener('click', function() {
                 var infowindow = new google.maps.InfoWindow({
-                    content: this.title1
+                    content: contentString
                 });
-                infowindow.open(map, this);
+                infowindow.open(map, marker);
             });
+
         }
-
     }
-
 
     $(document).ready(function() {
 
     });
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete" async defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&signed_in=true&callback=initMap">
+    </script>
 </body>
 
 </html>

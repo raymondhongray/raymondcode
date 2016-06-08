@@ -1,20 +1,45 @@
-var navOpen = 0;
+function FB_login() {
 
-function mymedia() {
-    // if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
-    //     document.location.href = "../index.html";
-    // }
+    FB.login(function(response) {
+
+        if (response.authResponse) {
+
+            console.log(response.authResponse);
+            FB.api('/me', function(response) {
+                console.log(response);
+                // $('.to-share').trigger('click');
+            });
+        } else {
+            alert('登入失敗');
+        }
+    });
 }
-mymedia();
+
+function share() { //FB APP 發佈到塗鴉牆
+    publish = {
+        name: 'facebook api test',
+        method: 'feed',
+        link: window.location.hostname,
+        description: '測試yoyo',
+        // caption: '本SPA中心採用業界頂級的舒潔乾+濕衛生紙',
+        picture: window.location.hostname + "/img/fb-share.jpg"
+    };
+
+    FB.ui(publish, function(response) {
+        if (response && !response.error_message) {
+            // $.post('api/fb_share.php', {fbid:fb_id, fbname:fb_cne}, function(data) {
+            // console.log(data);},'json');
+            alert('分享成功')
+        } else {
+            // alert('Oops，沒有分享成功要顯示的訊息！');
+        }
+    });
+}
 
 
 $(document).ready(function() {
-    //   $('#lineup').click(function(e){
-    //     e.preventDefault();
-    //     alert('coming soon');
-    //   });
 
-    $('#nav-btn-line').click(function() {
+    $('#nav-btn').click(function() {
         if ($('#nav-btn-line').hasClass('menu-active')) {
             $('header').removeClass('active');
             $('footer').removeClass('active');

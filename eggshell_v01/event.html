@@ -83,10 +83,12 @@
         z-index: 100;
         margin: 0 auto;
         width: 90%;
-        height: 90%;
+        height: 849px;
         margin: 0 auto;
-        top: 20px;
-        background: #679a01;
+        top: 55px;
+        background-color: #679a01;
+        background-image: url("img/pop/recommend_bg.png");
+        ;
         box-shadow: 0px 0px 100px 10px rgba(87, 69, 47, 0.5);
         border: solid 1px #C1DA75;
         border-radius: 30px;
@@ -103,7 +105,7 @@
     }
     
     .img_box {
-        margin-top: 60px;
+        margin-top: 30px;
         text-align: center;
     }
     
@@ -112,15 +114,16 @@
         width: 180px;
         height: 180px;
         display: inline-block;
-        background: #679a01;
+        /*background: #679a01;*/
+        background: #fff;
         border: 2px solid #fff;
         margin-left: 5px;
         margin-right: 5px;
     }
     
     .upload-img-theme > img {
-        max-width: 180px;
-        max-height: 180px;
+        max-width: 165px;
+        max-height: 165px;
     }
     
     .theme-middle {
@@ -132,13 +135,13 @@
     }
     
     .img_fileToUpload {
-        border: 1px solid #fff;
+        /*border: 1px solid #fff;*/
     }
     
     .remove-icon {
         position: absolute;
-        top: -10px;
-        right: 0px;
+        top: -25px;
+        right: -15px;
         margin: auto;
         width: 40px;
         height: 40px;
@@ -179,19 +182,11 @@
         transform: rotate(45deg);
     }
     
-    .preview-btn {
-        position: relative;
-        z-index: 300;
-        top: -45px;
-        right: -50%;
-        transform: translateX(-50%);
-    }
-    
     .remove-popup-icon {
         position: fixed;
         z-index: 300;
-        top: 0;
-        right: 10px;
+        top: 20px;
+        right: 5px;
         width: 75px;
         height: 75px;
         cursor: pointer;
@@ -204,8 +199,8 @@
         content: "";
         position: fixed;
         z-index: 300;
-        top: 10px;
-        right: 40px;
+        top: 30px;
+        right: 35px;
         width: 12px;
         height: 55px;
         background: #fff;
@@ -218,8 +213,8 @@
         content: "";
         position: fixed;
         z-index: 300;
-        top: 10px;
-        right: 40px;
+        top: 30px;
+        right: 35px;
         width: 12px;
         height: 55px;
         background: #fff;
@@ -229,30 +224,30 @@
     }
     
     .recommend-title {
-        margin-top: 110px;
-        margin-left: 40px;
+        margin-left: 20px;
     }
     
     .recommend-title > p {
         color: #fff;
-        font-size: 22px;
+        font-size: 24px;
         vertical-align: bottom;
     }
     
     .recommend-title > input {
         margin-left: 10px;
-        width: 365px;
+        width: 350px;
         height: 35px;
+        font-size: 24px;
     }
     
     .recommend-select {
         margin-top: 30px;
-        margin-left: 40px;
+        margin-left: 20px;
     }
     
     .recommend-select > p {
         color: #fff;
-        font-size: 22px;
+        font-size: 24px;
         vertical-align: bottom;
     }
     
@@ -260,16 +255,17 @@
         margin-left: 10px;
         width: 170px;
         height: 35px;
+        font-size: 22px;
     }
     
     .recommend-textarea {
         margin-top: 30px;
-        margin-left: 40px;
+        margin-left: 20px;
     }
     
     .recommend-textarea > p {
         color: #fff;
-        font-size: 22px;
+        font-size: 24px;
     }
     
     .recommend-textarea > textarea {
@@ -277,54 +273,99 @@
         margin-top: 10px;
         width: 92%;
         height: 220px;
+        font-size: 24px;
     }
-
+    
     .display-recommend-title {
-        margin-top: 110px;
-        margin-left: 40px;
+        margin-left: 20px;
     }
-
+    
     .display-recommend-title > p {
         color: #fff;
-        font-size: 22px;
+        font-size: 24px;
         vertical-align: bottom;
     }
     
     .display-recommend-title > p.recommend-title-text {
         margin-left: 10px;
     }
-
+    
     .display-recommend-select {
         margin-top: 30px;
-        margin-left: 40px;
+        margin-left: 20px;
     }
-
+    
     .display-recommend-select > p {
         color: #fff;
-        font-size: 22px;
+        font-size: 24px;
         vertical-align: bottom;
     }
     
     .display-recommend-select > p.recommend-select-text {
         margin-left: 10px;
     }
-
+    
     .display-recommend-textarea {
         margin-top: 30px;
-        margin-left: 40px;
+        margin-left: 20px;
     }
-
+    
     .display-recommend-textarea > p {
         color: #fff;
-        font-size: 22px;
+        font-size: 24px;
         vertical-align: bottom;
     }
     
     .display-recommend-textarea > div {
         margin-top: 10px;
         color: #fff;
-        font-size: 22px;
+        font-size: 24px;
+        line-height: 32px;
+        height: 220px;
+        max-height: 220px;
+        overflow-x: hidden;
+    }
+    
+    #upload_btn {
+        border: 0;
+        background: #679a01;
+    }
+    
+    #upload_btn p {
+        position: absolute;
+        font-size: 18px;
+        color: #fff;
+        left: 0;
+        right: 0;
+        text-align: center;
+        bottom: -10px;
+    }
+    
+    .preview-btn {
+        position: relative;
+        z-index: 300;
+        top: -10px;
+        right: -50%;
+        transform: translateX(-50%);
+    }
+    
+    #edit-submit-btn-group {
+        position: relative;
+        z-index: 300;
+        top: -10px;
+        right: -50%;
+        transform: translateX(-50%);
+        text-align: center;
+        display: none;
+    }
+    
+    .btn-group-img {
         margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .area-box {
+        margin-top: 110px;
     }
     </style>
 </head>
@@ -341,48 +382,54 @@
                     <input type="file" name="fileToUpload_03" id="fileToUpload_03">
                     <input type="submit" value="Upload Image" name="submit">
                 </div>
-                <div id="input-area">
+                <div id="input-area" class="area-box">
                     <div class="recommend-title">
-                        <p>景點名稱 : </p>
-                        <input type="text" name="title">
+                        <p>想推薦的地點 : </p>
+                        <input type="text" name="title" placeholder="內湖運動公園">
                     </div>
                     <div class="recommend-select">
-                        <p>景點地區 : </p>
+                        <p>地點的所在位置 : </p>
                         <select>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
+                            <option value="site_01">地區_01</option>
+                            <option value="site_02">地區_02</option>
+                            <option value="site_03">地區_03</option>
+                            <option value="site_04">地區_04</option>
                         </select>
                     </div>
                     <div class="recommend-textarea">
-                        <p>景點簡介 : </p>
-                        <textarea></textarea>
+                        <p>您推薦的原因是......</p>
+                        <textarea placeholder="至多三百字內"></textarea>
                     </div>
                 </div>
-                <div id="display-area" style="">
+                <div id="display-area" class="area-box" style="display: none;">
                     <div class="display-recommend-title">
-                        <p>景點名稱 : </p>
+                        <p>想推薦的地點 : </p>
                         <p class="recommend-title-text"></p>
                     </div>
                     <div class="display-recommend-select">
-                        <p>景點地區 : </p>
+                        <p>地點的所在位置 : </p>
                         <p class="recommend-select-text"></p>
                     </div>
                     <div class="display-recommend-textarea">
-                        <p>景點簡介 : </p>
+                        <p>您推薦的原因是......</p>
                         <div class="recommend-textarea-text"></div>
                     </div>
                 </div>
             </form>
             <div id="img_box" class="img_box">
                 <div id="upload_btn" class="upload-img-theme">
-                    <img class="upload_btn theme-middle" src="img/pop/upload_btn.png" />
+                    <div style="position: relative;width: 100%;height: 100%;">
+                        <img class="theme-middle" src="img/pop/upload_btn.png" />
+                        <p>最多上傳三張</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="remove-popup" class="remove-popup-icon"></div>
         <img id="preview-btn" class="preview-btn" src="img/pop/preview_btn.png" />
+        <div id="edit-submit-btn-group">
+            <img id="edit-btn" class="edit-btn btn-group-img" src="img/pop/edit_btn.png" />
+            <img id="submit-btn" class="submit-btn btn-group-img" src="img/pop/submit_btn.png" /></div>
         <div class="popup-opacity"></div>
     </div>
     <!--所有頁面共用的 Menu-->
@@ -593,7 +640,7 @@
                 }
             }
         });
-        $("#upload_btn > .upload_btn").click(function(event) {
+        $("#upload_btn").click(function(event) {
             event.preventDefault();
 
             if ($('#img_fileToUpload_01').length == 0) {
@@ -617,7 +664,46 @@
 
             $(".popup").css('display', 'none');
         });
+
+        $("#preview-btn").click(function(event) {
+            event.preventDefault();
+            var title = $(".recommend-title > input").val();
+            $(".display-recommend-title > p.recommend-title-text").text(title);
+
+            var select_text = $(".recommend-select > select").val();
+            $(".display-recommend-select > p.recommend-select-text").text(select_text);
+
+            var content = $(".recommend-textarea > textarea").val();
+            $(".display-recommend-textarea > div.recommend-textarea-text").html(nl2br(content));
+
+            $("#input-area").css('display', 'none');
+            $("#display-area").css('display', 'block');
+            $("#upload_btn").css('display', 'none');
+            $(".remove-icon").css('display', 'none');
+            $("#preview-btn").css('display', 'none');
+            $("#edit-submit-btn-group").css('display', 'block');
+        });
+
+        $("#edit-btn").click(function(event) {
+            event.preventDefault();
+
+            $("#input-area").css('display', 'block');
+            $("#display-area").css('display', 'none');
+            $(".remove-icon").css('display', 'block');
+            $("#preview-btn").css('display', 'block');
+            $("#edit-submit-btn-group").css('display', 'none');
+
+            if ($('#img_box').children().length < 4 && $("#upload_btn").css('display') == 'none') {
+                $("#upload_btn").css('display', 'inline-block');
+            }
+        });
     });
+    </script>
+    <script type="text/javascript">
+    function nl2br(str, is_xhtml) {
+        var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+    }
     </script>
 </body>
 

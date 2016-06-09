@@ -27,12 +27,17 @@
         margin-left: 10px;
     }
     
+    #map-search-box {
+        margin-top: 26px;
+        margin-bottom: 25px;
+    }
+    
     #map-search p {
         display: inline;
         color: #723000;
     }
     
-    #map-search .map-search {
+    #map-search {
         width: 320px;
         height: 35px;
         font-size: 20px;
@@ -40,7 +45,7 @@
         margin-right: 12px;
     }
     
-    #map-search .map-submit {
+    #map-submit {
         width: 95px;
         height: 35px;
         font-size: 20px;
@@ -72,8 +77,8 @@
         border-radius: 25px;
     }
     
-    div:has(> .gm-style-iw) {
-        border-radius: 25px;
+    #pac-input {
+        display: none;
     }
     </style>
 </head>
@@ -137,15 +142,15 @@
             <div class="currnent-path">
                 <p>首頁 > 超可惜景點特輯 > 超可惜景點地圖</p>
             </div>
+            <div id="map-search-box">
+                <p>地圖搜尋 : </p>
+                <input id="map-search" class="map-search" type="text" name="map_search" value="">
+                <input id="map-submit" class="map-submit" type="button" value="搜尋">
+            </div>
             <!--Google Map-->
             <div id="google-map">
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
                 <div id="map"></div>
-            </div>
-            <div id="map-search">
-                <p>地圖搜尋 : </p>
-                <input class="map-search" type="text" name="map_search" value="">
-                <input class="map-submit" type="submit" value="搜尋">
             </div>
             <div style="margin-top: 60px;">
                 <div class="main-theme">
@@ -186,6 +191,7 @@
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
+
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
@@ -201,6 +207,7 @@
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
+
             var places = searchBox.getPlaces();
             if (places.length == 0) {
                 return;
@@ -245,6 +252,7 @@
         setRecommendMarkers(map);
 
         // [END region_getplaces]
+
     }
 
     function setRecommendMarkers(map) {
@@ -290,7 +298,17 @@
 
 
     $(document).ready(function() {
+        $("#map-submit").click(function() {
 
+            $("#pac-input").val($("#map-search").val());
+            var input = document.getElementById('pac-input');
+
+            google.maps.event.trigger(input, 'focus')
+            google.maps.event.trigger(input, 'keydown', {
+                keyCode: 13
+            });
+
+        });
     });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete" async defer></script>

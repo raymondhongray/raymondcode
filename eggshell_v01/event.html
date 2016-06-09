@@ -687,7 +687,8 @@
 
         $("#preview-btn").click(function(event) {
             event.preventDefault();
-            FB_login();
+            //用click 方式來觸發臉書api
+            // FB_login();
             var title = $(".recommend-title > input").val();
             $(".display-recommend-title > p.recommend-title-text").text(title);
 

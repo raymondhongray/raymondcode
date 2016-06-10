@@ -13,18 +13,18 @@
     <meta property="og:image" content="" />
     <meta property="og:description" content="eggshell 小鹿山丘" />
     <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/jstarbox.css">
     <!-- CSS -->
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
     <link href="css/flexslider.css" rel="stylesheet" />
+    <!--Google Map style-->
     <style type="text/css">
-    .main-theme {
-        width: 120px;
-        height: 120px;
-        display: inline-block;
-        margin-right: 10px;
-        margin-left: 10px;
+    .google-map-bg {
+        position: relative;
+        height: 550px;
+        margin-bottom: 50px;
     }
     
     #map-search-box {
@@ -65,11 +65,11 @@
     }
     
     #google-map {
+        position: absolute;
         width: 100%;
-        height: 550px;
+        height: 100%;
         border: 2px solid #91c322;
         border-radius: 25px;
-        margin-bottom: 50px;
     }
     
     #map {
@@ -79,6 +79,199 @@
     
     #pac-input {
         display: none;
+    }
+    </style>
+    <!--stars style-->
+    <style type="text/css" media="screen">
+    /* Image(s) */
+    
+    .star-box-avg.starbox .stars .star_holder .star {
+        background-image: url('img/star_images/5-small.png');
+        /* or any other image */
+        width: 17px;
+        /* make sure to use your image’s dimensions here */
+        height: 17px;
+    }
+    
+    .star-box-recommend.starbox .stars .star_holder .star {
+        background-image: url('img/star_images/5-large.png');
+        /* or any other image */
+        width: 33px;
+        /* make sure to use your image’s dimensions here */
+        height: 33px;
+    }
+    /* Colours */
+    
+    .starbox .stars {
+        background: #cccccc;
+        cursor: pointer;
+    }
+    
+    .starbox .rated .stars {
+        background: #dcdcdc;
+        cursor: pointer;
+    }
+    /* .starbox .rated.hover .stars { background: #cccccc; } */
+    
+    .starbox .colorbar {
+        background: #64b2ff;
+        cursor: pointer;
+    }
+    /* .starbox .hover .colorbar { background: #ffcc1c; } */
+    
+    .starbox .rated .colorbar {
+        background: #ffcc1c;
+        cursor: pointer;
+    }
+    /* .starbox .rated.hover .colorbar { background: #1e90ff; } */
+    
+    .starbox .ghost {
+        background: #a1a1a1;
+        cursor: pointer;
+    }
+    /* box */
+    
+    .box {
+        margin: 30px;
+    }
+    
+    .starbox.avg .colorbar {
+        background: #ffcc1c;
+        cursor: default;
+    }
+    </style>
+    <style type="text/css">
+    #map-template {
+        display: none;
+        position: absolute;
+        width: 90%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 400px;
+        background-color: #8FC320;
+        border-radius: 20px;
+        border: 2px solid #fff;
+    }
+    
+    .map-template-row {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .map-template-content {
+        display: inline-block;
+    }
+    
+    .map-template-row > .col-left {
+        width: 44%;
+    }
+    
+    .map-template-row > .col-right {
+        width: 55%;
+        vertical-align: top;
+        text-align: left;
+    }
+    
+    .map-template-row > .col-left .recommend-img {
+        width: 190px;
+        height: 190px;
+    }
+    
+    .theme-middle {
+        margin: 0 auto;
+        display: block;
+        background-color: #000;
+    }
+    
+    .theme-middle > img {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 165px;
+        max-height: 165px;
+    }
+    
+    .show-star-avg-box {
+        text-align: center;
+    }
+    
+    .show-star-avg-box > .star-box-avg {
+        display: inline-block;
+        margin-right: 0px;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    
+    .show-star-avg-box > p:nth-child(2) {
+        color: #FFFF01;
+        font-size: 34px;
+        margin-left: 5px;
+    }
+    
+    .show-star-avg-box > p:nth-child(3) {
+        color: #fff;
+    }
+    
+    .map-template-content.col-right > p:nth-child(1) {
+        margin-top: 22px;
+        width: 90%;
+        border-bottom: 1px solid;
+    }
+    
+    .map-template-content.col-right > p {
+        color: #fff;
+    }
+    /*.map-content-title {
+        color: #fff;
+    }*/
+    
+    .map-close-icon {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 15px;
+        margin: auto;
+        width: 60px;
+        height: 60px;
+        z-index: 1000;
+        cursor: pointer;
+        background-color: #C1DA75;
+        border: 2px solid #fff;
+        border-radius: 99em;
+    }
+    
+    .map-close-icon:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 35px;
+        height: 5px;
+        top: 25px;
+        background: #fff;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    
+    .map-close-icon:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 35px;
+        height: 5px;
+        top: 25px;
+        background: #fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
     }
     </style>
 </head>
@@ -147,24 +340,78 @@
                 <input id="map-search" class="map-search" type="text" name="map_search" value="">
                 <input id="map-submit" class="map-submit" type="button" value="搜尋">
             </div>
-            <!--Google Map-->
-            <div id="google-map">
-                <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-                <div id="map"></div>
-            </div>
-            <div style="margin-top: 60px;">
-                <div class="main-theme">
-                    <a href=""><img src="img/index/theme_btn_01.png" /></a>
+            <div class="google-map-bg">
+                <!--Google Map-->
+                <div id="google-map">
+                    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                    <div id="map"></div>
                 </div>
-                <div class="main-theme">
-                    <a href=""><img src="img/index/theme_btn_02.png" /></a>
+                <style type="text/css">
+                .map-content-title {
+                    font-size: 24px;
+                }
+                
+                .map-content-slogan {
+                    font-size: 24px;
+                    color: #376600 !important;
+                }
+                
+                .map-content-addr {
+                    display: inline-block;
+                }
+                
+                .map-content-addr.addr-key {
+                    vertical-align: top;
+                }
+                
+                .map-content-addr.addr-value {
+                    width: 230px;
+                }
+                
+                .map-content-description {
+                    max-height: 75px;
+                    overflow: hidden;
+                }
+                
+                .show_more {
+                    position: absolute;
+                    right: 100px;
+                    bottom: 20px;
+                }
+                
+                .share-text {
+                    font-size: 24PX;
+                    color: #fff;
+                    margin-top: -12px;
+                }
+                </style>
+                <div id="map-template">
+                    <div class="map-template-row">
+                        <div class="map-template-content col-left">
+                            <div class="show-star-avg-box">
+                                <div id="star-box-avg" class="star-box-avg box avg"></div>
+                                <p>3.1</p>
+                                <p>顆星</p>
+                            </div>
+                            <div class="recommend-img theme-middle"><img src="img/index/theme_btn_04.png" /></div>
+                            <div id="star-box-recommend" class="star-box-recommend box"></div>
+                            <p class="share-text">評分分享即抽大獎 !</p>
+                        </div>
+                        <div id="main-map-content" class="map-template-content col-right">
+                            <!-- <p class="map-content-title">內湖運動公園</p> -->
+                            <p class="map-content-title"></p>
+                            <p class="map-content-slogan">自在跑跳，釋放體力極限</p>
+                            <p class="map-content-addr addr-key">地址 : </p>
+                            <!-- <p class="map-content-addr addr-value">114台灣台北市內湖區舊宗路二段1號</p> -->
+                            <p class="map-content-addr addr-value"></p>
+                            <p style="display: block;">簡介 : </p>
+                            <p class="map-content-description">自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限</p>
+                            <p>...</p>
+                            <img class="show_more" src="img/map/green_more.png" />
+                        </div>
+                    </div>
                 </div>
-                <div class="main-theme">
-                    <a href=""><img src="img/index/theme_btn_03.png" /></a>
-                </div>
-                <div class="main-theme">
-                    <a href=""><img src="img/index/theme_btn_04.png" /></a>
-                </div>
+                <div id="map-close-icon" class="map-close-icon"></div>
             </div>
         </div>
     </div>
@@ -174,8 +421,35 @@
     <script type="text/javascript" src="js/libs/jqueryEasing-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/libs/modernizr-2.6.2.min.js"></script>
     <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/jstarbox.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // star js
+        $('#star-box-avg').starbox({
+            // average: 0.42,
+            changeable: false,
+            stars: 5,
+            buttons: 10,
+            autoUpdateAverage: false,
+            ghosting: true
+        }).starbox("setOption", "average", 0.8); //avg
+
+        $('#star-box-recommend').starbox({
+            average: 0.8, //avg
+            // changeable: 'once',
+            changeable: 'true',
+            stars: 5,
+            buttons: 10,
+            autoUpdateAverage: true,
+            ghosting: true
+        }).bind('starbox-value-changed', function(event, value) {
+
+            console.log(value * 5);
+        });
+    });
+    </script>
     <script type="text/javascript">
     // This example adds a search box to a map, using the Google Place Autocomplete
     // feature. People can enter geographical searches. The search box will return a
@@ -280,22 +554,54 @@
                 icon: image,
                 // shape: shape,
                 title: recommend_site[0],
-                title1: recommend_site[0],
+                // 自己定義 key 
+                lat: recommend_site[1],
+                lng: recommend_site[2],
                 zIndex: recommend_site[3]
             });
 
 
             marker01.addListener('click', function() {
-                console.log(this);
-                var infowindow = new google.maps.InfoWindow({
-                    content: this.title1
+                // console.log(this.lat);
+                // var infowindow = new google.maps.InfoWindow({
+                //     content: map_template
+                // });
+                // infowindow.open(map, this);
+                // $("#map-template, #map-close-icon").fadeIn(800, 'swing');
+
+                $('#main-map-content > .map-content-title').text(this.title);
+
+                var geocoder = new google.maps.Geocoder();
+                // google.maps.LatLng 物件
+                // var coord = new google.maps.LatLng(25.0439892, 121.5212213);
+                var coord = new google.maps.LatLng(this.lat, this.lng);
+                // 傳入 latLng 資訊至 geocoder.geocode
+
+                geocoder.geocode({
+                    'latLng': coord
+                }, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        // 如果有資料就會回傳
+                        if (results) {
+                            console.log(results[0]);
+
+                            $('#main-map-content > .addr-value').text(results[0]['formatted_address']);
+                        }
+
+                        $("#map-template, #map-close-icon").fadeIn(800, 'swing');
+                    }
+                    // 經緯度資訊錯誤
+                    else {
+                        alert("Reverse Geocoding failed because: " + status);
+                    }
                 });
-                infowindow.open(map, this);
+
             });
         }
 
     }
 
+    // var map_template = $("#map-template").prop('outerHTML');
 
     $(document).ready(function() {
         $("#map-submit").click(function() {
@@ -308,6 +614,11 @@
                 keyCode: 13
             });
 
+        });
+
+        $("#map-close-icon").click(function() {
+
+            $("#map-template, .map-close-icon").fadeOut(800, 'swing');
         });
     });
     </script>

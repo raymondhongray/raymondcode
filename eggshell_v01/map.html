@@ -17,284 +17,34 @@
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/map.css" rel="stylesheet" type="text/css" />
+    <link href="css/pop.css" rel="stylesheet" type="text/css" />
     <link href="css/flexslider.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/jstarbox.css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <!--Google Map style-->
-    <style type="text/css">
-    .google-map-bg {
-        position: relative;
-        height: 550px;
-        margin-bottom: 50px;
-    }
-    
-    #map-search-box {
-        margin-top: 26px;
-        margin-bottom: 25px;
-    }
-    
-    #map-search p {
-        display: inline;
-        color: #723000;
-    }
-    
-    #map-search {
-        width: 320px;
-        height: 35px;
-        font-size: 20px;
-        /* margin-left: 5px;*/
-        margin-right: 12px;
-    }
-    
-    #map-submit {
-        width: 95px;
-        height: 35px;
-        font-size: 20px;
-        border-radius: 17px;
-        background-color: #acbc1e;
-        color: #fff;
-    }
-    
-    .currnent-path {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-align: left;
-    }
-    
-    .currnent-path p {
-        color: #723000;
-    }
-    
-    #google-map {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border: 2px solid #91c322;
-        border-radius: 25px;
-    }
-    
-    #map {
-        height: 100%;
-        border-radius: 25px;
-    }
-    
-    #pac-input {
-        display: none;
-    }
-    </style>
-    <style type="text/css">
-    #map-info-window {
-        display: none;
-        position: absolute;
-        width: 90%;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        height: 400px;
-        background-color: #8FC320;
-        border-radius: 20px;
-        border: 2px solid #fff;
-    }
-    
-    .map-template-row {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .map-template-content {
-        display: inline-block;
-    }
-    
-    .map-template-row > .col-left {
-        width: 44%;
-    }
-    
-    .map-template-row > .col-right {
-        width: 55%;
-        vertical-align: top;
-        text-align: left;
-    }
-    
-    .map-template-row > .col-left .recommend-img {
-        width: 190px;
-        height: 190px;
-    }
-    
-    .theme-middle {
-        margin: 0 auto;
-        display: block;
-        background-color: #000;
-    }
-    
-    .theme-middle > img {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        max-width: 165px;
-        max-height: 165px;
-    }
-    
-    .show-star-avg-box {
-        text-align: center;
-        margin-top: 18px;
-        margin-bottom: 15px;
-    }
-    
-    .show-star-avg-box > .star-box-avg {
-        display: inline-block;
-        margin-right: 0px;
-        margin-left: 0;
-        margin-bottom: 20px;
-    }
-    
-    .show-star-avg-box > p:nth-child(2) {
-        color: #FFFF01;
-        font-size: 34px;
-        margin-left: 5px;
-        margin-right: -5px;
-    }
-    
-    .show-star-avg-box > p:nth-child(3) {
-        color: #fff;
-    }
-    
-    .map-template-content.col-right > p:nth-child(1) {
-        margin-top: 22px;
-        width: 90%;
-        border-bottom: 1px solid;
-    }
-    
-    .map-template-content.col-right p {
-        color: #fff;
-    }
-    /*.map-content-title {
-        color: #fff;
-    }*/
-    
-    .map-content-title {
-        font-size: 24px;
-    }
-    
-    .map-content-slogan {
-        font-size: 24px;
-        color: #376600 !important;
-    }
-    
-    .map-content-addr {
-        display: inline-block;
-    }
-    
-    .map-content-addr.addr-key {
-        vertical-align: top;
-    }
-    
-    .map-content-addr.addr-value {
-        width: 230px;
-    }
-    
-    .map-content-description {
-        max-height: 75px;
-        overflow: hidden;
-    }
-    
-    .show-more {
-        color: #376600 !important;
-        font-size: 25px;
-        margin-left: 5px;
-    }
-    
-    .share-text {
-        font-size: 24PX;
-        color: #fff;
-        margin-top: -12px;
-    }
-    
-    .map-close-icon {
-        display: none;
-        position: absolute;
-        top: 50px;
-        right: 15px;
-        margin: auto;
-        width: 60px;
-        height: 60px;
-        z-index: 1000;
-        cursor: pointer;
-        background-color: #C1DA75;
-        border: 2px solid #fff;
-        border-radius: 99em;
-    }
-    
-    .map-close-icon:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 35px;
-        height: 5px;
-        top: 25px;
-        background: #fff;
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-    }
-    
-    .map-close-icon:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 35px;
-        height: 5px;
-        top: 25px;
-        background: #fff;
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-    </style>
-    <!--stars style-->
-    <style type="text/css">
-    .lg-star-group {
-        margin-top: 15px;
-        margin-bottom: 20px;
-    }
-    
-    .lg-star {
-        display: inline-block;
-        font-size: 40px;
-        color: #fff;
-    }
-    
-    .lg-star.fa-star {
-        display: inline-block;
-        font-size: 40px;
-        color: #FFFF01;
-    }
-    
-    .sm-star-group {
-        display: inline-block;
-    }
-    
-    .sm-star {
-        display: inline-block;
-        font-size: 16px;
-        color: #fff;
-    }
-    
-    .sm-star.fa-star {
-        display: inline-block;
-        font-size: 16px;
-        color: #FFFF01;
-    }
-    </style>
 </head>
 
 <body id="index-body">
+    <div class="popup">
+        <div class="popup-box">
+            <div id="display-area" class="area-box">
+                <div class="display-recommend-title">
+                    <p>想推薦的地點 : </p>
+                    <p class="recommend-title-text"></p>
+                </div>
+                <div class="display-recommend-select">
+                    <p>地點的所在位置 : </p>
+                    <p class="recommend-select-text"></p>
+                </div>
+                <div class="display-recommend-textarea">
+                    <p>您推薦的原因是......</p>
+                    <div class="recommend-textarea-text"></div>
+                </div>
+            </div>
+        </div>
+        <div id="remove-popup" class="remove-popup-icon"></div>
+        <div class="popup-opacity"></div>
+    </div>
     <!--所有頁面共用的 Menu-->
     <nav class="nav-menu">
         <div class="nav-content">
@@ -365,8 +115,8 @@
                     <div id="map"></div>
                 </div>
                 <div id="map-info-window">
-                    <div class="map-template-row">
-                        <div class="map-template-content col-left">
+                    <div class="info-window-row">
+                        <div class="info-window-row-content col-left">
                             <div class="show-star-avg-box">
                                 <div class="sm-star-group">
                                     <i data-id="1" class="sm-star fa fa-star-o" aria-hidden="true"></i>
@@ -378,7 +128,7 @@
                                 <p class="avg-score"></p>
                                 <p>顆星</p>
                             </div>
-                            <div class="recommend-img theme-middle"><img src="" /></div>
+                            <div class="recommend-img"><img src="" /></div>
                             <div class="lg-star-group">
                                 <i data-id="1" class="lg-star fa fa-star-o" aria-hidden="true"></i>
                                 <i data-id="2" class="lg-star fa fa-star-o" aria-hidden="true"></i>
@@ -388,7 +138,7 @@
                             </div>
                             <p class="share-text">評分分享即抽大獎 !</p>
                         </div>
-                        <div class="map-template-content col-right">
+                        <div class="info-window-row-content col-right">
                             <!-- <p class="map-content-title">內湖運動公園</p> -->
                             <p class="map-content-title"></p>
                             <p class="map-content-slogan">自在跑跳，釋放體力極限</p>
@@ -396,7 +146,7 @@
                             <!-- <p class="map-content-addr addr-value">114台灣台北市內湖區舊宗路二段1號</p> -->
                             <p class="map-content-addr addr-value"></p>
                             <p style="display: block;">簡介 : </p>
-                            <p class="map-content-description">自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限</p>
+                            <p class="map-content-description"></p>
                             <div>
                                 <p>......</p>
                                 <p class="show-more"> 繼續閱讀</p>
@@ -406,6 +156,39 @@
                 </div>
                 <div id="map-close-icon" class="map-close-icon"></div>
             </div>
+            <div id="rank-info-window">
+                <div class="info-window-header"></div>
+                <div data-id="clone_me" class="info-window-row">
+                    <div class="info-window-row-content col-left">
+                        <div class="recommend-img"><img src="https://unsplash.it/1000/900" /></div>
+                        <div class="show-star-avg-box">
+                            <div class="sm-star-group">
+                                <i data-id="1" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="2" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="3" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="4" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="5" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                            <p class="avg-score">3.1</p>
+                            <p>顆星</p>
+                        </div>
+                    </div>
+                    <div class="info-window-row-content col-right">
+                        <p class="map-content-title"></p>
+                        <!-- <p class="map-content-title"></p> -->
+                        <p class="map-content-addr addr-key">地址 : </p>
+                        <p class="map-content-addr addr-value"></p>
+                        <!-- <p class="map-content-addr addr-value"></p> -->
+                        <p style="display: block;">簡介 : </p>
+                        <p class="map-content-description"></p>
+                        <div>
+                            <p>......</p>
+                            <p class="show-more"> 繼續閱讀</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png" />
         </div>
     </div>
     <footer>
@@ -419,222 +202,9 @@
     <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/pop.js"></script>
     <script type="text/javascript">
-    // This example adds a search box to a map, using the Google Place Autocomplete
-    // feature. People can enter geographical searches. The search box will return a
-    // pick list containing a mix of places and predicted search terms.
-
-    //這裡一開始要全部load進來
-    var recommend_sites = [];
-
-    function initAutocomplete() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat: 25.067724,
-                lng: 121.573927
-            },
-            zoom: 16,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-
-
-        // Create the search box and link it to the UI element.
-        var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
-            searchBox.setBounds(map.getBounds());
-        });
-
-        var markers = [];
-        // [START region_getplaces]
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-
-            var places = searchBox.getPlaces();
-            if (places.length == 0) {
-                return;
-            }
-
-            // Clear out the old markers.
-            markers.forEach(function(marker) {
-                marker.setMap(null);
-            });
-            markers = [];
-
-            // For each place, get the icon, name and location.
-            var bounds = new google.maps.LatLngBounds();
-
-            places.forEach(function(place) {
-                var icon = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
-
-                // Create a marker for each place.
-                // markers.push(new google.maps.Marker({
-                //     map: map,
-                //     icon: icon,
-                //     title: place.name,
-                //     position: place.geometry.location
-                // }));
-
-                if (place.geometry.viewport) {
-                    // Only geocodes have viewport.
-                    bounds.union(place.geometry.viewport);
-                } else {
-                    bounds.extend(place.geometry.location);
-                }
-            });
-            map.fitBounds(bounds);
-        });
-
-        setRecommendMarkers(map);
-
-        // [END region_getplaces]
-
-    }
-
-    function setRecommendMarkers(map) {
-        // 這裡一開始要全部load進來
-        // 以下是google map 使用的基本參數，可以擴充
-        recommend_sites = [
-            ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300'],
-            ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200'],
-        ];
-        var image = {
-            url: 'img/map/marker_icon.png',
-            // This marker is 20 pixels wide by 32 pixels high.
-            size: new google.maps.Size(75, 95),
-            // The origin for this image is (0, 0).
-            origin: new google.maps.Point(0, 0),
-            // The anchor for this image is the base of the flagpole at (0, 32).
-            anchor: new google.maps.Point(0, 32)
-        };
-        for (var i = 0; i < recommend_sites.length; i++) {
-            var recommend_site = recommend_sites[i];
-            var marker01 = new google.maps.Marker({
-                position: {
-                    lat: recommend_site[1],
-                    lng: recommend_site[2]
-                },
-                map: map,
-                icon: image,
-                // shape: shape,
-                title: recommend_site[0],
-                zIndex: recommend_site[3],
-                // 自己定義 key 
-                lat: recommend_site[1],
-                lng: recommend_site[2],
-                avg_scores: recommend_site[4],
-                img: recommend_site[5]
-            });
-
-
-            marker01.addListener('click', function() {
-                // console.log(this.lat);
-                // var infowindow = new google.maps.InfoWindow({
-                //     content: map_template
-                // });
-                // infowindow.open(map, this);
-                // $("#map-template, #map-close-icon").fadeIn(800, 'swing');
-
-                $('#map-info-window').find('.map-template-content > .map-content-title').text(this.title);
-                $('#map-info-window').find('.avg-score').text(this.avg_scores);
-                $('#map-info-window').find('.recommend-img > img').attr('src', this.img)
-
-                setStarMarkers($("#map-info-window"), '.sm-star', this.avg_scores);
-
-                var geocoder = new google.maps.Geocoder();
-                // google.maps.LatLng 物件
-                // var coord = new google.maps.LatLng(25.0439892, 121.5212213);
-                var coord = new google.maps.LatLng(this.lat, this.lng);
-                // 傳入 latLng 資訊至 geocoder.geocode
-
-                geocoder.geocode({
-                    'latLng': coord
-                }, function(results, status) {
-                    if (status === google.maps.GeocoderStatus.OK) {
-                        // 如果有資料就會回傳
-                        if (results) {
-                            console.log(results[0]);
-
-                            $('#map-info-window').find('.map-template-content > .addr-value').text(results[0]['formatted_address']);
-                        }
-
-                        $("#map-info-window, #map-close-icon").fadeIn(800, 'swing');
-                    }
-                    // 經緯度資訊錯誤
-                    else {
-                        alert("Reverse Geocoding failed because: " + status);
-                    }
-                });
-
-            });
-        }
-    }
-
-    function setStarMarkers(object, target_class, scores) {
-        var star_group_count = object.find(target_class).parent().children().length;
-
-        // 初始化成空的星號
-        for (var i = 1; i <= star_group_count; i++) {
-            if (object.find(target_class + ':nth-child(' + i + ')').hasClass('fa-star')) {
-                object.find(target_class + ':nth-child(' + i + ')').removeClass('fa-star');
-                object.find(target_class + ':nth-child(' + i + ')').addClass('fa-star-o');
-            }
-        };
-
-        if (scores > 0) {
-            for (var i = 1; i <= scores; i++) {
-                object.find(target_class + ':nth-child(' + i + ')').removeClass('fa-star-o');
-                object.find(target_class + ':nth-child(' + i + ')').addClass('fa-star');
-            }
-        }
-    }
-
-    // var map_template = $("#map-template").prop('outerHTML');
-
-    $(document).ready(function() {
-        $("#map-submit").click(function() {
-
-            $("#pac-input").val($("#map-search").val());
-            var input = document.getElementById('pac-input');
-
-            google.maps.event.trigger(input, 'focus')
-            google.maps.event.trigger(input, 'keydown', {
-                keyCode: 13
-            });
-
-        });
-
-        $("#map-close-icon").click(function() {
-
-            $("#map-info-window, .map-close-icon").fadeOut(800, 'swing', function() {
-                setStarMarkers($("#map-info-window"), '.lg-star', 0);
-            });
-        });
-
-        $(".show-more").click(function() {
-
-            alert('show more');
-        });
-
-        $("#map-info-window .lg-star").click(function() {
-
-            console.log('you click star #' + $(this).attr('data-id'));
-
-            var scores = $(this).attr('data-id');
-            setStarMarkers($("#map-info-window"), '.lg-star', scores);
-        });
-    });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete" async defer></script>
 </body>

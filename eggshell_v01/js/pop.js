@@ -121,7 +121,7 @@ $(document).ready(function() {
         $(".display-recommend-select > p.recommend-select-text").text(select_text);
 
         var content = $(".recommend-textarea > textarea").val();
-        $(".display-recommend-textarea > div.recommend-textarea-text").html(nl2br(content));
+        $(".display-recommend-textarea > .recommend-textarea-text").html(nl2br(content));
 
         $("#input-area").css('display', 'none');
         $("#display-area").css('display', 'block');

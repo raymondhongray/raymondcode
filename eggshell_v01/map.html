@@ -25,20 +25,20 @@
 </head>
 
 <body id="index-body">
-    <div class="popup">
+    <div class="popup" style="display: none;">
         <div class="popup-box">
             <div id="display-area" class="area-box">
                 <div class="display-recommend-title">
-                    <p>想推薦的地點 : </p>
+                    <!-- <p>地點 : </p> -->
                     <p class="recommend-title-text"></p>
                 </div>
                 <div class="display-recommend-select">
-                    <p>地點的所在位置 : </p>
+                    <p>地址 : </p>
                     <p class="recommend-select-text"></p>
                 </div>
                 <div class="display-recommend-textarea">
-                    <p>您推薦的原因是......</p>
-                    <div class="recommend-textarea-text"></div>
+                    <p>簡介 : </p>
+                    <p class="recommend-textarea-text"></p>
                 </div>
             </div>
         </div>
@@ -156,11 +156,56 @@
                 </div>
                 <div id="map-close-icon" class="map-close-icon"></div>
             </div>
+
+            <div style="margin-top: 60px;">
+                <div class="tab-theme">
+                    <a href=""><img src="img/event/tab_1_1.png" /></a>
+                </div>
+                <div class="tab-theme">
+                    <a href=""><img src="img/event/tab_1_2.png" /></a>
+                </div>
+                <div class="tab-theme">
+                    <a href=""><img src="img/event/tab_1_3.png" /></a>
+                </div>
+                <div class="tab-theme" style="margin-right: 0;">
+                    <a href=""><img src="img/event/tab_1_4.png" /></a>
+                </div>
+            </div>
+            <div id="tab-info-window">
+                <div data-id="clone_me" class="info-window-row">
+                    
+                    <div class="info-window-row-content col-left">
+                        <div class="recommend-img"><img src="https://unsplash.it/200/200" /></div>
+                    </div>
+                    <div class="info-window-row-content col-right">
+                        <p class="map-content-title">內湖運動公園</p>
+                        <p class="map-content-slogan">自在跑跳，釋放體力極限</p>
+                        <p class="map-content-addr addr-key">地址 : </p>
+                        <p class="map-content-addr addr-value">台灣台北市內湖區舊宗路二段1號</p>
+                        <p style="display: block;">簡介 : </p>
+                        <p class="map-content-description">大湖公園位於台北市內湖盆地東側，以水鳥景觀著名，面對五指山、忠勇山。公園因電視劇取景曝光率高，可見其山光水色搏得眾愛，原為幽靜的湖泊</p>
+                        <div>
+                            <p>......</p>
+                            <p class="show-more"> 繼續閱讀</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
             <div id="rank-info-window">
                 <div class="info-window-header"></div>
                 <div data-id="clone_me" class="info-window-row">
+                    <div class="index-marker">
+                        <img src="img/map/marker_icon.png" />
+                        <p>1</p>
+                    </div>
                     <div class="info-window-row-content col-left">
-                        <div class="recommend-img"><img src="https://unsplash.it/1000/900" /></div>
+                        <div class="recommend-img"><img src="" /></div>
                         <div class="show-star-avg-box">
                             <div class="sm-star-group">
                                 <i data-id="1" class="sm-star fa fa-star-o" aria-hidden="true"></i>
@@ -169,16 +214,14 @@
                                 <i data-id="4" class="sm-star fa fa-star-o" aria-hidden="true"></i>
                                 <i data-id="5" class="sm-star fa fa-star-o" aria-hidden="true"></i>
                             </div>
-                            <p class="avg-score">3.1</p>
+                            <p class="avg-score"></p>
                             <p>顆星</p>
                         </div>
                     </div>
                     <div class="info-window-row-content col-right">
                         <p class="map-content-title"></p>
-                        <!-- <p class="map-content-title"></p> -->
                         <p class="map-content-addr addr-key">地址 : </p>
                         <p class="map-content-addr addr-value"></p>
-                        <!-- <p class="map-content-addr addr-value"></p> -->
                         <p style="display: block;">簡介 : </p>
                         <p class="map-content-description"></p>
                         <div>

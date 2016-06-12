@@ -85,23 +85,22 @@
 
 .info-window-row > .col-left {
     width: 44%;
+    height: 100%;
 }
 
 .info-window-row > .col-right {
     width: 55%;
+    height: 100%;
     vertical-align: top;
     text-align: left;
 }
 
-.info-window-row > .col-left .recommend-img {
+.recommend-img {
     width: 190px;
     height: 190px;
-}
-
-.recommend-img {
     margin: 0 auto;
     display: block;
-    background-color: #000;
+    background-color: #fff;
 }
 
 .recommend-img > img {
@@ -293,5 +292,61 @@
 }
 
 .rank-show-btn {
-	margin-top: 30px;
+    margin-top: 30px;
+}
+
+.display-recommend-title {
+    border-bottom: 1px solid #fff;
+    text-align: center;
+}
+
+.recommend-title-text {
+    margin-bottom: 10px;
+    font-size: 28px !important;
+}
+
+.recommend-select-text {
+    margin-left: 0 !important;
+    display: block;
+}
+
+.display-recommend-textarea {
+    height: 385px !important;
+}
+
+.index-marker {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    z-index: 10;
+}
+
+.index-marker > p {
+    position: absolute;
+    top: 39%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: #fc3002;
+}
+
+#tab-info-window {
+    background-color: #5fc2c7;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 30px;
+    height: 350px;
+}
+
+#tab-info-window .recommend-img {
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.tab-theme {
+    display: inline-block;
+    margin-right: -4px;
 }

@@ -158,16 +158,13 @@
 }
 
 .recommend-title > p {
-    color: #fff;
-    font-size: 24px;
     vertical-align: bottom;
 }
 
 .recommend-title > input {
     margin-left: 10px;
-    width: 350px;
+    width: 345px;
     height: 35px;
-    font-size: 24px;
 }
 
 .recommend-select {
@@ -176,8 +173,6 @@
 }
 
 .recommend-select > p {
-    color: #fff;
-    font-size: 24px;
     vertical-align: bottom;
 }
 
@@ -193,17 +188,11 @@
     margin-left: 20px;
 }
 
-.recommend-textarea > p {
-    color: #fff;
-    font-size: 24px;
-}
-
 .recommend-textarea > textarea {
     resize: none;
     margin-top: 10px;
-    width: 92%;
+    width: 97%;
     height: 220px;
-    font-size: 24px;
 }
 
 .display-recommend-title {
@@ -211,8 +200,6 @@
 }
 
 .display-recommend-title > p {
-    color: #fff;
-    font-size: 24px;
     vertical-align: bottom;
 }
 
@@ -226,8 +213,6 @@
 }
 
 .display-recommend-select > p {
-    color: #fff;
-    font-size: 24px;
     vertical-align: bottom;
 }
 
@@ -238,22 +223,17 @@
 .display-recommend-textarea {
     margin-top: 30px;
     margin-left: 20px;
-}
-
-.display-recommend-textarea > p {
-    color: #fff;
-    font-size: 24px;
-    vertical-align: bottom;
-}
-
-.display-recommend-textarea > div {
-    margin-top: 10px;
-    color: #fff;
-    font-size: 24px;
-    line-height: 32px;
+    margin-bottom: 70px;
+    width: 535px;
     height: 220px;
-    max-height: 220px;
-    overflow-x: hidden;
+}
+
+.recommend-textarea-text {
+    margin-top: 10px;
+    line-height: 32px;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
 }
 
 #upload_btn {
@@ -296,4 +276,15 @@
 
 .area-box {
     margin-top: 110px;
+}
+
+.area-box p {
+    color: #fff;
+    font-size: 24px;
+    word-wrap: break-word;
+}
+
+.area-box input,
+.area-box textarea {
+    font-size: 24px;
 }

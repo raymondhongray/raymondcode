@@ -1,0 +1,90 @@
+#theme-info-window {
+    position: relative;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+#theme-info-window p {
+    color: #376600;
+}
+
+#theme-info-window .show-more {
+    border: 0;
+    color: #376600 !important;
+}
+
+#theme-info-window > .info-window-wrap {
+    border: 0;
+}
+
+#theme-info-window .info-window-row {
+    height: 350px !important;
+}
+
+#theme-info-window .recommend-img {
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+    border: 1px solid #666;
+    width: 210px;
+    height: 210px;
+}
+
+
+#theme-info-window .recommend-img > img {
+	max-width: 220px;
+    max-height: 220px;
+}
+
+.theme-content {
+    border: 0 !important;
+    margin-top: 75px !important;
+    max-height: 150px;
+}
+
+.theme_bg-marker {
+    position: absolute;
+    top: 15px;
+    left: 190px;
+    z-index: 10;
+}
+
+.theme_bg-marker > p {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #fff !important;
+}
+
+.attend-btn {
+    position: absolute;
+    right: 45px;
+    bottom: 20px;
+    z-index: 10;
+}
+
+.travel-logo {
+    position: absolute;
+    right: 195px;
+    bottom: 20px;
+    z-index: 10;
+    width: 52px;
+    height: 52px;
+    border-radius: 99em;
+}
+
+.fixed-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+    width: 85%;
+    height: 1px;
+    background: #acbb22;
+}

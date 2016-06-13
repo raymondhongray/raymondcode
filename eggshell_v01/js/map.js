@@ -125,14 +125,14 @@ function addRankInfoWindow(recommend_sites, start) {
         var description_content = recommend_site[7];
 
 
-        $('#rank-info-window > .info-window-row[data-id=clone_me]').clone().appendTo('#rank-info-window').attr('data-id', i);
-        $('#rank-info-window > .info-window-row[data-id=' + i + ']').css('display', 'block');
-        $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .map-content-title').text(title);
-        $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.avg-score').text(scores);
-        $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.recommend-img > img').attr('src', img);
-        $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .addr-value').text(addr);
-        $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .map-content-description').text(description_content);
-        $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.index-marker > p').text(i + 1);
+        $('#rank-info-window .info-window-row[data-id=clone_me]').clone().appendTo('#rank-info-window .info-window-wrap').attr('data-id', i);
+        $('#rank-info-window .info-window-row[data-id=' + i + ']').css('display', 'block');
+        $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .map-content-title').text(title);
+        $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.avg-score').text(scores);
+        $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.recommend-img > img').attr('src', img);
+        $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .addr-value').text(addr);
+        $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .map-content-description').text(description_content);
+        $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.index-marker > p').text(i + 1);
 
         setStarMarkers($('#rank-info-window > .info-window-row[data-id=' + i + ']'), '.sm-star', scores);
     };
@@ -164,7 +164,7 @@ function setTabInfoWindow() {
         var img = tab_content[5];
 
         $('#tab-info-window').css('background-color', background_color);
-    
+
         $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-title').text(title);
         $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-slogan').text(slogan);
         $('#tab-info-window .info-window-row').find('.recommend-img > img').attr('src', img);

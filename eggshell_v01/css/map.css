@@ -81,7 +81,7 @@
 
 .info-window-wrap {
     height: 100%;
-    border: 1px solid #fff;
+    border: 3px solid #fff;
 }
 
 .info-window-row-content {
@@ -271,10 +271,14 @@
 #rank-info-window {
     background-color: #eea463;
     border-radius: 20px;
-    border: 2px solid #fff;
+    border: 1px solid #eea463;
 }
 
-#rank-info-window > .info-window-header {
+#rank-info-window > .info-window-wrap{
+   border-radius: 20px;
+}
+
+#rank-info-window .info-window-header {
     height: 50px;
 }
 

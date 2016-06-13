@@ -18,8 +18,6 @@
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
     <link href="css/map.css" rel="stylesheet" type="text/css" />
-    <!-- friend.css 繼承了 map.css -->
-    <link href="css/friend.css" rel="stylesheet" type="text/css" />
     <link href="css/pop.css" rel="stylesheet" type="text/css" />
     <link href="css/flexslider.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/jstarbox.css">
@@ -30,13 +28,14 @@
     <div class="popup" style="display: none;">
         <div class="popup-box">
             <div id="display-area" class="area-box">
-                <!--  <div class="display-recommend-title">
+                <div class="display-recommend-title">
+                    <!-- <p>地點 : </p> -->
                     <p class="recommend-title-text"></p>
                 </div>
                 <div class="display-recommend-select">
                     <p>地址 : </p>
                     <p class="recommend-select-text"></p>
-                </div> -->
+                </div>
                 <div class="display-recommend-textarea">
                     <p>簡介 : </p>
                     <p class="recommend-textarea-text"></p>
@@ -102,31 +101,95 @@
     <div id="wrap">
         <div id="content">
             <div class="currnent-path">
-                <p>首頁 > 親子團行程</p>
+                <p>首頁 > 歷程記錄</p>
             </div>
-            <div id="theme-info-window">
-                <div class="info-window-wrap">
-                    <div data-id="clone_me" class="info-window-row">
-                        <div class="theme_bg-marker">
-                            <img class="theme_bg-btn" src="img/friend/theme_bg.png" />
-                            <p>端午連假~九寮溪生態</p>
-                        </div>
+           
+            <div class="google-map-bg" style="display: none;">
+                <!--Google Map-->
+                <div id="google-map">
+                    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                    <div id="map"></div>
+                </div>
+                <div id="map-info-window">
+                    <div class="info-window-row">
                         <div class="info-window-row-content col-left">
-                            <div class="recommend-img"><img src="https://unsplash.it/200/200" /></div>
+                            <div class="show-star-avg-box">
+                                <div class="sm-star-group">
+                                    <i data-id="1" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="2" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="3" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="4" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="5" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <p class="avg-score"></p>
+                                <p>顆星</p>
+                            </div>
+                            <div class="recommend-img"><img src="" /></div>
+                            <div class="lg-star-group">
+                                <i data-id="1" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="2" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="3" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="4" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="5" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                            <p class="share-text">評分分享即抽大獎 !</p>
                         </div>
                         <div class="info-window-row-content col-right">
-                            <p class="map-content-description theme-content">大湖公園位於台北市內湖盆地東側，以水鳥景觀著名，面對五指山、忠勇山。公園因電視劇取景曝光率高，可見其山光水色搏得眾愛，原為幽靜的湖泊</p>
+                            <!-- <p class="map-content-title">內湖運動公園</p> -->
+                            <p class="map-content-title"></p>
+                            <p class="map-content-slogan">自在跑跳，釋放體力極限</p>
+                            <p class="map-content-addr addr-key">地址 : </p>
+                            <!-- <p class="map-content-addr addr-value">114台灣台北市內湖區舊宗路二段1號</p> -->
+                            <p class="map-content-addr addr-value"></p>
+                            <p style="display: block;">簡介 : </p>
+                            <p class="map-content-description"></p>
                             <div>
                                 <p>......</p>
                                 <p class="show-more"> 繼續閱讀</p>
                             </div>
                         </div>
-                        <img class="travel-logo" src="https://unsplash.it/100/100" />
-                        <img class="attend-btn" src="img/friend/attend.png" />
-                        <div class="fixed-line"><div>
+                    </div>
+                </div>
+                <div id="map-close-icon" class="map-close-icon"></div>
+            </div>
+            
+            <div id="rank-info-window">
+                <div class="info-window-wrap">
+                    <div class="info-window-header"></div>
+                    <div data-id="clone_me" class="info-window-row">
+                        <div class="index-marker">
+                            <img src="img/map/marker_icon.png" />
+                            <p>1</p>
+                        </div>
+                        <div class="info-window-row-content col-left">
+                            <div class="recommend-img"><img src="" /></div>
+                            <div class="show-star-avg-box">
+                                <div class="sm-star-group">
+                                    <i data-id="1" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="2" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="3" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="4" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="5" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <p class="avg-score"></p>
+                                <p>顆星</p>
+                            </div>
+                        </div>
+                        <div class="info-window-row-content col-right">
+                            <p class="map-content-title"></p>
+                            <p class="map-content-addr addr-key">地址 : </p>
+                            <p class="map-content-addr addr-value"></p>
+                            <p style="display: block;">簡介 : </p>
+                            <p class="map-content-description"></p>
+                            <div>
+                                <p>......</p>
+                                <p class="show-more"> 繼續閱讀</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png" />
         </div>
     </div>
     <footer>
@@ -141,9 +204,11 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
-    <!-- friend.js 繼承了 map.js -->
-    <script type="text/javascript" src="js/friend.js"></script>
+    <script type="text/javascript" src="js/record.js"></script>
     <script type="text/javascript" src="js/pop.js"></script>
+    <script type="text/javascript">
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete" async defer></script>
 </body>
 
 </html>

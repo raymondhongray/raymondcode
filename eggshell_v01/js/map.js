@@ -4,6 +4,7 @@
 // 這裡一開始要全部load進來
 var recommend_sites = [];
 var nextShowIndex = 0;
+var showAll_RankInfoWindow = false;
 
 
 function initAutocomplete() {
@@ -102,19 +103,23 @@ function initAutocomplete() {
 
     setRecommendMarkers(map, recommend_sites);
 
-    addRankInfoWindow(recommend_sites, 0);
+    addRankInfoWindow(recommend_sites, 0, showAll_RankInfoWindow);
     // [END region_getplaces]
 }
 
-function addRankInfoWindow(recommend_sites, start) {
+function addRankInfoWindow(recommend_sites, start, show_all) {
 
     var offset = 5;
+    var end = recommend_sites.length;
 
-    if ((recommend_sites.length - start) < 5) {
-        offset = recommend_sites.length - start;
+    if (!show_all) {
+        if ((recommend_sites.length - start) < 5) {
+            offset = recommend_sites.length - start;
+        }
+        end = start + offset;
     }
 
-    for (var i = start; i < start + offset; i++) {
+    for (var i = start; i < end; i++) {
 
         var recommend_site = recommend_sites[i];
 
@@ -134,7 +139,7 @@ function addRankInfoWindow(recommend_sites, start) {
         $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .map-content-description').text(description_content);
         $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.index-marker > p').text(i + 1);
 
-        setStarMarkers($('#rank-info-window > .info-window-row[data-id=' + i + ']'), '.sm-star', scores);
+        setStarMarkers($('#rank-info-window .info-window-row[data-id=' + i + ']'), '.sm-star', scores);
     };
     nextShowIndex = i;
 
@@ -318,7 +323,7 @@ $(document).ready(function() {
 
     $("#rank-show-btn").click(function() {
 
-        addRankInfoWindow(recommend_sites, nextShowIndex);
+        addRankInfoWindow(recommend_sites, nextShowIndex, showAll_RankInfoWindow);
     });
 
     $('body').on('click', '.show-more', function() {

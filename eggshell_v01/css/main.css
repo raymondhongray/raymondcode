@@ -8,6 +8,7 @@ body {
     font-family: Arial, 'Microsoft JhengHei', '微軟正黑體';
     overflow: inherit !important;
     font-size: 16px;
+    overflow: hidden;
 }
 
 * {
@@ -625,6 +626,7 @@ footer {
     -webkit-transition: left 0.7s;
     -moz-transition: left 0.7s;
     transition: left 0.7s;
+    z-index: 1000;
 }
 
 footer.active {

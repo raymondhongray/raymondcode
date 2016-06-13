@@ -132,6 +132,7 @@ function addRankInfoWindow(recommend_sites, start) {
         $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.recommend-img > img').attr('src', img);
         $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .addr-value').text(addr);
         $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .map-content-description').text(description_content);
+        $('#rank-info-window > .info-window-row[data-id=' + i + ']').find('.index-marker > p').text(i + 1);
 
         setStarMarkers($('#rank-info-window > .info-window-row[data-id=' + i + ']'), '.sm-star', scores);
     };
@@ -140,6 +141,37 @@ function addRankInfoWindow(recommend_sites, start) {
     if (recommend_sites.length <= offset || nextShowIndex >= recommend_sites.length) {
         $("#rank-show-btn").css('display', 'none');
     }
+}
+
+function setTabInfoWindow() {
+
+    tab_contents = [
+        ['#5fc2c7', 'title0', 'slogan0', 'addr0', 'content0', 'https://unsplash.it/200/200'],
+        ['#669900', 'title1', 'slogan1', 'addr1', 'content1', 'https://unsplash.it/200/200'],
+        ['#f8b600', 'title2', 'slogan2', 'addr2', 'content2', 'https://unsplash.it/200/200'],
+        ['#acbb22', 'title3', 'slogan3', 'add3r', 'content3', 'https://unsplash.it/200/200'],
+    ];
+
+    $(".tab-theme").click(function() {
+        var tab_index = $(this).attr('data-id');
+
+        var tab_content = tab_contents[tab_index];
+        var background_color = tab_content[0];
+        var title = tab_content[1];
+        var slogan = tab_content[2];
+        var addr = tab_content[3];
+        var description_content = tab_content[4];
+        var img = tab_content[5];
+
+        $('#tab-info-window').css('background-color', background_color);
+    
+        $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-title').text(title);
+        $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-slogan').text(slogan);
+        $('#tab-info-window .info-window-row').find('.recommend-img > img').attr('src', img);
+        $('#tab-info-window .info-window-row').find('.info-window-row-content > .addr-value').text(addr);
+        $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-description').text(description_content);
+
+    });
 }
 
 function setRecommendMarkers(map, recommend_sites) {
@@ -254,6 +286,9 @@ function showPopup(object) {
 // var map_template = $("#map-template").prop('outerHTML');
 
 $(document).ready(function() {
+
+    setTabInfoWindow();
+
     $("#map-submit").click(function() {
 
         $("#pac-input").val($("#map-search").val());

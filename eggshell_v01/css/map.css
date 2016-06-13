@@ -79,6 +79,11 @@
     height: 100%;
 }
 
+.info-window-wrap {
+    height: 100%;
+    border: 1px solid #fff;
+}
+
 .info-window-row-content {
     display: inline-block;
 }
@@ -152,6 +157,7 @@
 .map-content-slogan {
     font-size: 24px;
     color: #376600 !important;
+    display: block;
 }
 
 .map-content-addr {
@@ -172,9 +178,10 @@
 }
 
 .show-more {
-    color: #376600 !important;
+    color: #FFFF01!important;
     font-size: 25px;
     margin-left: 5px;
+    border-bottom: 1px solid #FFFF01;
 }
 
 .share-text {
@@ -287,10 +294,6 @@
     height: 185px;
 }
 
-#rank-info-window .show-more {
-    color: #ed662c !important;
-}
-
 .rank-show-btn {
     margin-top: 30px;
 }
@@ -333,11 +336,24 @@
 }
 
 #tab-info-window {
+    position: relative;
     background-color: #5fc2c7;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     margin-bottom: 30px;
     height: 350px;
+    border-left: 1px solid #91c322;
+    border-right: 1px solid #91c322;
+    border-bottom: 1px solid #91c322;
+}
+
+#tab-info-window > .info-window-wrap {
+    border: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-left: 3px solid #fff;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
 }
 
 #tab-info-window .recommend-img {
@@ -346,7 +362,24 @@
     transform: translateY(-50%);
 }
 
+.tab-theme-group {
+    margin-top: 60px;
+}
+
 .tab-theme {
     display: inline-block;
-    margin-right: -4px;
+    margin-right: -13px;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-top: 1px solid #91c322;
+    border-left: 1px solid #91c322;
+    border-right: 1px solid #91c322;
+}
+
+.tab-theme > img {
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    border-right: 3px solid #fff;
 }

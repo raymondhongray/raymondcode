@@ -52,3 +52,7 @@
 .flex-next {
     opacity: 0 !important;
 }
+
+.sub-menu {
+	display: none;
+}

@@ -23,6 +23,14 @@
     animation: shadow 2s infinite;
 }
 
+.recommend-bg-title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    display: block;
+    transform: translateX(-50%);
+}
+
 .popup-opacity {
     position: fixed;
     height: 100%;

@@ -30,9 +30,8 @@
     height: 210px;
 }
 
-
 #theme-info-window .recommend-img > img {
-	max-width: 220px;
+    max-width: 220px;
     max-height: 220px;
 }
 
@@ -87,4 +86,53 @@
     width: 85%;
     height: 1px;
     background: #acbb22;
+}
+
+.main-friend {
+    border: 1px solid #acbb22;
+    border-radius: 55px;
+}
+
+.green-more {
+    margin-bottom: 20px;
+    margin: auto;
+}
+
+.theme-group {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.theme-type {
+    display: inline-block;
+}
+
+.theme-type > p {
+    color: #3e6100;
+}
+
+.fixed-main-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -15px;
+    margin: auto;
+    z-index: 10;
+    width: 85%;
+    height: 1px;
+    background: #acbb22;
+}
+
+.line-spacing {
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background: #acbb22;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.current-select > p {
+    color: #c2171d;
 }

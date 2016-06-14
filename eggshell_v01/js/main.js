@@ -7,7 +7,23 @@ function FB_login() {
             console.log(response.authResponse);
             FB.api('/me', function(response) {
                 console.log(response);
-                // $('.to-share').trigger('click');
+            });
+        } else {
+            alert('登入失敗');
+        }
+    });
+}
+
+function FB_login_share() {
+
+    FB.login(function(response) {
+
+        if (response.authResponse) {
+
+            console.log(response.authResponse);
+            FB.api('/me', function(response) {
+                console.log(response);
+                $('#trigger-fb-share').trigger('click');
             });
         } else {
             alert('登入失敗');

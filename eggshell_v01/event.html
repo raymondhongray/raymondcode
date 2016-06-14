@@ -17,8 +17,9 @@
     <link href="css/reset.css" rel="stylesheet" type="text/css" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/map.css" rel="stylesheet" type="text/css" />
+    <link href="css/event.css" rel="stylesheet" type="text/css" />
     <link href="css/pop.css" rel="stylesheet" type="text/css" />
-    <link href="css/flexslider.css" rel="stylesheet" />
     <style type="text/css">
     .tab-theme {
         display: inline-block;
@@ -50,27 +51,11 @@
         background-color: #acbc1e;
         color: #fff;
     }
-    
-    .currnent-path {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-align: left;
-    }
-    
-    .currnent-path p {
-        color: #723000;
-    }
-    
-    .green-line {
-        width: 90%;
-        height: 1px;
-        background: #a3b932;
-        margin: 20px auto;
-    }
     </style>
 </head>
 
 <body id="index-body">
+    <button id="trigger-fb-share" type="button" style="display: none;">share_btn</button>
     <script>
     window.fbAsyncInit = function() {
         FB.init({
@@ -92,7 +77,27 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
-    <div class="popup">
+    <div id="popup2" class="popup">
+        <div class="popup-box">
+            <div id="display-area" class="area-box">
+                <div class="display-recommend-title">
+                    <!-- <p>地點 : </p> -->
+                    <p class="recommend-title-text"></p>
+                </div>
+                <div class="display-recommend-select">
+                    <p>地址 : </p>
+                    <p class="recommend-select-text"></p>
+                </div>
+                <div class="display-recommend-textarea">
+                    <p>簡介 : </p>
+                    <p class="recommend-textarea-text"></p>
+                </div>
+            </div>
+        </div>
+        <div id="remove-popup2" class="remove-popup-icon"></div>
+        <div class="popup-opacity"></div>
+    </div>
+    <div id="popup1" class="popup">
         <div class="popup-box">
             <!--test by pop.html-->
             <img class="recommend-bg-title" src="img/pop/recommend_bg_title.png" />
@@ -104,7 +109,7 @@
                     <input type="file" name="fileToUpload_03" id="fileToUpload_03">
                     <input type="submit" value="Upload Image" name="submit">
                 </div>
-                <div id="input-area" class="area-box">
+                <div id="input-area" class="area-box input-area">
                     <div class="recommend-title">
                         <p>想推薦的地點 : </p>
                         <input type="text" name="title" placeholder="內湖運動公園">
@@ -122,7 +127,7 @@
                         <textarea placeholder="至多三百字內"></textarea>
                     </div>
                 </div>
-                <div id="display-area" class="area-box" style="display: none;">
+                <div id="display-area" class="area-box display-area" style="display: none;">
                     <div class="display-recommend-title">
                         <p>想推薦的地點 : </p>
                         <p class="recommend-title-text"></p>
@@ -131,7 +136,7 @@
                         <p>地點的所在位置 : </p>
                         <p class="recommend-select-text"></p>
                     </div>
-                    <div class="display-recommend-textarea">
+                    <div class="display-recommend-textarea edit-status">
                         <p>您推薦的原因是......</p>
                         <p class="recommend-textarea-text"></p>
                     </div>
@@ -212,54 +217,86 @@
             <div class="currnent-path">
                 <p>首頁 > 超可惜景點特輯</p>
             </div>
-            <div>
-                <img src="img/event/intro.png" />
+            <div id="event-index-img">
+                <a href="#event-event-btn"><img src="img/event/event_index.png" /><a>
             </div>
             <div class="green-line"></div>
-            <div style="margin-top: 60px;">
-                <div class="tab-theme">
-                    <a href=""><img src="img/event/tab_1_1.png" /></a>
+            <div class="event-taiwan">
+                <img src="img/event/event_taiwan.png" />
+            </div>
+            <div class="tab-theme-group">
+                <div data-id="0" class="tab-theme">
+                    <img src="img/event/event_03.png" />
                 </div>
-                <div class="tab-theme">
-                    <a href=""><img src="img/event/tab_1_2.png" /></a>
+                <div data-id="1" class="tab-theme">
+                    <img src="img/event/event_05.png" />
                 </div>
-                <div class="tab-theme">
-                    <a href=""><img src="img/event/tab_1_3.png" /></a>
+                <div data-id="2" class="tab-theme">
+                    <img src="img/event/event_07.png" />
                 </div>
-                <div class="tab-theme" style="margin-right: 0;">
-                    <a href=""><img src="img/event/tab_1_4.png" /></a>
+                <div data-id="3" class="tab-theme" style="margin-right: 1px;">
+                    <img src="img/event/event_09.png" />
                 </div>
             </div>
-            <div class="tab-theme-content">
-                <a href=""><img src="img/event/tab_1_1_content.png" /></a>
+            <div id="tab-info-window">
+                <div class="info-window-wrap">
+                    <div data-id="clone_me" class="info-window-row">
+                        <div class="info-window-row-content col-left">
+                            <div class="recommend-img"><img src="https://unsplash.it/200/200" /></div>
+                        </div>
+                        <div class="info-window-row-content col-right">
+                            <p class="map-content-title">內湖運動公園</p>
+                            <p class="map-content-slogan">自在跑跳，釋放體力極限</p>
+                            <p class="map-content-addr addr-key">地址 : </p>
+                            <p class="map-content-addr addr-value">台灣台北市內湖區舊宗路二段1號</p>
+                            <p style="display: block;">簡介 : </p>
+                            <p class="map-content-description">大湖公園位於台北市內湖盆地東側，以水鳥景觀著名，面對五指山、忠勇山。公園因電視劇取景曝光率高，可見其山光水色搏得眾愛，原為幽靜的湖泊</p>
+                            <div>
+                                <p>......</p>
+                                <p class="show-more by-event-page"> 繼續閱讀</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div style="margin-top: 60px;">
-                <div class="tab-theme margin-customize">
-                    <a href=""><img src="img/event/tab_2_1.png" /></a>
-                </div>
-                <div class="tab-theme margin-customize">
-                    <a href=""><img src="img/event/tab_2_2.png" /></a>
-                </div>
-                <div class="tab-theme margin-customize">
-                    <a href=""><img src="img/event/tab_2_3.png" /></a>
-                </div>
-                <div class="tab-theme margin-customize" style="margin-right: 0;">
-                    <a href=""><img src="img/event/tab_2_4.png" /></a>
-                </div>
+            <div class="green-line"></div>
+            <div class="pretty-pics">
+                <img src="https://unsplash.it/120/120" />
+                <img src="https://unsplash.it/120/120" />
+                <img src="https://unsplash.it/120/120" />
             </div>
-            <div>
-                <div class="tab-theme-content" style="position: relative;">
-                    <a href=""><img style="position: relative;top: 0;right: 0;" src="img/event/tab_2_1_1_content.png" /></a>
-                    <a href=""><img style="position: absolute;top: 194px;right: 30px;" src="img/event/tab_2_1_btn.png" /></a>
+            <div class="activity-group">
+                <div class="activity-group-text">
+                    <p>小鹿也邀請大朋友們小朋友們，分享更多不分享超可惜景點給大家，或是為你們去過的景點來評分，就有機會把大獎帶回家喔!</p>
                 </div>
-                <div class="tab-theme-content" style="position: relative;">
-                    <a href=""><img style="position: relative;top: 0;right: 0;" src="img/event/tab_2_1_2_content.png" /></a>
-                    <a href=""><img style="position: absolute;top: 194px;right: 30px;" src="img/event/tab_2_1_btn.png" /></a>
-                </div>
-                <div class="tab-theme-content" style="position: relative;">
-                    <a href=""><img style="position: relative;top: 0;right: 0;" src="img/event/tab_2_1_3_content.png" /></a>
-                    <a href=""><img style="position: absolute;top: 194px;right: 30px;" src="img/event/tab_2_1_btn.png" /></a>
-                </div>
+                <img id="event-event-btn" class="event-event-btn" src="img/event/event_event_btn.png" />
+                <img class="event-map-btn" src="img/event/event_map_btn.png" />
+            </div>
+            <div class="green-line"></div>
+            <div class="event-equipment">
+                <img src="img/event/event_equipment.png" />
+            </div>
+            <p style="color: #336600;">夏季旅行最怕外在環境威脅(填入...)</p>
+            <div class="green-line"></div>
+            <style type="text/css">
+
+            </style>
+            <div class="product-intro-group">
+                <img data-id="0" src="img/event/event+content_04.png" />
+                <img data-id="1" src="img/event/event+content_03.png" />
+                <img data-id="2" src="img/event/event+content_02.png" />
+                <img data-id="3" src="img/event/event+content_01.png" />
+                <div class="product-intro_0"></div>
+                <div class="product-intro_1"></div>
+                <div class="product-intro_2"></div>
+                <div class="product-intro_3"></div>
+            </div>
+            <div class="green-line"></div>
+            <div class="event-rule">
+                <img src="img/event/event_rule.png" />
+            </div>
+            <div class="activitie">
+                <a href="#event-event-btn"><img src="img/event/activitie.png" /></a>
             </div>
         </div>
     </div>
@@ -273,12 +310,9 @@
     <script type="text/javascript" src="js/libs/modernizr-2.6.2.min.js"></script>
     <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/event.js"></script>
     <script type="text/javascript" src="js/pop.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {});
-    </script>
-    <script type="text/javascript">
-    </script>
 </body>
 
 </html>

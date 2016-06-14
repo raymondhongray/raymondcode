@@ -23,9 +23,30 @@
     <link rel="stylesheet" type="text/css" href="css/jstarbox.css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 </head>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1033598853400049',
+            xfbml: true,
+            version: 'v2.6'
+        });
+        // FB_login();
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 <body id="index-body">
-    <div class="popup" style="display: none;">
+    <div class="popup">
         <div class="popup-box">
             <div id="display-area" class="area-box">
                 <div class="display-recommend-title">
@@ -158,16 +179,16 @@
             </div>
             <div class="tab-theme-group">
                 <div data-id="0" class="tab-theme">
-                    <img src="https://unsplash.it/144/70" />
+                    <img src="img/map/event_03.png" />
                 </div>
                 <div data-id="1" class="tab-theme">
-                    <img src="https://unsplash.it/144/70" />
+                    <img src="img/map/event_05.png" />
                 </div>
                 <div data-id="2" class="tab-theme">
-                    <img src="https://unsplash.it/160/70" />
+                    <img src="img/map/event_07.png" />
                 </div>
                 <div data-id="3" class="tab-theme" style="margin-right: 1px;">
-                    <img src="https://unsplash.it/144/70" />
+                    <img src="img/map/event_09.png" />
                 </div>
             </div>
             <div id="tab-info-window">
@@ -240,6 +261,7 @@
     <script type="text/javascript" src="js/libs/modernizr-2.6.2.min.js"></script>
     <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/google_map.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/pop.js"></script>
     <script type="text/javascript">

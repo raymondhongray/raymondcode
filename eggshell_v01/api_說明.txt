@@ -1,0 +1,75 @@
+==================================================================================================
+注意：	1. 所有 API 皆以 UTF-8 編碼格式做資料交換
+	2. 以下參數，皆以 POST 方式帶入
+	3. 所有回應格式，皆以 JSON 輸出
+	4. API 網址為	https://2deerhillstour.ptt.com.tw/api/
+
+
+==================================================================================================
+程式說明: FB登入資料
+程式名稱: fb_login.php
+帶入參數:	fbid		(str) FB ID
+		fbname		(str) FB名稱
+
+輸出訊息:	code		(int) 錯誤代碼	0.成功 1.FB ID 錯誤 2.FB Name 錯誤
+						99.活動結束
+		msg		(str) 訊息說明
+
+
+==================================================================================================
+程式說明: 留資料
+程式名稱: data_upload.php
+帶入參數:	fbid		(str) FB ID
+		fbname		(str) FB Name
+		title		(str) 想推薦的地點
+		site		(str) 地點的所在位置
+		content		(str) 您推薦的原因
+		fileToUpload_01	(str) 照片一
+		fileToUpload_02	(str) 照片二
+		fileToUpload_03	(str) 照片三
+
+輸出訊息:	code		(int) 錯誤代碼	0.成功送出資料 1.FB ID 錯誤 2.FB Name 錯誤 3.想推薦的地點錯誤
+						4.地點的所在位置錯誤 5.您推薦的原因錯誤 99.活動結束
+		msg		(str) 訊息說明
+
+
+==================================================================================================
+程式說明: 資料列表
+程式名稱: data_list.php
+帶入參數:	page		(int) 看第幾頁(若不帶入,預設為第 1 頁)
+		num		(int) 一頁幾筆(若不帶入,預設一頁 5 筆)
+		fbid		(str) FB ID (可不帶入,若有值,代表只列出該 FB ID 所有上傳的景點)
+		keyword		(str) 地圖搜尋用關鍵字(可不帶入,若有值,會搜尋景點 title)
+
+輸出訊息:	page		(int) 資料為第幾頁
+		num		(int) 一頁幾筆
+		fbid		(str) FB ID
+		keyword		(str) 地圖搜尋用關鍵字
+		total_page	(int) 搜尋資料共 N 頁
+		total_num	(int) 搜尋資料共 N 筆
+
+		list.did	資料流水號
+		list.title	景點名稱
+		list.site	位置
+		list.content	內容
+		list.address	地址
+		list.gps_x	GPS 緯度
+		list.gps_y	GPS 經度
+		list.totel	總分
+		list.time	總評分次數
+		list.avg	平均值
+		list.img_1	上傳第一張圖片
+
+
+==================================================================================================
+程式說明: 分享評分
+程式名稱: data_share.php
+帶入參數:	fbid		(str) FB ID
+		fbname		(str) FB Name
+		did		(int) 資料流水號
+		star		(int) 評幾棵星 1 ~ 5
+
+輸出訊息:	code		(int) 錯誤代碼	0.成功 1.FB ID 錯誤 2.FB Name 錯誤 3.資料流水號錯誤
+						4.評分數值錯誤 5.無此資料流水號 6.該資料未通過審核 99.活動結束
+		msg		(str) 訊息說明
+

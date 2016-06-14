@@ -110,23 +110,29 @@ $(document).ready(function() {
         $(".popup").css('display', 'none');
     });
 
+    $("#remove-popup2").click(function(event) {
+        event.preventDefault();
+    
+        $(".popup").css('display', 'none');
+    });
+
     $("#preview-btn").click(function(event) {
         event.preventDefault();
         //用click 方式來觸發臉書api
         // FB_login();
         var title = $(".recommend-title > input").val();
-        $(".display-recommend-title > p.recommend-title-text").text(title);
+        $("#popup1 .display-recommend-title > p.recommend-title-text").text(title);
 
         var select_text = $(".recommend-select > select").val();
-        $(".display-recommend-select > p.recommend-select-text").text(select_text);
+        $("#popup1 .display-recommend-select > p.recommend-select-text").text(select_text);
 
         var content = $(".recommend-textarea > textarea").val();
-        $(".display-recommend-textarea > .recommend-textarea-text").html(nl2br(content));
+        $("#popup1 .display-recommend-textarea > .recommend-textarea-text").html(nl2br(content));
 
-        $("#input-area").css('display', 'none');
-        $("#display-area").css('display', 'block');
+        $("#popup1 .input-area").css('display', 'none');
+        $("#popup1 .display-area").css('display', 'block');
         $("#upload_btn").css('display', 'none');
-        $(".remove-icon").css('display', 'none');
+        $("#popup1 .remove-icon").css('display', 'none');
         $("#preview-btn").css('display', 'none');
         $("#edit-submit-btn-group").css('display', 'block');
     });
@@ -134,9 +140,9 @@ $(document).ready(function() {
     $("#edit-btn").click(function(event) {
         event.preventDefault();
 
-        $("#input-area").css('display', 'block');
-        $("#display-area").css('display', 'none');
-        $(".remove-icon").css('display', 'block');
+        $("#popup1 .input-area").css('display', 'block');
+        $("#popup1 .display-area").css('display', 'none');
+        $("#popup1 .remove-icon").css('display', 'block');
         $("#preview-btn").css('display', 'block');
         $("#edit-submit-btn-group").css('display', 'none');
 

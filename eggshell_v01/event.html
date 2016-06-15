@@ -20,42 +20,10 @@
     <link href="css/map.css" rel="stylesheet" type="text/css" />
     <link href="css/event.css" rel="stylesheet" type="text/css" />
     <link href="css/pop.css" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-    .tab-theme {
-        display: inline-block;
-        margin-right: -4px;
-    }
-    
-    .margin-customize {
-        margin-right: 2px;
-    }
-    
-    #map-search p {
-        display: inline;
-        color: #723000;
-    }
-    
-    #map-search .map-search {
-        width: 320px;
-        height: 35px;
-        font-size: 20px;
-        /* margin-left: 5px;*/
-        margin-right: 12px;
-    }
-    
-    #map-search .map-submit {
-        width: 95px;
-        height: 35px;
-        font-size: 20px;
-        border-radius: 17px;
-        background-color: #acbc1e;
-        color: #fff;
-    }
-    </style>
+    <link href="css/pop_done.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body id="index-body">
-    <button id="trigger-fb-share" type="button" style="display: none;">share_btn</button>
     <script>
     window.fbAsyncInit = function() {
         FB.init({
@@ -63,7 +31,6 @@
             xfbml: true,
             version: 'v2.6'
         });
-        // FB_login();
     };
 
     (function(d, s, id) {
@@ -77,6 +44,17 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
+    <div class="popup-done">
+        <div class="popup-done-box">
+            <img class="recommend-done-title" src="img/pop/recommend_bg_title.png" />
+            <img class="recommend-done-content-long" src="img/pop/recommend_done.png" />
+            <img class="checked-done" src="img/pop/submit_btn.png" />
+            <a class="done-link1" href="">活動辦法</a>
+            <a class="done-link2" href="">推薦紀錄</a>
+        </div>
+        <div class="remove-popup-done-icon"></div>
+        <div class="popup-done-opacity"></div>
+    </div>
     <div id="popup2" class="popup">
         <div class="popup-box">
             <div id="display-area" class="area-box">
@@ -165,37 +143,45 @@
             <ul class="nav-ul">
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_02.jpg" />
                     </li>
                 </a>
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_03.jpg" />
+                    </li>
+                </a>
+                <li id="expansion">
+                    <img src="img/menu/index_04.jpg" />
+                </li>
+                <a href="" onClick="" class="sub-menu" data-id="1">
+                    <li class="">
+                        <img src="img/menu/index_04_1.jpg" />
+                    </li>
+                </a>
+                <a href="" onClick="" class="sub-menu" data-id="2">
+                    <li class="">
+                        <img src="img/menu/index_04_2.jpg" />
+                    </li>
+                </a>
+                <a href="" onClick="" class="sub-menu" data-id="3">
+                    <li class="">
+                        <img src="img/menu/index_04_3.jpg" />
                     </li>
                 </a>
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_07.jpg" />
                     </li>
                 </a>
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
-                    </li>
-                </a>
-                <a href="" onClick="">
-                    <li class="">
-                        <img src="img/menu/menu_01.png" />
-                    </li>
-                </a>
-                <a href="" onClick="">
-                    <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_08.jpg" />
                     </li>
                 </a>
             </ul>
@@ -218,7 +204,8 @@
                 <p>首頁 > 超可惜景點特輯</p>
             </div>
             <div id="event-index-img">
-                <a href="#event-event-btn"><img src="img/event/event_index.png" /><a>
+                <a href="#event-event-btn"><img src="img/event/event_index.png" />
+                    <a>
             </div>
             <div class="green-line"></div>
             <div class="event-taiwan">
@@ -281,12 +268,23 @@
             <style type="text/css">
 
             </style>
+            <!-- 0615 james -->
             <div class="product-intro-group">
-                <img data-id="0" src="img/event/event+content_04.png" />
-                <img data-id="1" src="img/event/event+content_03.png" />
-                <img data-id="2" src="img/event/event+content_02.png" />
-                <img data-id="3" src="img/event/event+content_01.png" />
+                <div data-id="0" class="tab-theme">
+                    <img src="img/event/pm1.png" />
+                </div>
+                <div data-id="1" class="tab-theme">
+                    <img src="img/event/pm2.png" />
+                </div>
             </div>
+            <div id="product-info-window">
+                <div class="info-window-wrap">
+                    <div data-id="clone_me" class="info-window-row">
+                        <img src="img/event/p1.png">
+                    </div>
+                </div>
+            </div>
+            <!-- 0615 james end-->
             <div class="green-line"></div>
             <div class="event-rule">
                 <img src="img/event/event_rule.png" />
@@ -309,6 +307,7 @@
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/event.js"></script>
     <script type="text/javascript" src="js/pop.js"></script>
+    <script type="text/javascript" src="js/pop_done.js"></script>
 </body>
 
 </html>

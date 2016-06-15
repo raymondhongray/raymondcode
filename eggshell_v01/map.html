@@ -19,7 +19,7 @@
     <link href="css/index.css" rel="stylesheet" type="text/css" />
     <link href="css/map.css" rel="stylesheet" type="text/css" />
     <link href="css/pop.css" rel="stylesheet" type="text/css" />
-    <link href="css/flexslider.css" rel="stylesheet" />
+    <link href="css/pop_done.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/jstarbox.css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 </head>
@@ -65,43 +65,61 @@
         <div id="remove-popup" class="remove-popup-icon"></div>
         <div class="popup-opacity"></div>
     </div>
+    <div class="popup-done">
+        <div class="popup-done-box">
+            <img class="recommend-done-title" src="img/pop/share_bg_title.png" />
+            <img class="recommend-done-content" src="img/pop/share_done.png" />
+            <img class="checked-done" src="img/pop/submit_btn.png" />
+            <a class="done-link1" href="">活動辦法</a>
+        </div>
+        <div class="remove-popup-done-icon"></div>
+        <div class="popup-done-opacity"></div>
+    </div>
     <!--所有頁面共用的 Menu-->
     <nav class="nav-menu">
         <div class="nav-content">
             <ul class="nav-ul">
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_02.jpg" />
                     </li>
                 </a>
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_03.jpg" />
+                    </li>
+                </a>
+                <li id="expansion">
+                    <img src="img/menu/index_04.jpg" />
+                </li>
+                <a href="" onClick="" class="sub-menu" data-id="1">
+                    <li class="">
+                        <img src="img/menu/index_04_1.jpg" />
+                    </li>
+                </a>
+                <a href="" onClick="" class="sub-menu" data-id="2">
+                    <li class="">
+                        <img src="img/menu/index_04_2.jpg" />
+                    </li>
+                </a>
+                <a href="" onClick="" class="sub-menu" data-id="3">
+                    <li class="">
+                        <img src="img/menu/index_04_3.jpg" />
                     </li>
                 </a>
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_07.jpg" />
                     </li>
                 </a>
                 <a href="" onClick="">
                     <li class="">
-                        <img src="img/menu/menu_01.png" />
-                    </li>
-                </a>
-                <a href="" onClick="">
-                    <li class="">
-                        <img src="img/menu/menu_01.png" />
-                    </li>
-                </a>
-                <a href="" onClick="">
-                    <li class="">
-                        <img src="img/menu/menu_01.png" />
+                        <img src="img/menu/index_08.jpg" />
                     </li>
                 </a>
             </ul>
@@ -134,7 +152,7 @@
                     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
                     <div id="map"></div>
                 </div>
-                <div id="map-info-window">
+                <div id="map-info-window" data-id="0">
                     <div class="info-window-row">
                         <div class="info-window-row-content col-left">
                             <div class="show-star-avg-box">
@@ -202,7 +220,7 @@
                             <p class="map-content-addr addr-key">地址 : </p>
                             <p class="map-content-addr addr-value">台灣台北市內湖區舊宗路二段1號</p>
                             <p style="display: block;">簡介 : </p>
-                            <p class="map-content-description">大湖公園位於台北市內湖盆地東側，以水鳥景觀著名，面對五指山、忠勇山。公園因電視劇取景曝光率高，可見其山光水色搏得眾愛，原為幽靜的湖泊</p>
+                            <p class="map-content-description">活力夏日，7月3日小鹿特別邀請大家動一動！在極具特色二樓的廣闊公園，擁有夏季不來超可惜的清涼親水區，以及美麗的大草坪讓寶貝自在玩耍，更有沙池與兒童遊樂器絕對讓寶貝玩得開心又過癮！還有攀岩場與滑板場可以挑戰喔。</p>
                             <div>
                                 <p>......</p>
                                 <p class="show-more"> 繼續閱讀</p>
@@ -263,6 +281,7 @@
     <script type="text/javascript" src="js/google_map.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/pop.js"></script>
+    <script type="text/javascript" src="js/pop_done.js"></script>
     <script type="text/javascript">
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete" async defer></script>

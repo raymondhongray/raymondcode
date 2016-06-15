@@ -2,7 +2,7 @@ var recommend_sites_by_theme = [];
 var _nextShowIndex = 0;
 var recommend_sites_by_cid = [];
 
-var travel_store = ['https://unsplash.it/100/100', 'https://unsplash.it/100/100', 'https://unsplash.it/100/100', 'https://unsplash.it/100/100']
+var travel_store = ['img/friend/logo_01.jpg', 'img/friend/logo_02.jpg', 'img/friend/logo_03.jpg', 'img/friend/logo_04.jpg']
 
 function addRankInfoWindowByTheme(recommend_sites, start, show_all) {
 
@@ -58,7 +58,7 @@ function get_travel_list_by_id(id) {
 
             for (var i = 0; i < data_lists.length; i++) {
                 var list = data_lists[i];
-                var site = [list.title, list.content, list.img, travel_store[list.store], list.url];
+                var site = [list.title, list.content, list.img, travel_store[list.store - 1], list.url];
                 recommend_sites_by_theme.push(site);
             }
         },

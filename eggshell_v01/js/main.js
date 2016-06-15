@@ -1,3 +1,14 @@
+function check_FB_Login() {
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+
+            console.log(response.status);
+        } else {
+            FB_login();
+        }
+    });
+}
+
 function FB_login() {
 
     FB.login(function(response) {
@@ -7,6 +18,28 @@ function FB_login() {
             console.log(response.authResponse);
             FB.api('/me', function(response) {
                 console.log(response);
+
+                fb_id = response['id'];
+                fb_name = response['name'];
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../api/fb_login.php',
+                    data: {
+                        fbid: fb_id,
+                        fbname: fb_name
+                    },
+                    dataType: "json",
+                    success: function(res) {
+                        console.log(res);
+
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log("Status: " + textStatus);
+                        console.log("Error: " + errorThrown);
+                    },
+                });
+
             });
         } else {
             alert('登入失敗');
@@ -31,23 +64,21 @@ function FB_login_share() {
     });
 }
 
-function share() { //FB APP 發佈到塗鴉牆
+function FB_share() { //FB APP 發佈到塗鴉牆
     publish = {
         name: 'facebook api test',
         method: 'feed',
         link: window.location.hostname,
         description: '測試yoyo',
-        // caption: '本SPA中心採用業界頂級的舒潔乾+濕衛生紙',
         picture: window.location.hostname + "/img/fb-share.jpg"
     };
 
     FB.ui(publish, function(response) {
         if (response && !response.error_message) {
-            // $.post('api/fb_share.php', {fbid:fb_id, fbname:fb_cne}, function(data) {
-            // console.log(data);},'json');
+
             alert('分享成功')
         } else {
-            // alert('Oops，沒有分享成功要顯示的訊息！');
+            alert('Oops，沒有分享成功要顯示的訊息！');
         }
     });
 }

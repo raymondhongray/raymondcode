@@ -1,0 +1,41 @@
+.currnent-path {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.currnent-path p {
+    color: #723000;
+}
+
+.about-catch {
+	position: relative;
+    top: 0;
+    left: 0;
+    margin: auto;
+    display: block;
+}
+
+.about-text {
+	position: relative;
+    top: 25px;
+    left: 0;
+    margin: auto;
+    display: block;
+}
+
+.about-main-pic {
+	position: relative;
+    top: 65px;
+    left: 0;
+    margin: auto;
+    display: block;
+}
+
+.about-main {
+	position: relative;
+    top: 100px;
+    left: 0;
+    margin: auto;
+    display: block;
+}

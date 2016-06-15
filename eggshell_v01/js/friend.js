@@ -1,10 +1,8 @@
 var recommend_sites_by_theme = [];
 var _nextShowIndex = 0;
-var recommend_sites_names = [];
-var recommend_sites_by_season = [];
-var recommend_sites_by_nature = [];
-var recommend_sites_by_city = [];
-var recommend_sites_by_fam = [];
+var recommend_sites_by_cid = [];
+
+var travel_store = ['https://unsplash.it/100/100', 'https://unsplash.it/100/100', 'https://unsplash.it/100/100', 'https://unsplash.it/100/100']
 
 function addRankInfoWindowByTheme(recommend_sites, start, show_all) {
 
@@ -25,12 +23,14 @@ function addRankInfoWindowByTheme(recommend_sites, start, show_all) {
         var description_content = recommend_site[1];
         var img = recommend_site[2];
         var travel_logo = recommend_site[3];
+        var url = recommend_site[4];
 
         $('#theme-info-window .info-window-row[data-id=clone_me]').clone().appendTo('#theme-info-window .info-window-wrap').attr('data-id', i).addClass('replica');
         $('#theme-info-window .info-window-row[data-id=' + i + ']').find('.theme_bg-marker > p').text(title);
-        $('#theme-info-window .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .map-content-description').text(description_content);
+        $('#theme-info-window .info-window-row[data-id=' + i + ']').find('.info-window-row-content > .map-content-description').html(description_content);
         $('#theme-info-window .info-window-row[data-id=' + i + ']').find('.recommend-img > img').attr('src', img);
         $('#theme-info-window .info-window-row[data-id=' + i + ']').find('.travel-logo').attr('src', travel_logo);
+        $('#theme-info-window .info-window-row[data-id=' + i + ']').find('.attend-btn').parent('a').attr('href', url);
         $('#theme-info-window .info-window-row[data-id=' + i + ']').css('display', 'block');
     }
 
@@ -41,42 +41,39 @@ function addRankInfoWindowByTheme(recommend_sites, start, show_all) {
     }
 }
 
+function get_travel_list_by_id(id) {
+
+    $.ajax({
+        type: 'POST',
+        url: '../api/travel_list.php',
+        data: {
+            cid: id,
+        },
+        async: false,
+        dataType: "json",
+        success: function(res) {
+            // console.log(res);
+            recommend_sites_by_theme = [];
+            data_lists = res;
+
+            for (var i = 0; i < data_lists.length; i++) {
+                var list = data_lists[i];
+                var site = [list.title, list.content, list.img, travel_store[list.store], list.url];
+                recommend_sites_by_theme.push(site);
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Error: " + errorThrown);
+        },
+    });
+}
+
 $(document).ready(function() {
-    recommend_sites_by_season = [
-        ['seasontitle0', 'content0', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['seasontitle1', 'content1', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['seasontitle2', 'content2', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['seasontitle3', 'content3', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-    ];
 
-    recommend_sites_by_nature = [
-        ['naturetitle0', 'content0', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['naturetitle1', 'content1', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['naturetitle2', 'content2', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['naturetitle3', 'content3', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-    ];
+    get_travel_list_by_id(1);
 
-    recommend_sites_by_city = [
-        ['citytitle0', 'content0', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['citytitle1', 'content1', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['citytitle2', 'content2', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['citytitle3', 'content3', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-    ];
-
-    recommend_sites_by_fam = [
-        ['famtitle0', 'content0', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['famtitle1', 'content1', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['famtitle2', 'content2', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['famtitle3', 'content3', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['famtitle0', 'content0', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['famtitle1', 'content1', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['famtitle2', 'content2', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-        ['famtitle3', 'content3', 'https://unsplash.it/200/200', 'https://unsplash.it/100/100'],
-    ];
-
-    recommend_sites_names = [recommend_sites_by_season, recommend_sites_by_nature, recommend_sites_by_city, recommend_sites_by_fam];
-
-    recommend_sites_by_theme = recommend_sites_names[0];
+    recommend_sites_by_cid[0] = recommend_sites_by_theme;
 
     addRankInfoWindowByTheme(recommend_sites_by_theme, _nextShowIndex, false);
 
@@ -86,21 +83,29 @@ $(document).ready(function() {
     });
 
     $(".theme-type > p").click(function() {
-    
+
         $(".theme-type").removeClass('current-select');
 
         $(this).parent().addClass('current-select');
 
         var select_theme_index = $(this).parent().attr('data-id');
 
-        recommend_sites_by_theme = recommend_sites_names[select_theme_index];
+        if (typeof recommend_sites_by_cid[select_theme_index - 1] == 'undefined') {
+
+            get_travel_list_by_id(select_theme_index);
+
+            recommend_sites_by_cid[select_theme_index - 1] = recommend_sites_by_theme;
+
+        } else {
+            recommend_sites_by_theme = recommend_sites_by_cid[select_theme_index - 1];
+        }
 
         _nextShowIndex = 0;
 
         $(".replica").remove();
 
-        addRankInfoWindowByTheme(recommend_sites_by_theme, _nextShowIndex, false);
-
         $("#rank-show-green").css('display', 'block');
+
+        addRankInfoWindowByTheme(recommend_sites_by_theme, _nextShowIndex, false);
     });
 });

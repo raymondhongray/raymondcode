@@ -6,6 +6,7 @@
 
 #theme-info-window p {
     color: #376600;
+    word-wrap: break-word;
 }
 
 #theme-info-window .show-more {

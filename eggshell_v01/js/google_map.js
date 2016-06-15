@@ -12,12 +12,12 @@ function getQueryStrByName(name, url) {
 
 function initAutocomplete() {
     var site = getQueryStrByName('site');
-    
+
     if (site == 'northern') {
         default_center = [25.0677678, 121.5716523];
     } else {
         if (site == 'central') {
-            default_center = [24.0520737,120.6042791];
+            default_center = [24.0520737, 120.6042791];
         } else {
             if (site == 'southern') {
                 // default_center = [25.0677678, 121.5716523];
@@ -100,27 +100,47 @@ function initAutocomplete() {
     //     ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200'],
     // ];
 
-    recommend_sites = [
-        ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
-        ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
+    $.ajax({
+        type: 'POST',
+        url: '../api/data_list.php',
+        data: {
+            page: 1,
+            num: 10000
+        },
+        dataType: "json",
+        success: function(res) {
+            console.log(res);
+            data_lists = res.list;
 
-    ];
+            console.log(res.page, 'page_lists');
 
-    setRecommendMarkers(map, recommend_sites);
+            console.log(data_lists, 'data_lists');
 
-    addRankInfoWindow(recommend_sites, 0, showAll_RankInfoWindow);
+            for (var i = 0; i < data_lists.length; i++) {
+                var list = data_lists[i];
+                var site = [list.title, list.gps_x, list.gps_y, 1, list.avg, list.img_1, list.address, list.did, list.site, list.totel, list.time, list.img_2, list.img_3]
+                recommend_sites.push(site);           
+            }
+
+            setRecommendMarkers(map, recommend_sites);
+
+            addRankInfoWindow(recommend_sites, 0, showAll_RankInfoWindow);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Error: " + errorThrown);
+        },
+    });
+
+
+
+    // recommend_sites = [
+    //     ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳'],
+    // ];
+
+    // setRecommendMarkers(map, recommend_sites);
+
+    // addRankInfoWindow(recommend_sites, 0, showAll_RankInfoWindow);
     // [END region_getplaces]
 }
 

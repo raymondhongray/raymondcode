@@ -335,58 +335,12 @@ $(document).ready(function() {
 
     setTabInfoWindow();
 
-    // $("#map-submit").click(function() {
-
-    //     $("#pac-input").val($("#map-search").val());
-    //     var input = document.getElementById('pac-input');
-
-    //     google.maps.event.trigger(input, 'focus')
-    //     google.maps.event.trigger(input, 'keydown', {
-    //         keyCode: 13
-    //     });
-
-    // });
-
-    // $("#map-close-icon").click(function() {
-
-    //     $("#map-info-window, .map-close-icon").fadeOut(800, 'swing', function() {
-    //         setStarMarkers($("#map-info-window"), '.lg-star', 0);
-    //     });
-    // });
-
     $("#map-info-window .lg-star").click(function() {
 
         console.log('you click star #' + $(this).attr('data-id'));
 
         var scores = $(this).attr('data-id');
         setStarMarkers($("#map-info-window"), '.lg-star', scores);
-
-        FB.login(function(response) {
-
-            if (response.authResponse) {
-
-                FB.api('/me', function(response) {
-
-                    fb_name = response['name'];
-                    fb_id = response['id'];
-
-                    $.ajax({
-                        type: 'POST',
-                        url: 'https://2deerhillstour.ptt.com.tw/api/data_list.php',
-                        data: {
-                            'page': 1,
-                            'num': 10000
-                        },
-                        success: function(res) {
-                            console.log(res);
-                        },
-                        dataType: 'json'
-                    });
-                });
-            } else {
-                alert('登入失敗');
-            }
-        });
     });
 
     $("#rank-show-btn").click(function() {

@@ -56,7 +56,6 @@ $(document).ready(function() {
                             console.log("Status: " + textStatus);
                             console.log("Error: " + errorThrown);
                         },
-                        
                     });
                 });
             } else {

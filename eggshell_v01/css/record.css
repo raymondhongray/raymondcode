@@ -1,0 +1,42 @@
+.new-catch {
+    position: absolute;
+    top: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.say-hi-group {
+	margin-top: 20px;
+	margin-bottom: -5px;
+	text-align: left;
+}
+
+.say-hi {
+	display: inline-block;
+	color: #336600;
+}
+
+.say-hi-guy {
+	margin-left: 4px;
+    margin-right: 4px;
+	color: red;
+}
+
+.say-hi-group2 {
+	text-align: left;
+}
+
+.say-hi-count {
+	/*margin-left: 2px;
+    margin-right: 2px;*/
+	color: red;
+}
+
+.say-hi-group3 {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.new-recommend {
+	margin-top: 20px;
+}

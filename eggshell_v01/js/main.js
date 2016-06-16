@@ -86,6 +86,10 @@ function FB_share() { //FB APP 發佈到塗鴉牆
 
 $(document).ready(function() {
 
+    $('#expansion').click(function() {
+        $('.sub-menu').css('display', 'block');
+    });
+
     $('#nav-btn').click(function() {
         if ($('#nav-btn-line').hasClass('menu-active')) {
             $('header').removeClass('active');

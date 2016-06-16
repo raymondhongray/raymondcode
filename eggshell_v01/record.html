@@ -19,12 +19,59 @@
     <link href="css/index.css" rel="stylesheet" type="text/css" />
     <link href="css/map.css" rel="stylesheet" type="text/css" />
     <link href="css/pop.css" rel="stylesheet" type="text/css" />
+    <link href="css/record.css" rel="stylesheet" type="text/css" />
     <link href="css/flexslider.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/jstarbox.css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 </head>
 
 <body id="index-body">
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1033598853400049',
+            xfbml: true,
+            version: 'v2.6'
+        });
+
+        FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+
+            FB.api('/me', function(res) {
+
+                var fb_name = res['name'];
+                $(".say-hi-guy").text(fb_name);
+            });
+        } else {
+
+            FB.login(function(response) {
+
+                if (response.authResponse) {
+
+                    FB.api('/me', function(response) {
+
+                        var fb_name = response['name'];
+                        $(".say-hi-guy").text(fb_name);
+                    });
+                } else {
+                    alert('登入失敗');
+                }
+            });
+        }
+    });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="popup" style="display: none;">
         <div class="popup-box">
             <div id="display-area" class="area-box">
@@ -46,7 +93,7 @@
         <div class="popup-opacity"></div>
     </div>
     <!--所有頁面共用的 Menu-->
-    <nav class="nav-menu">
+     <nav class="nav-menu">
         <div class="nav-content">
             <ul class="nav-ul">
                 <a href="" onClick="">
@@ -54,7 +101,7 @@
                         <img src="img/menu/index_02.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="">
+                <a href="about.html" onClick="">
                     <li class="">
                         <img src="img/menu/index_03.jpg" />
                     </li>
@@ -62,32 +109,32 @@
                 <li id="expansion">
                     <img src="img/menu/index_04.jpg" />
                 </li>
-                <a href="" onClick="" class="sub-menu" data-id="1">
+                <a href="event.html" onClick="" class="sub-menu" data-id="1">
                     <li class="">
                         <img src="img/menu/index_04_1.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="" class="sub-menu" data-id="2">
+                <a href="map.html" onClick="" class="sub-menu" data-id="2">
                     <li class="">
                         <img src="img/menu/index_04_2.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="" class="sub-menu" data-id="3">
+                <a href="event.html#event-equipment" onClick="" class="sub-menu" data-id="3">
                     <li class="">
                         <img src="img/menu/index_04_3.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="">
+                <a href="friend.html" onClick="">
                     <li class="">
                         <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="">
+                <a href="" onClick="alert('活動進行中...')">
                     <li class="">
                         <img src="img/menu/index_07.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="">
+                <a href="https://www.facebook.com/eggshellstyle/" onClick="">
                     <li class="">
                         <img src="img/menu/index_08.jpg" />
                     </li>
@@ -109,13 +156,24 @@
     <div id="wrap">
         <div id="content">
             <div class="currnent-path">
-                <p>首頁 > 歷程記錄</p>
+                <p>首頁 > 超可惜景點特輯 > 超可惜景點地圖 > 歷程記錄</p>
             </div>
-           
-           
-            
+            <div class="say-hi-group">
+                <p class="say-hi">親愛的</p>
+                <p class="say-hi say-hi-guy">xxx</p>
+                <p class="say-hi">您好</p>
+            </div>
+            <div class="say-hi-group2">
+                <p class="say-hi">感謝參與製作超可惜景點地圖，目前您已成功推薦</p>
+                <p class="say-hi say-hi-count">xx</p>
+                <p class="say-hi">個地點。</p>
+            </div>
+            <div class="say-hi-group3">
+                <p class="say-hi">於活動截止日前，持續推薦更多地點，就可以獲得更多抽獎機會喔 !</p>
+            </div>
             <div id="rank-info-window">
                 <div class="info-window-wrap">
+                    <img class="new-catch" src="img/record/new_catch.png" />
                     <div class="info-window-header"></div>
                     <div data-id="clone_me" class="info-window-row">
                         <div class="index-marker">
@@ -150,7 +208,8 @@
                     </div>
                 </div>
             </div>
-            <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png" />
+            <!-- <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png" /> -->
+            <a href="event.html?popup=1"><img class="new-recommend" src="img/record/recommend.png" /></a>
         </div>
     </div>
     <footer>

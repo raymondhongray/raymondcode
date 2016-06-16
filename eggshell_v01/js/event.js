@@ -58,9 +58,46 @@ function call_data_upload_api(fb_id, fb_name) {
     });
 }
 
+function getQueryStrByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function scrollDetect(){
+  var scrollVal = $(this).scrollTop();
+      if(scrollVal>=0)
+      { 
+        $('.btn-zone .btn').removeClass('active');
+        $('.btn-zone .btn:nth-of-type(1)').addClass('active');
+      }
+      if(scrollVal>=$('.activity-group').offset().top-700)
+      {
+        $('.event-event-btn,.event-map-btn').addClass('active');
+      }
+      if(scrollVal>=$('.activitie').offset().top-1000)
+      {
+        $('.activitie').addClass('active');
+      }
+}
+
+
 $(document).ready(function() {
 
     setProductTabInfoWindow();
+
+    $(window).scroll(function(){
+      scrollDetect();
+    });
+
+    if(getQueryStrByName('popup') != null) {
+        $("#popup1").css('display', 'block');
+    }
+
 
     $('body').on('click', '.show-more.by-event-page', function() {
 
@@ -110,4 +147,13 @@ $(document).ready(function() {
             }
         });
     });
+
+    // 0616 james 
+    var recommendOffset = $('.activity-group').offset().top-500;
+    $('#event-index-img,.activitie').click(function(){
+        $('html,body').animate({
+            scrollTop: recommendOffset
+        }, 500);
+    });
+    // 0616 james end
 });

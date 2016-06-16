@@ -24,25 +24,25 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 </head>
 <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: '1033598853400049',
-            xfbml: true,
-            version: 'v2.6'
-        });
-    };
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '1033598853400049',
+        xfbml: true,
+        version: 'v2.6'
+    });
+};
 
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
 <body id="index-body">
     <div class="popup">
@@ -84,7 +84,7 @@
                         <img src="img/menu/index_02.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="">
+                <a href="about.html" onClick="">
                     <li class="">
                         <img src="img/menu/index_03.jpg" />
                     </li>
@@ -92,32 +92,32 @@
                 <li id="expansion">
                     <img src="img/menu/index_04.jpg" />
                 </li>
-                <a href="" onClick="" class="sub-menu" data-id="1">
+                <a href="event.html" onClick="" class="sub-menu" data-id="1">
                     <li class="">
                         <img src="img/menu/index_04_1.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="" class="sub-menu" data-id="2">
+                <a href="map.html" onClick="" class="sub-menu" data-id="2">
                     <li class="">
                         <img src="img/menu/index_04_2.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="" class="sub-menu" data-id="3">
+                <a href="event.html#event-equipment" onClick="" class="sub-menu" data-id="3">
                     <li class="">
                         <img src="img/menu/index_04_3.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="">
+                <a href="friend.html" onClick="">
                     <li class="">
                         <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="">
+                <a href="" onClick="alert('活動進行中...')">
                     <li class="">
                         <img src="img/menu/index_07.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="">
+                <a href="https://www.facebook.com/eggshellstyle/" onClick="">
                     <li class="">
                         <img src="img/menu/index_08.jpg" />
                     </li>
@@ -141,8 +141,9 @@
             <div class="currnent-path">
                 <p>首頁 > 超可惜景點特輯 > 超可惜景點地圖</p>
             </div>
+            <img class="main-map-pic" src="img/map/main_map_pic.png" />
             <div id="map-search-box">
-                <p>地圖搜尋 : </p>
+                <p style="color: #663300;">地圖搜尋 : </p>
                 <input id="map-search" class="map-search" type="text" name="map_search" value="">
                 <input id="map-submit" class="map-submit" type="button" value="搜尋">
             </div>
@@ -229,62 +230,64 @@
                     </div>
                 </div>
             </div>
+            <div style="width: 100%;height: 1px;margin-bottom: 50px;"></div>
             <div id="rank-info-window">
-                <div class="info-window-wrap">
-                    <div class="info-window-header"></div>
-                    <div data-id="clone_me" class="info-window-row">
-                        <div class="index-marker">
-                            <img src="img/map/marker_icon.png" />
+                <img class=rank-title " src="img/map/rank_title.png " />
+                <div class="info-window-wrap ">
+                    <div class="info-window-header "></div>
+                    <div data-id="clone_me" class="info-window-row ">
+                        <div class="index-marker ">
+                            <img src="img/map/marker_icon.png " />
                             <p>1</p>
                         </div>
-                        <div class="info-window-row-content col-left">
-                            <div class="recommend-img"><img src="" /></div>
-                            <div class="show-star-avg-box">
-                                <div class="sm-star-group">
-                                    <i data-id="1" class="sm-star fa fa-star-o" aria-hidden="true"></i>
-                                    <i data-id="2" class="sm-star fa fa-star-o" aria-hidden="true"></i>
-                                    <i data-id="3" class="sm-star fa fa-star-o" aria-hidden="true"></i>
-                                    <i data-id="4" class="sm-star fa fa-star-o" aria-hidden="true"></i>
-                                    <i data-id="5" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                        <div class="info-window-row-content col-left ">
+                            <div class="recommend-img "><img src=" " /></div>
+                            <div class="show-star-avg-box ">
+                                <div class="sm-star-group ">
+                                    <i data-id="1 " class="sm-star fa fa-star-o " aria-hidden="true "></i>
+                                    <i data-id="2 " class="sm-star fa fa-star-o " aria-hidden="true "></i>
+                                    <i data-id="3 " class="sm-star fa fa-star-o " aria-hidden="true "></i>
+                                    <i data-id="4 " class="sm-star fa fa-star-o " aria-hidden="true "></i>
+                                    <i data-id="5 " class="sm-star fa fa-star-o " aria-hidden="true "></i>
                                 </div>
-                                <p class="avg-score"></p>
+                                <p class="avg-score "></p>
                                 <p>顆星</p>
                             </div>
                         </div>
-                        <div class="info-window-row-content col-right">
-                            <p class="map-content-title"></p>
-                            <p class="map-content-addr addr-key">地址 : </p>
-                            <p class="map-content-addr addr-value"></p>
-                            <p style="display: block;">簡介 : </p>
-                            <p class="map-content-description"></p>
+                        <div class="info-window-row-content col-right ">
+                            <p class="map-content-title "></p>
+                            <p class="map-content-addr addr-key ">地址 : </p>
+                            <p class="map-content-addr addr-value "></p>
+                            <p style="display: block; ">簡介 : </p>
+                            <p class="map-content-description "></p>
                             <div>
                                 <p>......</p>
-                                <p class="show-more"> 繼續閱讀</p>
+                                <p class="show-more "> 繼續閱讀</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png" />
+            <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png " />
         </div>
     </div>
     <footer>
-        <img src="img/main/eggshell_footer.png" />
+        <img src="img/main/eggshell_footer.png " />
     </footer>
-    <script src="js/GA.pageview.js"></script>
-    <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="js/libs/jquery-ui-1.10.2.custom.min.js"></script>
-    <script type="text/javascript" src="js/libs/jqueryEasing-1.9.1.min.js"></script>
-    <script type="text/javascript" src="js/libs/modernizr-2.6.2.min.js"></script>
-    <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/google_map.js"></script>
-    <script type="text/javascript" src="js/map.js"></script>
-    <script type="text/javascript" src="js/pop.js"></script>
-    <script type="text/javascript" src="js/pop_done.js"></script>
-    <script type="text/javascript">
+    <script src="js/GA.pageview.js "></script>
+    <script type="text/javascript " src="js/libs/jquery-1.10.2.min.js "></script>
+    <script type="text/javascript " src="js/libs/jquery-ui-1.10.2.custom.min.js "></script>
+    <script type="text/javascript " src="js/libs/jqueryEasing-1.9.1.min.js "></script>
+    <script type="text/javascript " src="js/libs/modernizr-2.6.2.min.js "></script>
+    <script type="text/javascript " src="js/libs/TweenMax.min.js "></script>
+    <script type="text/javascript " src="js/main.js "></script>
+    <script type="text/javascript " src="js/google_map.js "></script>
+    <script type="text/javascript " src="js/map.js "></script>
+    <script type="text/javascript " src="js/pop.js "></script>
+    <script type="text/javascript " src="js/pop_done.js "></script>
+    <script type="text/javascript ">
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete " async defer></script>
 </body>
 
 </html>

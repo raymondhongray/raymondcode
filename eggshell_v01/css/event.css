@@ -95,3 +95,24 @@
 
 
 /*0615 james end*/
+
+/*0616 james */
+
+.event-event-btn,
+.activitie{
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.event-map-btn{
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-delay: 0.3s;
+}
+
+*.active{
+    opacity: 1 !important;
+    transform:none!important;
+}
+/*0616 james end*/

@@ -269,13 +269,14 @@
 }
 
 #rank-info-window {
+    position: relative;
     background-color: #eea463;
     border-radius: 20px;
     border: 1px solid #eea463;
 }
 
-#rank-info-window > .info-window-wrap{
-   border-radius: 20px;
+#rank-info-window > .info-window-wrap {
+    border-radius: 20px;
 }
 
 #rank-info-window .info-window-header {
@@ -386,4 +387,15 @@
     border-top: 3px solid #fff;
     border-left: 3px solid #fff;
     border-right: 3px solid #fff;
+}
+
+.main-map-pic {
+    width: 100%;
+}
+
+.rank-title {
+    position: absolute;
+    top: -19px;
+    left: 50%;
+    transform: translateX(-50%);
 }

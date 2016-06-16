@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    init();
+
     $(".flexslider").flexslider({});
     
     $('#index-search > button').click(function() {
@@ -10,8 +12,19 @@ $(document).ready(function() {
         window.location.href = 'map.html?site=' + $('#index-search > select').val();
     });
 
-    $('#expansion').click(function() {
-        $('.sub-menu').css('display', 'block');
-    });
-
 });
+
+function init(){
+    $('.flexslider')
+    .addClass('active')
+    .delay(500)
+    .queue(function(){
+        $('#index-search').addClass('active');
+        $(this).dequeue();
+    })
+    .delay(600)
+    .queue(function(){
+        $('.index-main-theme-group').addClass('active');
+        $(this).dequeue();
+    });
+}

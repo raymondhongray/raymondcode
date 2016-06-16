@@ -100,47 +100,49 @@ function initAutocomplete() {
     //     ['天母', 25.109224, 121.530924, 1, 3.1, 'https://unsplash.it/200'],
     // ];
 
-    // $.ajax({
-    //     type: 'POST',
-    //     url: '../api/data_list.php',
-    //     data: {
-    //         page: 1,
-    //         num: 10000
-    //     },
-    //     dataType: "json",
-    //     success: function(res) {
-    //         console.log(res);
-    //         data_lists = res.list;
+    $.ajax({
+        type: 'POST',
+        url: '../api/data_list.php',
+        data: {
+            page: 1,
+            num: 10000
+        },
+        dataType: "json",
+        success: function(res) {
+            console.log(res);
+            data_lists = res.list;
 
-    //         console.log(res.page, 'page_lists');
+            console.log(res.page, 'page_lists');
 
-    //         console.log(data_lists, 'data_lists');
+            console.log(data_lists, 'data_lists');
 
-    //         for (var i = 0; i < data_lists.length; i++) {
-    //             var list = data_lists[i];
-    //             var site = [list.title, list.gps_x, list.gps_y, 1, list.avg, list.img_1, list.address, list.did, list.site, list.totel, list.time, list.img_2, list.img_3]
-    //             recommend_sites.push(site);           
-    //         }
+            for (var i = 0; i < data_lists.length; i++) {
+                var list = data_lists[i];
+                var gps_x = parseFloat(list.gps_x);
+                var gps_y = parseFloat(list.gps_y);
+                var site = [list.title, gps_x, gps_y, 1, list.avg, list.img_1, list.address, list.did, list.site, list.totel, list.time, list.img_2, list.img_3]
+                recommend_sites.push(site);           
+            }
 
-    //         setRecommendMarkers(map, recommend_sites);
+            setRecommendMarkers(map, recommend_sites);
 
-    //         addRankInfoWindow(recommend_sites, 0, showAll_RankInfoWindow);
-    //     },
-    //     error: function(XMLHttpRequest, textStatus, errorThrown) {
-    //         console.log("Status: " + textStatus);
-    //         console.log("Error: " + errorThrown);
-    //     },
-    // });
+            addRankInfoWindow(recommend_sites, 0, showAll_RankInfoWindow);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Error: " + errorThrown);
+        },
+    });
 
 
 
-    recommend_sites = [
-        ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳', 1],
-    ];
+    // recommend_sites = [
+    //     ['內湖運動中心', 25.067724, 121.573927, 1, 4.1, 'https://unsplash.it/200/300', '114台灣台北市內湖區舊宗路二段1號', '自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳，釋放體力極限自在跑跳', 1],
+    // ];
 
-    setRecommendMarkers(map, recommend_sites);
+    // setRecommendMarkers(map, recommend_sites);
 
-    addRankInfoWindow(recommend_sites, 0, showAll_RankInfoWindow);
+    // addRankInfoWindow(recommend_sites, 0, showAll_RankInfoWindow);
     // [END region_getplaces]
 }
 

@@ -134,7 +134,7 @@ var showAll_RankInfoWindow = false;
 // }
 
 function addRankInfoWindow(recommend_sites, start, show_all) {
-
+    
     var offset = 5;
     var end = recommend_sites.length;
 
@@ -146,7 +146,7 @@ function addRankInfoWindow(recommend_sites, start, show_all) {
     }
 
     for (var i = start; i < end; i++) {
-
+        
         var recommend_site = recommend_sites[i];
 
         var title = recommend_site[0];

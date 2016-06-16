@@ -121,7 +121,8 @@ $(document).ready(function() {
 
     $(".event-map-btn").click(function() {
 
-        window.location.href = 'event.html?popup=1';
+        // window.location.href = 'event.html?popup=1';
+        window.location.href = 'map.html';
     });
 
     $("#submit-btn").click(function() {

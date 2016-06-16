@@ -486,7 +486,7 @@ nav .nav-ul li h1 {
     min-height: 100%;
     background-color: #fff;
     padding-left: 20px;
-    padding-right: 20px; 
+    padding-right: 20px;
     border-top: none;
     padding-top: 100px;
     padding-bottom: 235px;
@@ -632,4 +632,30 @@ footer {
 
 footer.active {
     left: -50%;
+}
+
+.loading-effect {
+    /*display: none;*/
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+}
+
+.loading-effect-pic {
+    position: relative;
+    z-index: 100;
+    margin: 0 auto;
+    top: 50%;
+    display: block;
+}
+
+.loading-effect-opacity {
+    border: 1px solid #666;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    top: 0;
 }

@@ -85,6 +85,11 @@ function FB_share() { //FB APP 發佈到塗鴉牆
 
 $(document).ready(function() {
 
+    setTimeout(function() {
+        $('.loading-effect').fadeOut('slow');
+        
+    }, 1000);
+
     $('#expansion').click(function() {
         $('.sub-menu').css('display', 'block');
     });

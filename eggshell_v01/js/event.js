@@ -127,36 +127,40 @@ $(document).ready(function() {
 
     $("#submit-btn").click(function() {
 
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
+        if (!$("#img_fileToUpload_01").attr('src')) {
+            alert('請您推薦一張照片~')
+        } else {
+            FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
 
-                FB.api('/me', function(res) {
-                    console.log(res);
+                    FB.api('/me', function(res) {
+                        console.log(res);
 
-                    fb_id = res['id'];
-                    fb_name = res['name'];
+                        fb_id = res['id'];
+                        fb_name = res['name'];
 
-                    call_data_upload_api(fb_id, fb_name);
-                });
-            } else {
+                        call_data_upload_api(fb_id, fb_name);
+                    });
+                } else {
 
-                FB.login(function(response) {
+                    FB.login(function(response) {
 
-                    if (response.authResponse) {
+                        if (response.authResponse) {
 
-                        FB.api('/me', function(response) {
+                            FB.api('/me', function(response) {
 
-                            fb_name = response['name'];
-                            fb_id = response['id'];
+                                fb_name = response['name'];
+                                fb_id = response['id'];
 
-                            call_data_upload_api(fb_id, fb_name);
-                        });
-                    } else {
-                        alert('登入失敗');
-                    }
-                });
-            }
-        });
+                                call_data_upload_api(fb_id, fb_name);
+                            });
+                        } else {
+                            alert('登入失敗');
+                        }
+                    });
+                }
+            });
+        }
     });
 
     // 0616 james 

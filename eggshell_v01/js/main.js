@@ -90,6 +90,10 @@ $(document).ready(function() {
         
     }, 1000);
 
+    $('.back-to-index').click(function() {
+        window.location.href = 'index.html';
+    });
+
     $('#expansion').click(function() {
         $('.sub-menu').css('display', 'block');
     });

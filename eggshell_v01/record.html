@@ -27,39 +27,39 @@
 
 <body id="index-body">
     <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: '1033598853400049',
-            xfbml: true,
-            version: 'v2.6'
-        });
+    // window.fbAsyncInit = function() {
+    //     FB.init({
+    //         appId: '1033598853400049',
+    //         xfbml: true,
+    //         version: 'v2.6'
+    //     });
 
-        FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
+    //     FB.getLoginStatus(function(response) {
+    //         if (response.status === 'connected') {
 
-            FB.api('/me', function(res) {
+    //             FB.api('/me', function(res) {
 
-                var fb_name = res['name'];
-                $(".say-hi-guy").text(fb_name);
-            });
-        } else {
+    //                 var fb_name = res['name'];
+    //                 $(".say-hi-guy").text(fb_name);
+    //             });
+    //         } else {
 
-            FB.login(function(response) {
+    //             FB.login(function(response) {
 
-                if (response.authResponse) {
+    //                 if (response.authResponse) {
 
-                    FB.api('/me', function(response) {
+    //                     FB.api('/me', function(response) {
 
-                        var fb_name = response['name'];
-                        $(".say-hi-guy").text(fb_name);
-                    });
-                } else {
-                    alert('登入失敗');
-                }
-            });
-        }
-    });
-    };
+    //                         var fb_name = response['name'];
+    //                         $(".say-hi-guy").text(fb_name);
+    //                     });
+    //                 } else {
+    //                     alert('登入失敗');
+    //                 }
+    //             });
+    //         }
+    //     });
+    // };
 
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -93,10 +93,10 @@
         <div class="popup-opacity"></div>
     </div>
     <!--所有頁面共用的 Menu-->
-     <nav class="nav-menu">
+    <nav class="nav-menu">
         <div class="nav-content">
             <ul class="nav-ul">
-                <a href="" onClick="">
+                <a href="index.html" onClick="">
                     <li class="">
                         <img src="img/menu/index_02.jpg" />
                     </li>
@@ -119,7 +119,7 @@
                         <img src="img/menu/index_04_2.jpg" />
                     </li>
                 </a>
-                <a href="event.html#event-equipment" onClick="" class="sub-menu" data-id="3">
+                <a href="event.html?move_to=event_equipment" class="sub-menu" data-id="3">
                     <li class="">
                         <img src="img/menu/index_04_3.jpg" />
                     </li>

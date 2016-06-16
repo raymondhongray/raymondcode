@@ -105,7 +105,8 @@ function initAutocomplete() {
         url: '../api/data_list.php',
         data: {
             page: 1,
-            num: 10000
+            num: 10000,
+            hidden: 1
         },
         dataType: "json",
         success: function(res) {

@@ -83,7 +83,6 @@ function FB_share() { //FB APP 發佈到塗鴉牆
     });
 }
 
-
 $(document).ready(function() {
 
     $('#expansion').click(function() {

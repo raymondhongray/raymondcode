@@ -46,10 +46,10 @@ function call_data_upload_api(fb_id, fb_name) {
             console.log(res);
             if (res.code == 3) {
                 alert('您推薦的景點是...');
-            } 
+            }
             if (res.code == 5) {
                 alert('您推薦的原因是...');
-            } 
+            }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             console.log("Status: " + textStatus);
@@ -68,21 +68,18 @@ function getQueryStrByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function scrollDetect(){
-  var scrollVal = $(this).scrollTop();
-      if(scrollVal>=0)
-      { 
+function scrollDetect() {
+    var scrollVal = $(this).scrollTop();
+    if (scrollVal >= 0) {
         $('.btn-zone .btn').removeClass('active');
         $('.btn-zone .btn:nth-of-type(1)').addClass('active');
-      }
-      if(scrollVal>=$('.activity-group').offset().top-700)
-      {
+    }
+    if (scrollVal >= $('.activity-group').offset().top - 700) {
         $('.event-event-btn,.event-map-btn').addClass('active');
-      }
-      if(scrollVal>=$('.activitie').offset().top-1000)
-      {
+    }
+    if (scrollVal >= $('.activitie').offset().top - 1000) {
         $('.activitie').addClass('active');
-      }
+    }
 }
 
 
@@ -90,11 +87,11 @@ $(document).ready(function() {
 
     setProductTabInfoWindow();
 
-    $(window).scroll(function(){
-      scrollDetect();
+    $(window).scroll(function() {
+        scrollDetect();
     });
 
-    if(getQueryStrByName('popup') != null) {
+    if (getQueryStrByName('popup') != null) {
         $("#popup1").css('display', 'block');
     }
 
@@ -149,11 +146,25 @@ $(document).ready(function() {
     });
 
     // 0616 james 
-    var recommendOffset = $('.activity-group').offset().top-500;
-    $('#event-index-img,.activitie').click(function(){
+    var recommendOffset = $('.activity-group').offset().top - 500;
+    $('#event-index-img,.activitie').click(function() {
         $('html,body').animate({
             scrollTop: recommendOffset
         }, 500);
     });
     // 0616 james end
+
+    if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'event_equipment') {
+        var equipmentOffset = $('#event-equipment').offset().top - 250;
+        $('html,body').animate({
+            scrollTop: equipmentOffset
+        }, 500);
+    }
+
+    if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'event_rule') {
+        var event_ruleOffset = $('.event-rule').offset().top;
+        $('html,body').animate({
+            scrollTop: event_ruleOffset
+        }, 500);
+    }
 });

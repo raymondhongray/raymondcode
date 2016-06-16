@@ -4,7 +4,7 @@
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 200;
+    z-index: 1000;
 }
 
 .popup-box {
@@ -270,7 +270,7 @@
 
 .preview-btn {
     position: relative;
-    z-index: 300;
+    z-index: 1001;
     top: -10px;
     right: -50%;
     transform: translateX(-50%);
@@ -289,6 +289,7 @@
 .btn-group-img {
     margin-left: 10px;
     margin-right: 10px;
+    z-index: 1001;
 }
 
 .area-box {

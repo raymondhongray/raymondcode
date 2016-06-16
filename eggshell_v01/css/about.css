@@ -39,3 +39,22 @@
     margin: auto;
     display: block;
 }
+
+/*0616 james*/
+.about-catch,
+.about-text,
+.about-main-pic,
+.about-main{
+    opacity: 0;
+    transition: all 1s ;
+}
+.about-main{
+    transform: translateY(100px);
+}
+
+*.active{
+    opacity: 1;
+    transform: none;
+}
+
+/*0616 james end*/

@@ -136,3 +136,9 @@
 .current-select > p {
     color: #c2171d;
 }
+
+.friend-wording {
+	color: #336600;
+    /*width: 95%;*/
+    margin-bottom: 20px;
+}

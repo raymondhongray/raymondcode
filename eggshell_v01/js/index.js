@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
-    init();
 
     $(".flexslider").flexslider({});
+
+    init();
     
     $('#index-search > button').click(function() {
         window.location.href = 'map.html?site=' + $('#index-search > select').val();

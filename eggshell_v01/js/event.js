@@ -1,18 +1,33 @@
 // 0615 james
 function setProductTabInfoWindow() {
 
+    $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
+
     tab2_contents = [
         ['img/event/p1.png'],
         ['img/event/p2.png'],
     ];
 
     $(".product-intro-group .tab-theme").click(function() {
+        $('.product-intro-more').remove();
+
         var tab_index = $(this).attr('data-id');
 
         var tab_content = tab2_contents[tab_index];
         var img = tab_content[0];
 
         $('#product-info-window .info-window-row').find('img').attr('src', img);
+
+        if (tab_index == 0) {
+            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
+            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
+            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
+        } else {
+            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos2" src="img/event/more3.png" />');
+            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos1" src="img/event/more3.png" />');
+        }
 
     });
 }
@@ -44,6 +59,9 @@ function call_data_upload_api(fb_id, fb_name) {
         contentType: false,
         success: function(res) {
             console.log(res);
+            if (res.code == 0) {
+                window.location.href = "event.html?popup=done";
+            }
             if (res.code == 3) {
                 alert('您推薦的景點是...');
             }
@@ -91,11 +109,6 @@ $(document).ready(function() {
         scrollDetect();
     });
 
-    if (getQueryStrByName('popup') != null) {
-        $("#popup1").css('display', 'block');
-    }
-
-
     $('body').on('click', '.show-more.by-event-page', function() {
 
         showPopup2($(this).parents('.info-window-row-content'));
@@ -108,7 +121,7 @@ $(document).ready(function() {
 
     $(".event-map-btn").click(function() {
 
-        window.location.href = 'map.html';
+        window.location.href = 'event.html?popup=1';
     });
 
     $("#submit-btn").click(function() {
@@ -166,5 +179,13 @@ $(document).ready(function() {
         $('html,body').animate({
             scrollTop: event_ruleOffset
         }, 500);
+    }
+
+    if (getQueryStrByName('popup') != null && getQueryStrByName('popup') == '1') {
+        $("#popup1").css('display', 'block');
+    }
+
+    if (getQueryStrByName('popup') != null && getQueryStrByName('popup') == 'done') {
+        $('.popup-done').css('display', 'block');
     }
 });

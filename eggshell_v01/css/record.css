@@ -1,3 +1,8 @@
+#content {
+    height: 1055px;
+    text-align: center;
+}
+
 .new-catch {
     position: absolute;
     top: -19px;

@@ -30,6 +30,8 @@ function call_data_list_by_fbid(fb_id) {
 
             console.log(data_lists, 'data_lists');
 
+            var recommend_sites = [];
+
             for (var i = 0; i < data_lists.length; i++) {
                 var list = data_lists[i];
                 var gps_x = parseFloat(list.gps_x);
@@ -54,6 +56,12 @@ function init_recommend_sites(recommend_sites) {
     var record_count = recommend_sites.length;
 
     $(".say-hi-count").text(record_count);
+
+    if (record_count == 0) {
+    	$('#rank-info-window').css('display', 'none');
+    }else {
+    	$('#content').css('height', 'auto');
+    }
 }
 
 window.fbAsyncInit = function() {

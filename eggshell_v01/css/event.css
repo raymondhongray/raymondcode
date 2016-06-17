@@ -1,3 +1,7 @@
+#content {
+    height: auto !important;
+}
+
 .currnent-path {
     margin-top: 30px;
     margin-bottom: 20px;

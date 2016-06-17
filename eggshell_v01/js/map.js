@@ -408,7 +408,7 @@ $(document).ready(function() {
         var gps_list = [[25.0677678, 121.5716523], [24.0520781, 120.6042746], [25.2464462,121.6090018], [22.7559119,120.3117623]];
 
         var title = $("#map-info-window").find('.map-content-title').text();
-        var description = $("#map-info-window").find('.map-content-description').html();
+        var description = $("#map-info-window").find('.map-content-description').text();
         var gps_x = gps_list[tab_index][0];
         var gps_y = gps_list[tab_index][1];
         var share_link = window.location.hostname + '/eggshell_v01/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
@@ -456,7 +456,7 @@ $(document).ready(function() {
         setStarMarkers($("#map-info-window"), '.lg-star', scores);
 
         var title = $("#map-info-window").find('.map-content-title').text();
-        var description = $("#map-info-window").find('.map-content-description').html();
+        var description = $("#map-info-window").find('.map-content-description').text();
         var gps_x = $("#map-info-window").attr('gps-x');
         var gps_y = $("#map-info-window").attr('gps-y');
         var share_link = window.location.hostname + '/eggshell_v01/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;

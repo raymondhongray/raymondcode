@@ -66,7 +66,7 @@ function init_recommend_sites(recommend_sites) {
 
 window.fbAsyncInit = function() {
     FB.init({
-        appId: '1033598853400049',
+        appId: '1033597740066827',
         xfbml: true,
         version: 'v2.6'
     });

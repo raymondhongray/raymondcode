@@ -134,7 +134,7 @@ var showAll_RankInfoWindow = false;
 // }
 
 function addRankInfoWindow(recommend_sites, start, show_all) {
-    
+
     var offset = 5;
     var end = recommend_sites.length;
 
@@ -146,7 +146,7 @@ function addRankInfoWindow(recommend_sites, start, show_all) {
     }
 
     for (var i = start; i < end; i++) {
-        
+
         var recommend_site = recommend_sites[i];
 
         var title = recommend_site[0];
@@ -174,34 +174,50 @@ function addRankInfoWindow(recommend_sites, start, show_all) {
     }
 }
 
+function setTabInfoData(tab_index, background_color, title, slogan, img, addr, description_content) {
+
+
+    $('#tab-info-window').css('background-color', background_color);
+
+    $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-title').text(title);
+    $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-slogan').text(slogan);
+    $('#tab-info-window .info-window-row').find('.recommend-img > img').attr('src', img);
+    $('#tab-info-window .info-window-row').find('.info-window-row-content > .addr-value').text(addr);
+    $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-description').html(description_content);
+}
+
 function setTabInfoWindow() {
 
     tab_contents = [
-        ['#5fc2c7', '內湖運動公園', '自在跑跳，釋放體力極限', '台灣台北市內湖區舊宗路二段1號', '活力夏日，7月3日小鹿特別邀請大家動一動！在極具特色二樓的廣闊公園，擁有夏季不來超可惜的清涼親水區，以及美麗的大草坪讓寶貝自在玩耍，更有沙池與兒童遊樂器絕對讓寶貝玩得開心又過癮！還有攀岩場與滑板場可以挑戰喔。', 'https://unsplash.it/200/200'],
-        ['#669900', '今夜星辰休閒農場', '可愛動物歡樂新天地', '彰化市石牌里石牌路一段428號', '6月25日小鹿為你介紹他的好朋友。2015全新開幕景點，你還不知道超可惜！充滿美麗造景的農場景觀，深受大朋友小朋友喜愛；草泥馬、兔子與小浣熊等多種動物更是農場中的主角，近距離與動物們接觸互動，保證帶給寶貝歡樂與驚奇。', 'https://unsplash.it/200/200'],
-        ['#f8b600', '朱銘美術館', '自然與藝術的交織盛宴', '新北市金山區西勢湖2號', '山林避暑，7月2日小鹿帶你陶冶心靈！來到朱銘先生根據自然地貌設計規劃，展示自己與多位藝術家有趣的雕塑作品，還有室內展館與各式主題廣場，並不定期舉辦體驗活動、特展與表演等等。還沒來過超可惜，帶著小寶貝們暢遊自然與藝術之間，來趟新鮮的知性之旅吧。', 'https://unsplash.it/200/200'],
-        ['#acbb22', '橋頭糖廠', '寓教於樂集結首選', '高雄市橋頭區興糖路24號', '6月25日小鹿陪你一起來場知性小冒險！交通超便利的三級古蹟製糖廠，進入日式與歐式的傳統建築與製糖廠房，穿越時空一探台灣製糖歷史文化之旅。綠意盎然的廠區內也富含自然生態，還可以搭乘五分車，享受多種美食與其他遊憩區域。絕對是不來超可惜的南部親子旅遊景點首選！', 'https://unsplash.it/200/200'],
+        ['#5fc2c7', '內湖運動公園', '自在跑跳，釋放體力極限', '台灣台北市內湖區舊宗路二段1號', '活力夏日，<span style="color:#FFFF01;">7月3日</span>小鹿特別邀請大家動一動！在極具特色二樓的廣闊公園，擁有夏季不來超可惜的清涼親水區，以及美麗的大草坪讓寶貝自在玩耍，更有沙池與兒童遊樂器絕對讓寶貝玩得開心又過癮！還有攀岩場與滑板場可以挑戰喔。', 'https://unsplash.it/200/200'],
+        ['#669900', '今夜星辰休閒農場', '可愛動物歡樂新天地', '彰化市石牌里石牌路一段428號', '<span style="color:#FFFF01;">6月25日</span>小鹿為你介紹他的好朋友。2015全新開幕景點，你還不知道超可惜！充滿美麗造景的農場景觀，深受大朋友小朋友喜愛；草泥馬、兔子與小浣熊等多種動物更是農場中的主角，近距離與動物們接觸互動，保證帶給寶貝歡樂與驚奇。', 'https://unsplash.it/200/200'],
+        ['#f8b600', '朱銘美術館', '自然與藝術的交織盛宴', '新北市金山區西勢湖2號', '山林避暑，<span style="color:#FFFF01;">7月2日</span>小鹿帶你陶冶心靈！來到朱銘先生根據自然地貌設計規劃，展示自己與多位藝術家有趣的雕塑作品，還有室內展館與各式主題廣場，並不定期舉辦體驗活動、特展與表演等等。還沒來過超可惜，帶著小寶貝們暢遊自然與藝術之間，來趟新鮮的知性之旅吧。', 'https://unsplash.it/200/200'],
+        ['#acbb22', '橋頭糖廠', '寓教於樂集結首選', '高雄市橋頭區興糖路24號', '<span style="color:#FFFF01;">6月25日</span>小鹿陪你一起來場知性小冒險！交通超便利的三級古蹟製糖廠，進入日式與歐式的傳統建築與製糖廠房，穿越時空一探台灣製糖歷史文化之旅。綠意盎然的廠區內也富含自然生態，還可以搭乘五分車，享受多種美食與其他遊憩區域。絕對是不來超可惜的南部親子旅遊景點首選！', 'https://unsplash.it/200/200'],
     ];
 
+    var tab_index = 0;
+    var tab_content = tab_contents[tab_index];
+    var background_color = tab_content[0];
+    var title = tab_content[1];
+    var slogan = tab_content[2];
+    var addr = tab_content[3];
+    var description_content = tab_content[4];
+    var img = tab_content[5];
+
+    setTabInfoData(tab_index, background_color, title, slogan, img, addr, description_content);
+
     $(".tab-theme").click(function() {
-        var tab_index = $(this).attr('data-id');
 
-        var tab_content = tab_contents[tab_index];
-        var background_color = tab_content[0];
-        var title = tab_content[1];
-        var slogan = tab_content[2];
-        var addr = tab_content[3];
-        var description_content = tab_content[4];
-        var img = tab_content[5];
+        tab_index = $(this).attr('data-id');
+        tab_content = tab_contents[tab_index];
+        background_color = tab_content[0];
+        title = tab_content[1];
+        slogan = tab_content[2];
+        addr = tab_content[3];
+        description_content = tab_content[4];
+        img = tab_content[5];
 
-        $('#tab-info-window').css('background-color', background_color);
-
-        $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-title').text(title);
-        $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-slogan').text(slogan);
-        $('#tab-info-window .info-window-row').find('.recommend-img > img').attr('src', img);
-        $('#tab-info-window .info-window-row').find('.info-window-row-content > .addr-value').text(addr);
-        $('#tab-info-window .info-window-row').find('.info-window-row-content > .map-content-description').text(description_content);
-
+        setTabInfoData(tab_index, background_color, title, slogan, img, addr, description_content);
     });
 }
 
@@ -376,7 +392,7 @@ $(document).ready(function() {
 
     setTabInfoWindow();
 
-    $("#map-info-window .lg-star").click(function() {
+    $("#map-info-window .lg-star, #tab-info-window .lg-star").click(function() {
 
         console.log('you click star #' + $(this).attr('data-id'));
 

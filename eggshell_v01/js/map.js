@@ -209,6 +209,7 @@ function setTabInfoWindow() {
     $(".tab-theme").click(function() {
 
         tab_index = $(this).attr('data-id');
+        $("#tab-info-window").attr('data-id', tab_index);
         tab_content = tab_contents[tab_index];
         background_color = tab_content[0];
         title = tab_content[1];
@@ -368,20 +369,29 @@ function call_data_share_api(fb_id, fb_name, did, star) {
     });
 }
 
-function call_fb_share(fb_id, fb_name, did, star) {
+function call_fb_share(fb_id, fb_name, did, star, title, description, share_link, pic_url, set_star_scores) {
     var publish = {
-        name: 'facebook api test',
+        name: title,
         method: 'feed',
-        link: window.location.hostname,
-        description: '測試yoyo',
-        picture: window.location.hostname + "/img/fb-share.jpg"
+        link: share_link,
+        description: description,
+        // picture: window.location.hostname + "/img/fb-share.jpg"
+        picture: pic_url
     };
+
+    // console.log('title', title);
+    // console.log('description', description);
+    // console.log('share_link', share_link);
+    // console.log('pic_url', pic_url);
+    // console.log('set_star_scores', set_star_scores);
 
     FB.ui(publish, function(response) {
         if (response && !response.error_message) {
             console.log(response, 'fb_share');
 
-            call_data_share_api(fb_id, fb_name, did, star);
+            if (set_star_scores == 1) {
+                call_data_share_api(fb_id, fb_name, did, star);
+            }
         } else {
             alert('Oops，沒有分享成功要顯示的訊息！');
         }
@@ -392,14 +402,21 @@ $(document).ready(function() {
 
     setTabInfoWindow();
 
-    $("#map-info-window .lg-star, #tab-info-window .lg-star").click(function() {
+    $(".fb-share-action").click(function() {
 
-        console.log('you click star #' + $(this).attr('data-id'));
+        var tab_index = $("#tab-info-window").attr('data-id');
+        var gps_list = [[25.0677678, 121.5716523], [24.0520781, 120.6042746], [25.2464462,121.6090018], [22.7559119,120.3117623]];
 
-        var scores = $(this).attr('data-id');
-        setStarMarkers($("#map-info-window"), '.lg-star', scores);
+        var title = $("#map-info-window").find('.map-content-title').text();
+        var description = $("#map-info-window").find('.map-content-description').html();
+        var gps_x = gps_list[tab_index][0];
+        var gps_y = gps_list[tab_index][1];
+        var share_link = window.location.hostname + '/eggshell_v01/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
+        // picture: window.location.hostname + "/img/fb-share.jpg"
+        var pic_url = 'https://unsplash.it/300/300';
 
         FB.getLoginStatus(function(response) {
+
             if (response.status === 'connected') {
 
                 FB.api('/me', function(res) {
@@ -408,7 +425,7 @@ $(document).ready(function() {
                     fb_id = res['id'];
                     fb_name = res['name'];
 
-                    call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores);
+                    call_fb_share(fb_id, fb_name, 0, 0, title, description, share_link, pic_url, 0);
                 });
             } else {
 
@@ -421,7 +438,55 @@ $(document).ready(function() {
                             fb_name = response['name'];
                             fb_id = response['id'];
 
-                            call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores);
+                            call_fb_share(fb_id, fb_name, 0, 0, title, description, share_link, pic_url, 0);
+                        });
+                    } else {
+                        alert('登入失敗');
+                    }
+                });
+            }
+        });
+    });
+
+    $("#map-info-window .lg-star").click(function() {
+
+        console.log('you click star #' + $(this).attr('data-id'));
+
+        var scores = $(this).attr('data-id');
+        setStarMarkers($("#map-info-window"), '.lg-star', scores);
+
+        var title = $("#map-info-window").find('.map-content-title').text();
+        var description = $("#map-info-window").find('.map-content-description').html();
+        var gps_x = $("#map-info-window").attr('gps-x');
+        var gps_y = $("#map-info-window").attr('gps-y');
+        var share_link = window.location.hostname + '/eggshell_v01/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
+        // picture: window.location.hostname + "/img/fb-share.jpg"
+        var pic_url = 'https://unsplash.it/300/300';
+
+        FB.getLoginStatus(function(response) {
+
+            if (response.status === 'connected') {
+
+                FB.api('/me', function(res) {
+                    console.log(res);
+
+                    fb_id = res['id'];
+                    fb_name = res['name'];
+
+                    call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores, title, description, share_link, pic_url, 1);
+                });
+            } else {
+
+                FB.login(function(response) {
+
+                    if (response.authResponse) {
+
+                        FB.api('/me', function(response) {
+
+                            fb_name = response['name'];
+                            fb_id = response['id'];
+
+                            call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores, title, description, share_link, pic_url, 1);
                         });
                     } else {
                         alert('登入失敗');

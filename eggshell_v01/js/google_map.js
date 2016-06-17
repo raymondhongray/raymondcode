@@ -13,15 +13,28 @@ function getQueryStrByName(name, url) {
 function initAutocomplete() {
     var site = getQueryStrByName('site');
 
-    if (site == 'northern') {
-        default_center = [25.0677678, 121.5716523];
-    } else {
-        if (site == 'central') {
-            default_center = [24.0520737, 120.6042791];
+    if (site != null) {
+        if (site == 'northern') {
+            default_center = [25.0677678, 121.5716523];
         } else {
-            if (site == 'southern') {
-                // default_center = [25.0677678, 121.5716523];
+            if (site == 'central') {
+                default_center = [24.0520737, 120.6042791];
+            } else {
+                if (site == 'southern') {
+                    default_center = [22.7559119, 120.3117623];
+                }
             }
+        }
+    }
+
+    if (getQueryStrByName('set_gps') != null && getQueryStrByName('set_gps') == '1') {
+
+        if (getQueryStrByName('gps_x') != null && getQueryStrByName('gps_y') != null) {
+
+            var gps_x = getQueryStrByName('gps_x');
+            var gps_y = getQueryStrByName('gps_y');
+            default_center[0] = parseFloat(gps_x);
+            default_center[1] = parseFloat(gps_y);
         }
     }
 
@@ -122,7 +135,7 @@ function initAutocomplete() {
                 var gps_x = parseFloat(list.gps_x);
                 var gps_y = parseFloat(list.gps_y);
                 var site = [list.title, gps_x, gps_y, 1, list.avg, list.img_1, list.address, list.content, list.did, list.site, list.totel, list.time, list.img_2, list.img_3]
-                recommend_sites.push(site);           
+                recommend_sites.push(site);
             }
 
             setRecommendMarkers(map, recommend_sites);
@@ -188,6 +201,8 @@ function setRecommendMarkers(map, recommend_sites) {
             // infowindow.open(map, this);
             // $("#map-template, #map-close-icon").fadeIn(800, 'swing');
             $("#map-info-window").attr('data-id', this.did);
+            $("#map-info-window").attr('gps-x', this.lat);
+            $("#map-info-window").attr('gps-y', this.lng);
             $('#map-info-window').find('.info-window-row-content > .map-content-title').text(this.title);
             $('#map-info-window').find('.avg-score').text(this.avg_scores);
             $('#map-info-window').find('.recommend-img > img').attr('src', this.img);

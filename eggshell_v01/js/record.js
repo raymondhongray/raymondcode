@@ -59,6 +59,7 @@ function init_recommend_sites(recommend_sites) {
 
     if (record_count == 0) {
     	$('#rank-info-window').css('display', 'none');
+        $('#content').css('height', '800px');
     }else {
     	$('#content').css('height', 'auto');
     }

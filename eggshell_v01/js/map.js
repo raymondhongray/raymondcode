@@ -496,11 +496,11 @@ $(document).ready(function() {
             } else {
 
                 if (is_ios_device()) {
-                    console.log('is_ios_device in')
+                    console.log('is_ios_device in');
                     var appId = '1033597740066827';
-                    var redirect_uri = window.location.hostname + '/eggshell_v01/map.html';
                     var app_permissions = 'public_profile';
-                    var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + redirect_uri + "&scope=" + app_permissions;
+                    window.location.search = '?call_fb_share=1';
+                    var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
                     window.location = permissionUrl;
                 } else {
 

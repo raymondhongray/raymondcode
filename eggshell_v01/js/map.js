@@ -398,6 +398,19 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
     });
 }
 
+function is_ios_device() {
+    var standalone = window.navigator.standalone,
+        userAgent = window.navigator.userAgent.toLowerCase(),
+        safari = /safari/.test(userAgent),
+        ios = /iphone|ipod|ipad/.test(userAgent);
+
+    if (ios) {
+        return true;
+    } else {
+        return false;
+    };
+}
+
 $(document).ready(function() {
 
     setTabInfoWindow();
@@ -405,7 +418,12 @@ $(document).ready(function() {
     $(".fb-share-action").click(function() {
 
         var tab_index = $("#tab-info-window").attr('data-id');
-        var gps_list = [[25.0677678, 121.5716523], [24.0520781, 120.6042746], [25.2464462,121.6090018], [22.7559119,120.3117623]];
+        var gps_list = [
+            [25.0677678, 121.5716523],
+            [24.0520781, 120.6042746],
+            [25.2464462, 121.6090018],
+            [22.7559119, 120.3117623]
+        ];
 
         var title = $("#tab-info-window").find('.map-content-title').text();
         var description = $("#tab-info-window").find('.map-content-description').text();
@@ -477,21 +495,30 @@ $(document).ready(function() {
                 });
             } else {
 
-                FB.login(function(response) {
+                if (is_ios_device()) {
+                    console.log('is_ios_device in')
+                    var appId = '1033597740066827';
+                    var app_permissions = 'public_profile';
+                    var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+                    window.location = permissionUrl;
+                } else {
 
-                    if (response.authResponse) {
+                    FB.login(function(response) {
 
-                        FB.api('/me', function(response) {
+                        if (response.authResponse) {
 
-                            fb_name = response['name'];
-                            fb_id = response['id'];
+                            FB.api('/me', function(response) {
 
-                            call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores, title, description, share_link, pic_url, 1);
-                        });
-                    } else {
-                        alert('登入失敗');
-                    }
-                });
+                                fb_name = response['name'];
+                                fb_id = response['id'];
+
+                                call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores, title, description, share_link, pic_url, 1);
+                            });
+                        } else {
+                            alert('登入失敗');
+                        }
+                    });
+                }
             }
         });
     });

@@ -100,6 +100,19 @@ function scrollDetect() {
     }
 }
 
+function is_ios_device() {
+    var standalone = window.navigator.standalone,
+        userAgent = window.navigator.userAgent.toLowerCase(),
+        safari = /safari/.test(userAgent),
+        ios = /iphone|ipod|ipad/.test(userAgent);
+
+    if (ios) {
+        return true;
+    } else {
+        return false;
+    };
+}
+
 
 $(document).ready(function() {
 
@@ -143,21 +156,29 @@ $(document).ready(function() {
                     });
                 } else {
 
-                    FB.login(function(response) {
+                    if (0 && is_ios_device()) {
+                        console.log('is_ios_device in')
+                        var appId = '1033597740066827';
+                        var app_permissions = 'public_profile';
+                        var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+                        window.location = permissionUrl;
+                    } else {
+                        FB.login(function(response) {
 
-                        if (response.authResponse) {
+                            if (response.authResponse) {
 
-                            FB.api('/me', function(response) {
+                                FB.api('/me', function(response) {
 
-                                fb_name = response['name'];
-                                fb_id = response['id'];
+                                    fb_name = response['name'];
+                                    fb_id = response['id'];
 
-                                call_data_upload_api(fb_id, fb_name);
-                            });
-                        } else {
-                            alert('登入失敗');
-                        }
-                    });
+                                    call_data_upload_api(fb_id, fb_name);
+                                });
+                            } else {
+                                alert('登入失敗');
+                            }
+                        });
+                    }
                 }
             });
         }

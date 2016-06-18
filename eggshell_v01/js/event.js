@@ -109,7 +109,7 @@ $(document).ready(function() {
         scrollDetect();
     });
 
-    $('body').on('click', '.show-more.by-event-page', function() {
+    $(document).on('click touchstart', '.show-more.by-event-page', function() {
 
         showPopup2($(this).parents('.info-window-row-content'));
     });

@@ -501,7 +501,7 @@ $(document).ready(function() {
         addRankInfoWindow(recommend_sites, nextShowIndex, showAll_RankInfoWindow);
     });
 
-    $('body').on('click', '.show-more', function() {
+    $(document).on('click touchstart', '.show-more', function() {
 
         showPopup($(this).parents('.info-window-row-content'));
     });

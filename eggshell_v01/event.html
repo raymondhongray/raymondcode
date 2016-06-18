@@ -31,6 +31,13 @@
             xfbml: true,
             version: 'v2.6'
         });
+
+        FB.getLoginStatus(function(response) {
+            if (response.status !== 'connected') {
+
+                $('.go-to-record').css('display', 'none');
+            }
+        });
     };
 
     (function(d, s, id) {
@@ -270,13 +277,14 @@
                     <img src="img/event/event_map_btn_2.png">
                 </div>
             </div>
-            <a href="record.html"><p class="go-to-record">歷程記錄</p></a>
+            <a href="record.html">
+                <p class="go-to-record">歷程記錄</p>
+            </a>
             <div class="green-line"></div>
             <div id="event-equipment" class="event-equipment">
                 <img src="img/event/event_equipment.png" />
             </div>
             <p class="event-wording">夏季旅遊最怕外在環境威脅，為了安心出遊，做好萬全準備非常重要。小鹿誠心推薦夏日旅遊必帶裝備，讓寶貝在任何環境安全遊玩，家長輕鬆又放心，滿足全家人的貼心需求。</p>
-            
             <style type="text/css">
 
             </style>

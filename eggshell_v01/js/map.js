@@ -346,6 +346,29 @@ function showPopup2(object) {
     $('#popup2.popup').css('display', 'block');
 }
 
+function insert_fb_log(fb_id, fb_name) {
+    $.ajax({
+        type: 'POST',
+        url: "../api/fb_login.php",
+        type: "POST",
+        data: {
+            fbid: fb_id,
+            fbname: fb_name
+        },
+        dataType: "json",
+        success: function(res) {
+            
+            if (res.code == 0) {
+                console.log('success insert_fb_log');
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Error: " + errorThrown);
+        },
+    });
+}
+
 function call_data_share_api(fb_id, fb_name, did, star) {
 
     if (star > 0) {
@@ -377,6 +400,9 @@ function call_data_share_api(fb_id, fb_name, did, star) {
 }
 
 function call_fb_share(fb_id, fb_name, did, star, title, description, share_link, pic_url, set_star_scores) {
+
+    insert_fb_log(fb_id, fb_name);
+
     var publish = {
         name: title,
         method: 'feed',

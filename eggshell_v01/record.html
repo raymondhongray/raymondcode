@@ -27,40 +27,6 @@
 
 <body id="index-body">
     <script>
-    // window.fbAsyncInit = function() {
-    //     FB.init({
-    //         appId: '1033597740066827',
-    //         xfbml: true,
-    //         version: 'v2.6'
-    //     });
-
-    //     FB.getLoginStatus(function(response) {
-    //         if (response.status === 'connected') {
-
-    //             FB.api('/me', function(res) {
-
-    //                 var fb_name = res['name'];
-    //                 $(".say-hi-guy").text(fb_name);
-    //             });
-    //         } else {
-
-    //             FB.login(function(response) {
-
-    //                 if (response.authResponse) {
-
-    //                     FB.api('/me', function(response) {
-
-    //                         var fb_name = response['name'];
-    //                         $(".say-hi-guy").text(fb_name);
-    //                     });
-    //                 } else {
-    //                     alert('登入失敗');
-    //                 }
-    //             });
-    //         }
-    //     });
-    // };
-
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
@@ -97,6 +63,7 @@
         <div class="loading-effect-opacity"></div>
     </div>
     <!--所有頁面共用的 Menu-->
+    <!--所有頁面共用的 Menu-->
     <nav class="nav-menu">
         <div class="nav-content">
             <ul class="nav-ul">
@@ -110,7 +77,7 @@
                         <img src="img/menu/index_03.jpg" />
                     </li>
                 </a>
-                <li id="expansion">
+                <!-- <li id="expansion">
                     <img src="img/menu/index_04.jpg" />
                 </li>
                 <a href="event.html" onClick="" class="sub-menu" data-id="1">
@@ -126,6 +93,16 @@
                 <a href="event.html?move_to=event_equipment" class="sub-menu" data-id="3">
                     <li class="">
                         <img src="img/menu/index_04_3.jpg" />
+                    </li>
+                </a> -->
+                <a href="event.html">
+                    <li class="">
+                        <img src="img/menu/index_04.jpg" />
+                    </li>
+                </a>
+                <a href="event.html?move_to=event_equipment">
+                    <li class="">
+                        <img src="img/menu/index_05.jpg" />
                     </li>
                 </a>
                 <a href="friend.html" onClick="">
@@ -181,6 +158,7 @@
                     <img class="new-catch" src="img/record/new_catch.png" />
                     <div class="info-window-header"></div>
                     <div data-id="clone_me" class="info-window-row">
+                        <p class="status-marker">。未通過。</p>
                         <div class="index-marker">
                             <img src="img/map/marker_icon.png" />
                             <p>1</p>

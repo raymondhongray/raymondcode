@@ -1,9 +1,9 @@
 // 0615 james
 function setProductTabInfoWindow() {
 
-    $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
-    $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
-    $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=64"><img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=64"><img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=64"><img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
 
     tab2_contents = [
         ['img/event/p1.png'],
@@ -25,8 +25,8 @@ function setProductTabInfoWindow() {
             $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
             $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
         } else {
-            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos2" src="img/event/more3.png" />');
-            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos1" src="img/event/more3.png" />');
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=61"><img class="product-intro-more product-intro-more-pos2" src="img/event/more3.png" />');
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=61"><img class="product-intro-more product-intro-more-pos1" src="img/event/more3.png" />');
         }
 
     });
@@ -207,12 +207,19 @@ $(document).ready(function() {
 
     // 0616 james 
     var recommendOffset = $('.activity-group').offset().top - 500;
-    $('#event-index-img,.activitie').click(function() {
+    $('.event_index_btn2, .activitie').click(function() {
         $('html,body').animate({
             scrollTop: recommendOffset
         }, 500);
     });
     // 0616 james end
+
+    var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
+    $('.event_index_btn1').click(function() {
+        $('html,body').animate({
+            scrollTop: event_taiwanOffset
+        }, 500);
+    });
 
     if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'event_equipment') {
         var equipmentOffset = $('#event-equipment').offset().top - 250;

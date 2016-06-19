@@ -150,7 +150,7 @@
 
 .event-map-btn img:nth-of-type(2) {
     position: absolute;
-    top: 11px;
+    top: -10px;
     left: 33px;
     animation: up_down 3s infinite;
 }
@@ -232,4 +232,9 @@
     text-decoration: underline;
     font-size: 30px;
     margin-left: 75px;
+}
+
+.event-index-btn-group {
+    text-align: center;
+    margin-top: -20px;
 }

@@ -379,41 +379,107 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
         picture: pic_url
     };
 
-    // console.log('title', title);
-    // console.log('description', description);
-    // console.log('share_link', share_link);
-    // console.log('pic_url', pic_url);
-    // console.log('set_star_scores', set_star_scores);
+    if (set_star_scores) {
 
-    FB.ui(publish, function(response) {
-        if (response && !response.error_message) {
-            console.log(response, 'fb_share');
-
-            if (set_star_scores == 1) {
-                call_data_share_api(fb_id, fb_name, did, star);
-            }
-        } else {
-            alert('Oops，沒有分享成功要顯示的訊息！');
+        var cookie_call_data_share = {
+            did: did,
+            scores: star,
         }
-    });
+
+        setCookie('call_data_share_api', JSON.stringify(cookie_call_data_share), 180);
+    }
+
+    var appId = '1033597740066827';
+    window.location.hash = '';
+    window.location.search = '';
+
+    var permissionUrl = "https://m.facebook.com/dialog/feed?app_id=" + appId + "&display=touch&redirect_uri=" + window.location + "&name=" + publish.name + "&description=" + publish.description + "&link=" + publish.link + "&picture=" + publish.picture;
+    window.location = permissionUrl;
+
+    // FB.ui(publish, function(response) {
+    //     if (response && !response.error_message) {
+    //         console.log(response, 'fb_share');
+
+    //         if (set_star_scores == 1) {
+    //             call_data_share_api(fb_id, fb_name, did, star);
+    //         }
+    //     } else {
+    //         alert('Oops，沒有分享成功要顯示的訊息！');
+    //     }
+    // });
 }
 
-function is_ios_device() {
-    var standalone = window.navigator.standalone,
-        userAgent = window.navigator.userAgent.toLowerCase(),
-        safari = /safari/.test(userAgent),
-        ios = /iphone|ipod|ipad/.test(userAgent);
+function is_mobile() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    if (ios) {
+    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i) || userAgent.match(/Android/i)) {
         return true;
+
     } else {
         return false;
-    };
+    }
 }
 
 $(document).ready(function() {
 
     setTabInfoWindow();
+
+    if (getCookie('call_data_share_api')) {
+
+        var obj = JSON.parse(getCookie('call_data_share_api'));
+
+        console.log(obj);
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1033597740066827',
+                xfbml: true,
+                version: 'v2.6'
+            });
+
+            FB.getLoginStatus(function(response) {
+
+                console.log(response);
+                
+                FB.api('/me', function(response) {
+
+                    if (response['error']) {
+                        console.log(response);
+                    }
+
+                    var fb_name = response['name'];
+                    var fb_id = response['id'];
+
+                    call_data_share_api(fb_id, fb_name, obj.did, obj.scores);
+                    deleteCookie('call_data_share_api');
+                });
+            });
+        };
+    }
+
+    if (getCookie('call_fb_share')) {
+
+        var share_obj = JSON.parse(getCookie('call_fb_share'));
+
+        console.log(share_obj);
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1033597740066827',
+                xfbml: true,
+                version: 'v2.6'
+            });
+            FB.api('/me', function(response) {
+
+                var fb_name = response['name'];
+                var fb_id = response['id'];
+
+                call_fb_share(fb_id, fb_name, share_obj.did, share_obj.scores, share_obj.title, share_obj.description, share_obj.share_link, share_obj.pic_url, 0);
+
+                deleteCookie('call_fb_share');
+            });
+        };
+    }
+
 
     $(".fb-share-action").click(function() {
 
@@ -433,6 +499,7 @@ $(document).ready(function() {
         // picture: window.location.hostname + "/img/fb-share.jpg"
         var pic_url = 'https://unsplash.it/300/300';
 
+
         FB.getLoginStatus(function(response) {
 
             if (response.status === 'connected') {
@@ -447,23 +514,25 @@ $(document).ready(function() {
                 });
             } else {
 
-                FB.login(function(response) {
+                var cookie_call_fb_share = {
+                    did: 0,
+                    scores: 0,
+                    title: title,
+                    description: description,
+                    share_link: share_link,
+                    pic_url: pic_url,
+                    set_star_scores: 0,
+                }
 
-                    if (response.authResponse) {
+                setCookie('call_fb_share', JSON.stringify(cookie_call_fb_share), 180);
 
-                        FB.api('/me', function(response) {
-
-                            fb_name = response['name'];
-                            fb_id = response['id'];
-
-                            call_fb_share(fb_id, fb_name, 0, 0, title, description, share_link, pic_url, 0);
-                        });
-                    } else {
-                        alert('登入失敗');
-                    }
-                });
+                var appId = '1033597740066827';
+                var app_permissions = 'public_profile';
+                var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+                window.location = permissionUrl;
             }
         });
+
     });
 
     $("#map-info-window .lg-star").click(function() {
@@ -495,31 +564,22 @@ $(document).ready(function() {
                 });
             } else {
 
-                if (is_ios_device()) {
-                    console.log('is_ios_device in');
-                    var appId = '1033597740066827';
-                    var app_permissions = 'public_profile';
-                    window.location.search = '?call_fb_share=1';
-                    var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
-                    window.location = permissionUrl;
-                } else {
-
-                    FB.login(function(response) {
-
-                        if (response.authResponse) {
-
-                            FB.api('/me', function(response) {
-
-                                fb_name = response['name'];
-                                fb_id = response['id'];
-
-                                call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores, title, description, share_link, pic_url, 1);
-                            });
-                        } else {
-                            alert('登入失敗');
-                        }
-                    });
+                var cookie_call_fb_share = {
+                    did: $("#map-info-window").attr('data-id'),
+                    scores: scores,
+                    title: title,
+                    description: description,
+                    share_link: share_link,
+                    pic_url: pic_url,
+                    set_star_scores: 1,
                 }
+
+                setCookie('call_fb_share', JSON.stringify(cookie_call_fb_share), 180);
+
+                var appId = '1033597740066827';
+                var app_permissions = 'public_profile';
+                var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+                window.location = permissionUrl;
             }
         });
     });
@@ -534,3 +594,29 @@ $(document).ready(function() {
         showPopup($(this).parents('.info-window-row-content'));
     });
 });
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function deleteCookie(cname) {
+    document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}

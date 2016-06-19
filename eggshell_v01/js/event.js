@@ -116,7 +116,46 @@ function is_ios_device() {
 
 $(document).ready(function() {
 
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1033597740066827',
+            xfbml: true,
+            version: 'v2.6'
+        });
+
+        FB.getLoginStatus(function(response) {
+            if (response.status !== 'connected') {
+                var appId = '1033597740066827';
+                var app_permissions = 'public_profile';
+                var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+                window.location = permissionUrl;
+            } else {
+                console.log(response);
+            }
+        });
+    };
+
     setProductTabInfoWindow();
+
+    if (getCookie('call_data_upload')) {
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1033597740066827',
+                xfbml: true,
+                version: 'v2.6'
+            });
+            FB.api('/me', function(response) {
+
+                var fb_name = response['name'];
+                var fb_id = response['id'];
+
+                call_data_upload_api(fb_id, fb_name);
+
+                deleteCookie('call_data_upload');
+            });
+        };
+    }
 
     $(window).scroll(function() {
         scrollDetect();
@@ -156,29 +195,11 @@ $(document).ready(function() {
                     });
                 } else {
 
-                    if (0 && is_ios_device()) {
-                        console.log('is_ios_device in')
-                        var appId = '1033597740066827';
-                        var app_permissions = 'public_profile';
-                        var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
-                        window.location = permissionUrl;
-                    } else {
-                        FB.login(function(response) {
-
-                            if (response.authResponse) {
-
-                                FB.api('/me', function(response) {
-
-                                    fb_name = response['name'];
-                                    fb_id = response['id'];
-
-                                    call_data_upload_api(fb_id, fb_name);
-                                });
-                            } else {
-                                alert('登入失敗');
-                            }
-                        });
-                    }
+                    // setCookie('call_data_upload', 1, 180);
+                    // var appId = '1033597740066827';
+                    // var app_permissions = 'public_profile';
+                    // var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+                    // window.location = permissionUrl;
                 }
             });
         }

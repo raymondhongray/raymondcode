@@ -348,25 +348,32 @@ function showPopup2(object) {
 
 function call_data_share_api(fb_id, fb_name, did, star) {
 
-    var post_data = { fbid: fb_id, fbname: fb_name, did: did, star: star };
+    if (star > 0) {
 
-    $.ajax({
-        type: 'POST',
-        url: "../api/data_share.php",
-        type: "POST",
-        data: post_data,
-        dataType: "json",
-        success: function(res) {
-            console.log(res);
-            if (res.code == 0) {
-                $(".popup-done").css('display', 'block');
-            }
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Status: " + textStatus);
-            console.log("Error: " + errorThrown);
-        },
-    });
+        var post_data = { fbid: fb_id, fbname: fb_name, did: did, star: star };
+
+        $.ajax({
+            type: 'POST',
+            url: "../api/data_share.php",
+            type: "POST",
+            data: post_data,
+            dataType: "json",
+            success: function(res) {
+                console.log(res);
+                if (res.code == 0) {
+                    $(".popup-done").css('display', 'block');
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
+            },
+        });
+
+    } else {
+        // 只分享不評分
+        $(".popup-done").css('display', 'block');
+    }
 }
 
 function call_fb_share(fb_id, fb_name, did, star, title, description, share_link, pic_url, set_star_scores) {
@@ -379,21 +386,17 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
         picture: pic_url
     };
 
-    if (set_star_scores) {
-
-        var cookie_call_data_share = {
-            did: did,
-            scores: star,
-        }
-
-        setCookie('call_data_share_api', JSON.stringify(cookie_call_data_share), 180);
+    var cookie_call_data_share = {
+        did: did,
+        scores: star,
     }
 
-    var appId = '1033597740066827';
-    window.location.hash = '';
-    window.location.search = '';
+    setCookie('call_data_share_api', JSON.stringify(cookie_call_data_share), 180);
 
-    var permissionUrl = "https://m.facebook.com/dialog/feed?app_id=" + appId + "&display=touch&redirect_uri=" + window.location + "&name=" + publish.name + "&description=" + publish.description + "&link=" + publish.link + "&picture=" + publish.picture;
+    var appId = '1033597740066827';
+    var redirect_uri = encodeURI(window.location.protocol + '//' + window.location.hostname + window.location.pathname);
+
+    var permissionUrl = "https://m.facebook.com/dialog/feed?app_id=" + appId + "&display=touch&redirect_uri=" + redirect_uri + "&name=" + publish.name + "&description=" + publish.description + "&link=" + publish.link + "&picture=" + publish.picture;
     window.location = permissionUrl;
 
     // FB.ui(publish, function(response) {
@@ -440,7 +443,7 @@ $(document).ready(function() {
             FB.getLoginStatus(function(response) {
 
                 console.log(response);
-                
+
                 FB.api('/me', function(response) {
 
                     if (response['error']) {

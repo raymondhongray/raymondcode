@@ -1,6 +1,8 @@
-if (! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+// var hashLong = window.location.hash.substring(1);
+
+if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
   
-  document.location.href="index_pc.html";
+  // document.location.href="index_pc.html#desktop";
 }
 
 // function is_mobile() {

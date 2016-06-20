@@ -48,6 +48,8 @@ function call_data_upload_api(fb_id, fb_name) {
     formData.append('fileToUpload_02', $('#fileToUpload_02')[0].files[0]);
     formData.append('fileToUpload_03', $('#fileToUpload_03')[0].files[0]);
 
+    $('.loading-effect').css('display','block');
+
     $.ajax({
         type: 'POST',
         url: "../api/data_upload.php",
@@ -58,6 +60,7 @@ function call_data_upload_api(fb_id, fb_name) {
         processData: false,
         contentType: false,
         success: function(res) {
+            $('.loading-effect').css('display','none');
             console.log(res);
             if (res.code == 0) {
                 window.location.href = "event.html?popup=done";
@@ -70,8 +73,9 @@ function call_data_upload_api(fb_id, fb_name) {
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Status: " + textStatus);
-            console.log("Error: " + errorThrown);
+            $('.loading-effect').css('display','none');
+            alert("Status: " + textStatus);
+            alert("Error: " + errorThrown);
         },
     });
 }

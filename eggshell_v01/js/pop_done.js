@@ -1,4 +1,4 @@
-$(".remove-popup-done-icon").click(function(event) {
+$(".remove-popup-done-icon, .checked-done").click(function(event) {
     event.preventDefault();
 
     $(".popup-done").css('display', 'none');

@@ -44,24 +44,6 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
-<script>
-(function(i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-ga('create', 'UA-79220875-2', 'auto');
-ga('require', 'displayfeatures');
-ga('require', 'linkid');
-ga('send', 'pageview');
-</script>
 
 <body id="index-body">
     <div class="popup">
@@ -146,7 +128,7 @@ ga('send', 'pageview');
                         <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="alert('得獎名單還沒出爐喔\n名單將於7月25日公布\n敬請期待！');return false;">
+                <a href="" onClick="alert('得獎名單還沒出爐喔\n第一階段名單將於7月22日公布\n敬請期待！');return false;">
                     <li class="">
                         <img src="img/menu/index_07.jpg" />
                     </li>
@@ -180,7 +162,7 @@ ga('send', 'pageview');
             <div id="map-search-box">
                 <p style="color: #663300;">地圖搜尋 : </p>
                 <input id="map-search" class="map-search" type="text" name="map_search" value="" placeholder="台北內湖運動公園">
-                <input id="map-submit" class="map-submit" type="button" value="搜尋" onclick="ga('send', 'event', '地圖頁', 'Click', '搜尋');">
+                <input id="map-submit" class="map-submit" type="button" value="搜尋">
             </div>
             <div class="google-map-bg">
                 <!--Google Map-->
@@ -188,7 +170,7 @@ ga('send', 'pageview');
                     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
                     <div id="map"></div>
                 </div>
-                <div id="map-info-window" data-id="0" gps-x="0" , gps-y="0">
+                <div id="map-info-window" data-id="0" gps-x="0", gps-y="0">
                     <div class="info-window-row">
                         <div class="info-window-row-content col-left">
                             <div class="show-star-avg-box">
@@ -203,7 +185,7 @@ ga('send', 'pageview');
                                 <p>顆星</p>
                             </div>
                             <div class="recommend-img"><img src="" /></div>
-                            <div class="lg-star-group" onclick="ga('send', 'event', '地圖頁', 'Click', '星星');">
+                            <div class="lg-star-group">
                                 <i data-id="1" class="lg-star fa fa-star-o" aria-hidden="true"></i>
                                 <i data-id="2" class="lg-star fa fa-star-o" aria-hidden="true"></i>
                                 <i data-id="3" class="lg-star fa fa-star-o" aria-hidden="true"></i>
@@ -221,7 +203,7 @@ ga('send', 'pageview');
                             <p class="map-content-description"></p>
                             <div>
                                 <p>......</p>
-                                <p class="show-more" onclick="ga('send', 'event', '地圖頁', 'Click', '繼續閱讀');"> 繼續閱讀</p>
+                                <p class="show-more"> 繼續閱讀</p>
                             </div>
                         </div>
                     </div>
@@ -230,16 +212,16 @@ ga('send', 'pageview');
             </div>
             <img class="deer-talk-pic" src="img/map/deer_talk_pic.png" />
             <div class="tab-theme-group">
-                <div data-id="0" class="tab-theme" onclick="ga('send', 'event', '地圖頁', 'Click', '台北內湖頁籤');">
+                <div data-id="0" class="tab-theme">
                     <img src="img/event/event_03.png" />
                 </div>
-                <div data-id="1" class="tab-theme" onclick="ga('send', 'event', '地圖頁', 'Click', '彰化頁籤');">
+                <div data-id="1" class="tab-theme">
                     <img src="img/event/event_05.png" />
                 </div>
-                <div data-id="2" class="tab-theme" onclick="ga('send', 'event', '地圖頁', 'Click', '台北金山頁籤');">
+                <div data-id="2" class="tab-theme">
                     <img src="img/event/event_07.png" />
                 </div>
-                <div data-id="3" class="tab-theme" style="margin-right: 2px;" onclick="ga('send', 'event', '地圖頁', 'Click', '高雄頁籤');">
+                <div data-id="3" class="tab-theme" style="margin-right: 2px;">
                     <img src="img/event/event_09.png" />
                 </div>
             </div>
@@ -270,7 +252,7 @@ ga('send', 'pageview');
                 <img class=rank-title " src="img/map/rank_title.png " />
                 <div class="info-window-wrap ">
                     <div class="info-window-header "></div>
-                    <div data-id="clone_me " class="info-window-row ">
+                    <div data-id="clone_me" class="info-window-row ">
                         <div class="index-marker ">
                             <img src="img/map/marker_icon.png " />
                             <p>1</p>
@@ -303,7 +285,7 @@ ga('send', 'pageview');
                     </div>
                 </div>
             </div>
-            <img id="rank-show-btn " class="rank-show-btn " src="img/map/green_more.png " onclick="ga('send', 'event', '地圖頁', 'Click', 'more');"/>
+            <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png " />
         </div>
     </div>
     <footer>
@@ -315,11 +297,11 @@ ga('send', 'pageview');
     <script type="text/javascript " src="js/libs/jqueryEasing-1.9.1.min.js "></script>
     <script type="text/javascript " src="js/libs/modernizr-2.6.2.min.js "></script>
     <script type="text/javascript " src="js/libs/TweenMax.min.js "></script>
-    <script type="text/javascript " src="js/main.js?c_ver=7 "></script>
-    <script type="text/javascript " src="js/google_map.js?c_ver=7 "></script>
-    <script type="text/javascript " src="js/map.js?c_ver=7 "></script>
-    <script type="text/javascript " src="js/pop.js?c_ver=7 "></script>
-    <script type="text/javascript " src="js/pop_done.js?c_ver=7 "></script>
+    <script type="text/javascript " src="js/main.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/google_map.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/map.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/pop.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/pop_done.js?c_ver=7"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete " async defer></script>
 </body>
 

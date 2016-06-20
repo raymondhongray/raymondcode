@@ -25,31 +25,31 @@
 
 <body id="index-body">
     <script>
-    // window.fbAsyncInit = function() {
-    //     FB.init({
-    //         appId: '1033597740066827',
-    //         xfbml: true,
-    //         version: 'v2.6'
-    //     });
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1033597740066827',
+            xfbml: true,
+            version: 'v2.6'
+        });
 
-    //     FB.getLoginStatus(function(response) {
-    //         if (response.status !== 'connected') {
+        // FB.getLoginStatus(function(response) {
+        //     if (response.status !== 'connected') {
 
-    //             $('.go-to-record').css('display', 'none');
-    //         }
-    //     });
-    // };
+        //         $('.go-to-record').css('display', 'none');
+        //     }
+        // });
+    };
 
-    // (function(d, s, id) {
-    //     var js, fjs = d.getElementsByTagName(s)[0];
-    //     if (d.getElementById(id)) {
-    //         return;
-    //     }
-    //     js = d.createElement(s);
-    //     js.id = id;
-    //     js.src = "//connect.facebook.net/en_US/sdk.js";
-    //     fjs.parentNode.insertBefore(js, fjs);
-    // }(document, 'script', 'facebook-jssdk'));
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
     </script>
     <script>
     (function(i, s, o, g, r, a, m) {
@@ -123,11 +123,12 @@
                             <option value="北部">北部</option>
                             <option value="中部">中部</option>
                             <option value="南部">南部</option>
+                            <option value="東部">東部</option>
                         </select>
                     </div>
                     <div class="recommend-textarea">
                         <p style="color: #FFFF01;">好玩的的原因是......</p>
-                        <textarea placeholder="至多三百字內"></textarea>
+                        <textarea placeholder="至多一百字內"></textarea>
                     </div>
                 </div>
                 <div id="display-area" class="area-box display-area" style="display: none;">
@@ -214,7 +215,7 @@
                         <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="alert('得獎名單還沒出爐喔\n名單將於7月25日公布\n敬請期待！');return false;">
+                <a href="" onClick="alert('得獎名單還沒出爐喔\n第一階段名單將於7月22日公布\n敬請期待！');return false;">
                     <li class="">
                         <img src="img/menu/index_07.jpg" />
                     </li>

@@ -1,9 +1,9 @@
 // 0615 james
 function setProductTabInfoWindow() {
 
-    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=64"><img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
-    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=64"><img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
-    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=64"><img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=196" target="_blank"><img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=65" target="_blank"><img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=65" target="_blank"><img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
 
     tab2_contents = [
         ['img/event/p1.png'],
@@ -21,12 +21,12 @@ function setProductTabInfoWindow() {
         $('#product-info-window .info-window-row').find('img').attr('src', img);
 
         if (tab_index == 0) {
-            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
-            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
-            $('.product-intro-group').append('<img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=196" target="_blank"><img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=65" target="_blank"><img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=65" target="_blank"><img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
         } else {
-            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=61"><img class="product-intro-more product-intro-more-pos2" src="img/event/more3.png" />');
-            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=61"><img class="product-intro-more product-intro-more-pos1" src="img/event/more3.png" />');
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=232" target="_blank"><img class="product-intro-more product-intro-more-pos2" src="img/event/more3.png" />');
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=232" target="_blank"><img class="product-intro-more product-intro-more-pos1" src="img/event/more3.png" />');
         }
 
     });
@@ -34,21 +34,44 @@ function setProductTabInfoWindow() {
 // 0615 james end
 function call_data_upload_api(fb_id, fb_name) {
 
-    var title = $("#popup1 .recommend-title > input").val();
-    var select_text = $("#popup1 .recommend-select > select").val();
-    var content = $("#popup1 .recommend-textarea > textarea").val();
+    if (getCookie('call_data_upload')) {
 
-    var formData = new FormData();
-    formData.append("fbid", fb_id);
-    formData.append("fbname", fb_name);
-    formData.append("title", title);
-    formData.append("site", select_text);
-    formData.append("content", content);
-    formData.append('fileToUpload_01', $('#fileToUpload_01')[0].files[0]);
-    formData.append('fileToUpload_02', $('#fileToUpload_02')[0].files[0]);
-    formData.append('fileToUpload_03', $('#fileToUpload_03')[0].files[0]);
+        var data_upload_obj = JSON.parse(getCookie('call_data_upload'));
 
-    $('.loading-effect').css('display','block');
+        console.log(data_upload_obj);
+
+        var formData = new FormData();
+        formData.append("fbid", fb_id);
+        formData.append("fbname", fb_name);
+        formData.append("title", data_upload_obj.title);
+        formData.append("site", data_upload_obj.select_text);
+        formData.append("content", data_upload_obj.content);
+        formData.append('fileToUpload_01', data_upload_obj.fileToUpload_01);
+        formData.append('fileToUpload_02', data_upload_obj.fileToUpload_02);
+        formData.append('fileToUpload_03', data_upload_obj.fileToUpload_03);
+
+        deleteCookie('call_data_upload');
+    } else {
+        console.log(data_upload_obj);
+
+        var title = $("#popup1 .recommend-title > input").val();
+        var select_text = $("#popup1 .recommend-select > select").val();
+        var content = $("#popup1 .recommend-textarea > textarea").val();
+
+        var formData = new FormData();
+        formData.append("fbid", fb_id);
+        formData.append("fbname", fb_name);
+        formData.append("title", title);
+        formData.append("site", select_text);
+        formData.append("content", content);
+        formData.append('fileToUpload_01', $('#fileToUpload_01')[0].files[0]);
+        formData.append('fileToUpload_02', $('#fileToUpload_02')[0].files[0]);
+        formData.append('fileToUpload_03', $('#fileToUpload_03')[0].files[0]);
+    }
+
+
+
+    $('.loading-effect').css('display', 'block');
 
     $.ajax({
         type: 'POST',
@@ -60,7 +83,7 @@ function call_data_upload_api(fb_id, fb_name) {
         processData: false,
         contentType: false,
         success: function(res) {
-            $('.loading-effect').css('display','none');
+            $('.loading-effect').css('display', 'none');
             console.log(res);
             if (res.code == 0) {
                 window.location.href = "event.html?popup=done";
@@ -73,7 +96,7 @@ function call_data_upload_api(fb_id, fb_name) {
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            $('.loading-effect').css('display','none');
+            $('.loading-effect').css('display', 'none');
             alert("Status: " + textStatus);
             alert("Error: " + errorThrown);
         },
@@ -107,35 +130,24 @@ function is_ios_device() {
     };
 }
 
-window.fbAsyncInit = function() {
-    FB.init({
-        appId: '1033597740066827',
-        xfbml: true,
-        version: 'v2.6'
-    });
+// window.fbAsyncInit = function() {
+//     FB.init({
+//         appId: '1033597740066827',
+//         xfbml: true,
+//         version: 'v2.6'
+//     });
 
-    FB.getLoginStatus(function(response) {
-        if (response.status !== 'connected') {
-            var appId = '1033597740066827';
-            var app_permissions = 'public_profile';
-            var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
-            window.location = permissionUrl;
-        } else {
-            console.log(response);
-        }
-    });
-};
-
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-        return;
-    }
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+//     FB.getLoginStatus(function(response) {
+//         if (response.status !== 'connected') {
+//             var appId = '1033597740066827';
+//             var app_permissions = 'public_profile';
+//             var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+//             window.location = permissionUrl;
+//         } else {
+//             console.log(response);
+//         }
+//     });
+// };
 
 $(document).ready(function() {
 
@@ -143,22 +155,16 @@ $(document).ready(function() {
 
     if (getCookie('call_data_upload')) {
 
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '1033597740066827',
-                xfbml: true,
-                version: 'v2.6'
-            });
+        setTimeout(function() {
             FB.api('/me', function(response) {
 
                 var fb_name = response['name'];
                 var fb_id = response['id'];
 
                 call_data_upload_api(fb_id, fb_name);
-
-                deleteCookie('call_data_upload');
             });
-        };
+        }, 1500);
+
     }
 
     $(window).scroll(function() {
@@ -188,7 +194,7 @@ $(document).ready(function() {
         } else {
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
-
+                    // alert('q1');
                     FB.api('/me', function(res) {
                         console.log(res);
 
@@ -198,12 +204,29 @@ $(document).ready(function() {
                         call_data_upload_api(fb_id, fb_name);
                     });
                 } else {
+                    // alert('q2');
+                    var title = $(".recommend-title > input").val();
+                    var select_text = $(".recommend-select > select").val();
+                    var content = $(".recommend-textarea > textarea").val();
+                    var fileToUpload_01 = $('#fileToUpload_01')[0].files[0];
+                    var fileToUpload_02 = $('#fileToUpload_02')[0].files[0];
+                    var fileToUpload_03 = $('#fileToUpload_03')[0].files[0];
 
-                    // setCookie('call_data_upload', 1, 180);
-                    // var appId = '1033597740066827';
-                    // var app_permissions = 'public_profile';
-                    // var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
-                    // window.location = permissionUrl;
+                    // 臉書登入
+                    var cookie_call_data_upload = {
+                        title: title,
+                        select_text: select_text,
+                        content: content,
+                        fileToUpload_01: fileToUpload_01,
+                        fileToUpload_02: fileToUpload_02,
+                        fileToUpload_03: fileToUpload_03
+                    }
+
+                    setCookie('call_data_upload', JSON.stringify(cookie_call_data_upload), 180);
+                    var appId = '1033597740066827';
+                    var app_permissions = 'public_profile';
+                    var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+                    window.location = permissionUrl;
                 }
             });
         }
@@ -240,7 +263,7 @@ $(document).ready(function() {
     }
 
     if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'deer_play') {
-        
+
         var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
         $('html,body').animate({
             scrollTop: event_taiwanOffset

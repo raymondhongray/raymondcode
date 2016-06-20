@@ -116,7 +116,7 @@
                         <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="ga('send', 'event', 'menu', 'Click', '得獎名單');alert('得獎名單還沒出爐喔\n名單將於7月25日公布\n敬請期待！');return false;">
+                <a href="" onClick="ga('send', 'event', 'menu', 'Click', '得獎名單');alert('得獎名單還沒出爐喔\n第一階段名單將於7月22日公布\n敬請期待！');return false;">
                     <li class="">
                         <img src="img/menu/index_07.jpg" />
                     </li>
@@ -134,7 +134,7 @@
             <!-- 選單 -->
             <input type="checkbox" id="nav-btn-active">
             <label for="nav-btn-active">
-                <div id="nav-btn" class="nav-btn btn">
+                <div id="nav-btn" class="nav-btn btn" onclick="ga('send', 'event', 'menu', 'Click', '開啟');">
                     <div id="nav-btn-line" class="nav-btn-line"></div>
                 </div>
             </label>
@@ -165,6 +165,7 @@
                     <option value="northern">北部</option>
                     <option value="central">中部</option>
                     <option value="southern">南部</option>
+                    <option value="eastern">東部</option>
                 </select>
                 <button type="button" onclick="ga('send', 'event', '首頁', 'Click', '搜尋');">搜尋</button>
             </div>

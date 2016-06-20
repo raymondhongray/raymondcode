@@ -24,7 +24,7 @@
     <link href="css/main.css?c_ver=7" rel="stylesheet" type="text/css" />
     <link href="css/index.css?c_ver=7" rel="stylesheet" type="text/css" />
     <link href="css/flexslider.css" rel="stylesheet" />
-    <!--  <script>
+    <script>
     (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function() {
@@ -35,13 +35,13 @@
         a.async = 1;
         a.src = g;
         m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-69868547-2', 'auto');
+    ga('create', 'UA-79220875-2', 'auto');
     ga('require', 'displayfeatures');
-    ga('require', 'linkid', 'linkid.js');
+    ga('require', 'linkid');
     ga('send', 'pageview');
-    </script> -->
+    </script>
 </head>
 
 <body id="index-body">
@@ -73,12 +73,12 @@
     <nav class="nav-menu">
         <div class="nav-content">
             <ul class="nav-ul">
-                <a href="index.html" onClick="">
+                <a href="index.html" onclick="ga('send', 'event', 'menu', 'Click', '回首頁');">
                     <li class="">
                         <img src="img/menu/index_02.jpg" />
                     </li>
                 </a>
-                <a href="about.html" onClick="">
+                <a href="about.html" onclick="ga('send', 'event', 'menu', 'Click', '關於小鹿山丘');">
                     <li class="">
                         <img src="img/menu/index_03.jpg" />
                     </li>
@@ -101,27 +101,27 @@
                         <img src="img/menu/index_04_3.jpg" />
                     </li>
                 </a> -->
-                <a href="event.html">
+                <a href="event.html" onclick="ga('send', 'event', 'menu', 'Click', '超可惜景點特輯');">
                     <li class="">
                         <img src="img/menu/index_04.jpg" />
                     </li>
                 </a>
-                <a href="event.html?move_to=event_equipment">
+                <a href="event.html?move_to=event_equipment" onclick="ga('send', 'event', 'menu', 'Click', '酷夏推薦裝備');">
                     <li class="">
                         <img src="img/menu/index_05.jpg" />
                     </li>
                 </a>
-                <a href="friend.html" onClick="">
+                <a href="friend.html" onclick="ga('send', 'event', 'menu', 'Click', '酷夏推薦裝備');">
                     <li class="">
                         <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="alert('得獎名單還沒出爐喔\n名單將於7月25日公布\n敬請期待！');return false;">
+                <a href="" onClick="ga('send', 'event', 'menu', 'Click', '得獎名單');alert('得獎名單還沒出爐喔\n名單將於7月25日公布\n敬請期待！');return false;">
                     <li class="">
                         <img src="img/menu/index_07.jpg" />
                     </li>
                 </a>
-                <a href="https://www.facebook.com/eggshellstyle/" onClick="">
+                <a href="https://www.facebook.com/eggshellstyle/" target="_blank" onclick="ga('send', 'event', 'menu', 'Click', 'eggshell粉絲團');">
                     <li class="">
                         <img src="img/menu/index_08.jpg" />
                     </li>
@@ -145,10 +145,18 @@
         <div id="content">
             <div class="flexslider flexslider-wrap">
                 <ul class="slides">
-                    <li><a href="event.html"><img src="img/index/index_01_01.png" /></a></li>
-                    <li><a href="event.html?move_to=event_equipment"><img src="img/index/index_01_02.png" /></a></li>
-                    <li><a href="event.html?popup=1"><img src="img/index/index_01_03.png" /></a></li>
-                    <li><a href="event.html?move_to=deer_play"><img src="img/index/index_01_04.png" /></a></li>
+                    <li>
+                        <a href="event.html" onclick="ga('send', 'event', '首頁', 'Click', '輪播1');"><img src="img/index/index_01_01.png" /></a>
+                    </li>
+                    <li>
+                        <a href="event.html?move_to=event_equipment" onclick="ga('send', 'event', '首頁', 'Click', '輪播2');"><img src="img/index/index_01_02.png" /></a>
+                    </li>
+                    <li>
+                        <a href="event.html?popup=1" onclick="ga('send', 'event', '首頁', 'Click', '輪播3');"><img src="img/index/index_01_03.png" /></a>
+                    </li>
+                    <li>
+                        <a href="event.html?move_to=deer_play" onclick="ga('send', 'event', '首頁', 'Click', '輪播4');"><img src="img/index/index_01_04.png" /></a>
+                    </li>
                 </ul>
             </div>
             <div id="index-search">
@@ -158,20 +166,20 @@
                     <option value="central">中部</option>
                     <option value="southern">南部</option>
                 </select>
-                <button type="button" onclick="">搜尋</button>
+                <button type="button" onclick="ga('send', 'event', '首頁', 'Click', '搜尋');">搜尋</button>
             </div>
             <div class="index-main-theme-group">
                 <div class="index-main-theme">
-                    <a href="friend.html"><img src="img/index/index_btn_01.png" /></a>
+                    <a href="friend.html" onclick="ga('send', 'event', '首頁', 'Click', '親子團行程');"><img src="img/index/index_btn_01.png" /></a>
                 </div>
                 <div class="index-main-theme">
-                    <a href="event.html"><img src="img/index/index_btn_02.png" /></a>
+                    <a href="event.html" onclick="ga('send', 'event', '首頁', 'Click', '超可惜景點特輯');"><img src="img/index/index_btn_02.png" /></a>
                 </div>
                 <div class="index-main-theme">
-                    <a href="event.html?move_to=event_equipment"><img src="img/index/index_btn_03.png" /></a>
+                    <a href="event.html?move_to=event_equipment" onclick="ga('send', 'event', '首頁', 'Click', '酷夏推薦裝備');"><img src="img/index/index_btn_03.png" /></a>
                 </div>
                 <div class="index-main-theme">
-                    <a href="about.html"><img src="img/index/index_btn_04.png" /></a>
+                    <a href="about.html" onclick="ga('send', 'event', '首頁', 'Click', '關於小鹿山丘');"><img src="img/index/index_btn_04.png" /></a>
                 </div>
             </div>
         </div>

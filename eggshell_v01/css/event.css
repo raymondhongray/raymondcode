@@ -101,31 +101,6 @@
 
 /*0615 james end*/
 
-
-/*0616 james */
-
-.event-event-btn,
-.activitie {
-    opacity: 0;
-    transform: translateX(-100px);
-    transition: all 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.event-map-btn {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transition-delay: 0.3s;
-}
-
-*.active {
-    opacity: 1 !important;
-    transform: none!important;
-}
-
-
-/*0616 james end*/
-
 .product-intro-more {
     position: absolute;
     left: 440px !important;
@@ -158,7 +133,7 @@
 .event-event-btn,
 .activitie {
     opacity: 0;
-    transform: translateX(-100px);
+    /*transform: translateX(-100px);*/
     transition: all 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -174,11 +149,32 @@
     transform: none!important;
 }
 
+
 .event-event-btn,
 .activitie {
     animation: shake 3s infinite;
 }
 
+/*-webkit-@keyframes shake {
+    0% {
+        -webkit-transform: rotate(0deg)!important;
+    }
+    5% {
+        -webkit-transform: rotate(5deg)!important;
+    }
+    10% {
+        -webkit-transform: rotate(-5deg)!important;
+    }
+    15% {
+        -webkit-transform: rotate(5deg)!important;
+    }
+    20% {
+        -webkit-transform: rotate(-5deg)!important;
+    }
+    0% {
+        -webkit-transform: rotate(0deg)!important;
+    }
+}*/
 @keyframes shake {
     0% {
         transform: rotate(0deg);

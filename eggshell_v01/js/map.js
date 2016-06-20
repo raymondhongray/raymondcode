@@ -443,17 +443,6 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
     // });
 }
 
-function is_mobile() {
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i) || userAgent.match(/Android/i)) {
-        return true;
-
-    } else {
-        return false;
-    }
-}
-
 $(document).ready(function() {
 
     setTabInfoWindow();

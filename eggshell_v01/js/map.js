@@ -166,6 +166,15 @@ function addRankInfoWindow(recommend_sites, start, show_all) {
         $('#rank-info-window .info-window-row[data-id=' + i + ']').find('.index-marker > p').text(i + 1);
 
         setStarMarkers($('#rank-info-window .info-window-row[data-id=' + i + ']'), '.sm-star', scores);
+
+        if ($('#rank-info-window .status-marker').length > 0) {
+
+            var status_marker = ['待審', '通過', '未通過'];
+            var status_code = recommend_site[14];
+
+            $('#rank-info-window .info-window-row[data-id=' + i + '] .status-marker').text('● ' + status_marker[status_code] + '●')
+        } 
+        
     };
     nextShowIndex = i;
 

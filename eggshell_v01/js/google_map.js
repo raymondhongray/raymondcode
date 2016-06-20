@@ -124,7 +124,7 @@ function initAutocomplete() {
                 var list = data_lists[i];
                 var gps_x = parseFloat(list.gps_x);
                 var gps_y = parseFloat(list.gps_y);
-                var site = [list.title, gps_x, gps_y, 1, list.avg, list.img_1, list.address, list.content, list.did, list.site, list.totel, list.time, list.img_2, list.img_3]
+                var site = [list.title, gps_x, gps_y, 1, list.avg, list.img_1, list.address, list.content, list.did, list.site, list.totel, list.time, list.img_2, list.img_3, list.status]
                 recommend_sites.push(site);
             }
 

@@ -24,6 +24,24 @@
     <link href="css/flexslider.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/jstarbox.css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-79220875-2', 'auto');
+    ga('require', 'displayfeatures');
+    ga('require', 'linkid');
+    ga('send', 'pageview');
+    </script>
 </head>
 
 <body id="index-body">
@@ -132,19 +150,19 @@
             <img class="main-friend" src="img/friend/main_friend.png" />
             <div class="theme-group">
                 <div data-id="1" class="theme-type current-select">
-                    <p>季節限定</p>
+                    <p onclick="ga('send', 'event', '親子團行程', 'Click', '季節限定');">季節限定</p>
                     <div class="line-spacing"></div>
                 </div>
                 <div data-id="2" class="theme-type">
-                    <p>擁抱自然</p>
+                    <p onclick="ga('send', 'event', '親子團行程', 'Click', '擁抱自然');">擁抱自然</p>
                     <div class="line-spacing"></div>
                 </div>
                 <div data-id="3" class="theme-type">
-                    <p>城鄉漫遊</p>
+                    <p onclick="ga('send', 'event', '親子團行程', 'Click', '城鄉漫遊');">城鄉漫遊</p>
                     <div class="line-spacing"></div>
                 </div>
                 <div data-id="4" class="theme-type" style="margin-right: 1px;">
-                    <p>秘境精選</p>
+                    <p onclick="ga('send', 'event', '親子團行程', 'Click', '秘境精選');">秘境精選</p>
                 </div>
                 <div class="fixed-main-line"></div>
             </div>

@@ -14,12 +14,12 @@
     <meta property="og:description" content="eggshell 小鹿山丘" />
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- CSS -->
-    <link href="css/reset.css?v=3" rel="stylesheet" type="text/css" />
-    <link href="css/main.css?v=3" rel="stylesheet" type="text/css" />
-    <link href="css/index.css?v=3" rel="stylesheet" type="text/css" />
-    <link href="css/map.css?v=3" rel="stylesheet" type="text/css" />
-    <link href="css/pop.css?v=3" rel="stylesheet" type="text/css" />
-    <link href="css/pop_done.css?v=3" rel="stylesheet" type="text/css" />
+    <link href="css/reset.css?c_ver=7" rel="stylesheet" type="text/css" />
+    <link href="css/main.css?c_ver=7" rel="stylesheet" type="text/css" />
+    <link href="css/index.css?c_ver=7" rel="stylesheet" type="text/css" />
+    <link href="css/map.css?c_ver=7" rel="stylesheet" type="text/css" />
+    <link href="css/pop.css?c_ver=7" rel="stylesheet" type="text/css" />
+    <link href="css/pop_done.css?c_ver=7" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/jstarbox.css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 </head>
@@ -30,6 +30,7 @@ window.fbAsyncInit = function() {
         xfbml: true,
         version: 'v2.6'
     });
+    console.log('map.html fbAsyncInit');
 };
 
 (function(d, s, id) {
@@ -127,7 +128,7 @@ window.fbAsyncInit = function() {
                         <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="alert('活動進行中...')">
+                <a href="" onClick="alert('7月25日公布得獎名單，敬請期待!')">
                     <li class="">
                         <img src="img/menu/index_07.jpg" />
                     </li>
@@ -296,11 +297,11 @@ window.fbAsyncInit = function() {
     <script type="text/javascript " src="js/libs/jqueryEasing-1.9.1.min.js "></script>
     <script type="text/javascript " src="js/libs/modernizr-2.6.2.min.js "></script>
     <script type="text/javascript " src="js/libs/TweenMax.min.js "></script>
-    <script type="text/javascript " src="js/main.js?v=3"></script>
-    <script type="text/javascript " src="js/google_map.js?v=3"></script>
-    <script type="text/javascript " src="js/map.js?v=3"></script>
-    <script type="text/javascript " src="js/pop.js?v=3"></script>
-    <script type="text/javascript " src="js/pop_done.js?v=3"></script>
+    <script type="text/javascript " src="js/main.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/google_map.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/map.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/pop.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/pop_done.js?c_ver=7"></script>
     <script type="text/javascript ">
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete " async defer></script>

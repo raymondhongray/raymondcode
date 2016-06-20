@@ -113,27 +113,37 @@ function is_ios_device() {
     };
 }
 
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '1033597740066827',
+        xfbml: true,
+        version: 'v2.6'
+    });
+
+    FB.getLoginStatus(function(response) {
+        if (response.status !== 'connected') {
+            var appId = '1033597740066827';
+            var app_permissions = 'public_profile';
+            var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+            window.location = permissionUrl;
+        } else {
+            console.log(response);
+        }
+    });
+};
+
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 $(document).ready(function() {
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: '1033597740066827',
-            xfbml: true,
-            version: 'v2.6'
-        });
-
-        FB.getLoginStatus(function(response) {
-            if (response.status !== 'connected') {
-                var appId = '1033597740066827';
-                var app_permissions = 'public_profile';
-                var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
-                window.location = permissionUrl;
-            } else {
-                console.log(response);
-            }
-        });
-    };
 
     setProductTabInfoWindow();
 
@@ -232,6 +242,14 @@ $(document).ready(function() {
         var event_ruleOffset = $('.event-rule').offset().top;
         $('html,body').animate({
             scrollTop: event_ruleOffset
+        }, 500);
+    }
+
+    if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'deer_play') {
+        
+        var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
+        $('html,body').animate({
+            scrollTop: event_taiwanOffset
         }, 500);
     }
 

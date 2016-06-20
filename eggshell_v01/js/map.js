@@ -189,10 +189,10 @@ function setTabInfoData(tab_index, background_color, title, slogan, img, addr, d
 function setTabInfoWindow() {
 
     tab_contents = [
-        ['#5fc2c7', '內湖運動公園', '自在跑跳，釋放體力極限', '台灣台北市內湖區舊宗路二段1號', '活力夏日，<span style="color:#FFFF01;">7月2日</span>小鹿特別邀請大家動一動！在極具特色二樓的廣闊公園，擁有夏季不來超可惜的清涼親水區，以及美麗的大草坪讓寶貝自在玩耍，更有沙池與兒童遊樂器絕對讓寶貝玩得開心又過癮！還有攀岩場與滑板場可以挑戰喔。', 'https://unsplash.it/200/200'],
-        ['#669900', '今夜星辰休閒農場', '可愛動物歡樂新天地', '彰化市石牌里石牌路一段428號', '<span style="color:#FFFF01;">7月16日</span>小鹿為你介紹他的好朋友。2015全新開幕景點，你還不知道超可惜！充滿美麗造景的農場景觀，深受大朋友小朋友喜愛；草泥馬、兔子與小浣熊等多種動物更是農場中的主角，近距離與動物們接觸互動，保證帶給寶貝歡樂與驚奇。', 'https://unsplash.it/200/200'],
-        ['#f8b600', '朱銘美術館', '自然與藝術的交織盛宴', '新北市金山區西勢湖2號', '山林避暑，<span style="color:#FFFF01;">7月9日</span>小鹿帶你陶冶心靈！來到朱銘先生根據自然地貌設計規劃，展示自己與多位藝術家有趣的雕塑作品，還有室內展館與各式主題廣場，並不定期舉辦體驗活動、特展與表演等等。還沒來過超可惜，帶著小寶貝們暢遊自然與藝術之間，來趟新鮮的知性之旅吧。', 'https://unsplash.it/200/200'],
-        ['#acbb22', '橋頭糖廠', '寓教於樂集結首選', '高雄市橋頭區興糖路24號', '<span style="color:#FFFF01;">7月17日</span>小鹿陪你一起來場知性小冒險！交通超便利的三級古蹟製糖廠，進入日式與歐式的傳統建築與製糖廠房，穿越時空一探台灣製糖歷史文化之旅。綠意盎然的廠區內也富含自然生態，還可以搭乘五分車，享受多種美食與其他遊憩區域。絕對是不來超可惜的南部親子旅遊景點首選！', 'https://unsplash.it/200/200'],
+        ['#5fc2c7', '內湖運動公園', '自在跑跳，釋放體力極限', '台灣台北市內湖區舊宗路二段1號', '活力夏日，<span style="color:#FFFF01;">7月2日</span>小鹿特別邀請大家動一動！在極具特色二樓的廣闊公園，擁有夏季不來超可惜的清涼親水區，以及美麗的大草坪讓寶貝自在玩耍，更有沙池與兒童遊樂器絕對讓寶貝玩得開心又過癮！還有攀岩場與滑板場可以挑戰喔。', 'img/fbshare/FB_0.jpg'],
+        ['#669900', '今夜星辰休閒農場', '可愛動物歡樂新天地', '彰化市石牌里石牌路一段428號', '<span style="color:#FFFF01;">7月16日</span>小鹿為你介紹他的好朋友。2015全新開幕景點，你還不知道超可惜！充滿美麗造景的農場景觀，深受大朋友小朋友喜愛；草泥馬、兔子與小浣熊等多種動物更是農場中的主角，近距離與動物們接觸互動，保證帶給寶貝歡樂與驚奇。', 'img/fbshare/FB_1.jpg'],
+        ['#f8b600', '朱銘美術館', '自然與藝術的交織盛宴', '新北市金山區西勢湖2號', '山林避暑，<span style="color:#FFFF01;">7月9日</span>小鹿帶你陶冶心靈！來到朱銘先生根據自然地貌設計規劃，展示自己與多位藝術家有趣的雕塑作品，還有室內展館與各式主題廣場，並不定期舉辦體驗活動、特展與表演等等。還沒來過超可惜，帶著小寶貝們暢遊自然與藝術之間，來趟新鮮的知性之旅吧。', 'img/fbshare/FB_2.jpg'],
+        ['#acbb22', '橋頭糖廠', '寓教於樂集結首選', '高雄市橋頭區興糖路24號', '<span style="color:#FFFF01;">7月17日</span>小鹿陪你一起來場知性小冒險！交通超便利的三級古蹟製糖廠，進入日式與歐式的傳統建築與製糖廠房，穿越時空一探台灣製糖歷史文化之旅。綠意盎然的廠區內也富含自然生態，還可以搭乘五分車，享受多種美食與其他遊憩區域。絕對是不來超可惜的南部親子旅遊景點首選！', 'img/fbshare/FB_3.jpg'],
     ];
 
     var tab_index = 0;
@@ -357,7 +357,7 @@ function insert_fb_log(fb_id, fb_name) {
         },
         dataType: "json",
         success: function(res) {
-            
+
             if (res.code == 0) {
                 console.log('success insert_fb_log');
             }
@@ -370,6 +370,8 @@ function insert_fb_log(fb_id, fb_name) {
 }
 
 function call_data_share_api(fb_id, fb_name, did, star) {
+
+    console.log('in call_data_share_api');
 
     if (star > 0) {
 
@@ -395,6 +397,9 @@ function call_data_share_api(fb_id, fb_name, did, star) {
 
     } else {
         // 只分享不評分
+        $('.popup-done .recommend-done-title').attr('src', 'img/pop/share_bg_title.png');
+        $('.popup-done .recommend-done-content-long').attr('src', 'img/pop/share_done.png');
+        $('.popup-done .done-link2').css('display', 'none');
         $(".popup-done").css('display', 'block');
     }
 }
@@ -406,7 +411,7 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
     var publish = {
         name: title,
         method: 'feed',
-        link: share_link,
+        link: encodeURIComponent(share_link),
         description: description,
         // picture: window.location.hostname + "/img/fb-share.jpg"
         picture: pic_url
@@ -454,19 +459,14 @@ $(document).ready(function() {
     setTabInfoWindow();
 
     if (getCookie('call_data_share_api')) {
+        setTimeout(function() {
+            var obj = JSON.parse(getCookie('call_data_share_api'));
 
-        var obj = JSON.parse(getCookie('call_data_share_api'));
-
-        console.log(obj);
-
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '1033597740066827',
-                xfbml: true,
-                version: 'v2.6'
-            });
+            console.log(obj);
 
             FB.getLoginStatus(function(response) {
+
+                console.log('ready to call_data_share_api');
 
                 console.log(response);
 
@@ -480,18 +480,21 @@ $(document).ready(function() {
                     var fb_id = response['id'];
 
                     call_data_share_api(fb_id, fb_name, obj.did, obj.scores);
+
                     deleteCookie('call_data_share_api');
                 });
             });
-        };
+
+
+        }, 2000);
     }
 
     if (getCookie('call_fb_share')) {
 
         var share_obj = JSON.parse(getCookie('call_fb_share'));
 
-        console.log(share_obj);
         window.fbAsyncInit = function() {
+           
             FB.init({
                 appId: '1033597740066827',
                 xfbml: true,
@@ -525,8 +528,8 @@ $(document).ready(function() {
         var gps_x = gps_list[tab_index][0];
         var gps_y = gps_list[tab_index][1];
         var share_link = window.location.hostname + '/eggshell_v01/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
-        // picture: window.location.hostname + "/img/fb-share.jpg"
-        var pic_url = 'https://unsplash.it/300/300';
+        var pic_url = window.location.hostname + "/eggshell_v01/img/fbshare/FB_" + tab_index + ".jpg";
+        // var pic_url = 'https://unsplash.it/300/300';
 
 
         FB.getLoginStatus(function(response) {
@@ -576,8 +579,10 @@ $(document).ready(function() {
         var gps_x = $("#map-info-window").attr('gps-x');
         var gps_y = $("#map-info-window").attr('gps-y');
         var share_link = window.location.hostname + '/eggshell_v01/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
-        // picture: window.location.hostname + "/img/fb-share.jpg"
-        var pic_url = 'https://unsplash.it/300/300';
+        var pic_url = window.location.hostname + "/eggshell_v01/img/fbshare/FB_map.jpg";
+        // var pic_url = 'https://unsplash.it/300/300';
+
+        console.log(share_link);
 
         FB.getLoginStatus(function(response) {
 
@@ -611,6 +616,7 @@ $(document).ready(function() {
                 window.location = permissionUrl;
             }
         });
+
     });
 
     $("#rank-show-btn").click(function() {

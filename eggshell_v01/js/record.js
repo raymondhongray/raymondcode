@@ -9,9 +9,12 @@ $(document).ready(function() {
     // var record_count = recommend_sites.length;
 
     // $(".say-hi-count").text(record_count);
+
+    // $('.loading-effect').css('display','block');
 });
 
 function call_data_list_by_fbid(fb_id) {
+
 	$.ajax({
         type: 'POST',
         url: '../api/data_list.php',
@@ -41,10 +44,15 @@ function call_data_list_by_fbid(fb_id) {
             }
 
             init_recommend_sites(recommend_sites)
+
+            $('.loading-effect').fadeOut('slow');
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            console.log("Status: " + textStatus);
-            console.log("Error: " + errorThrown);
+
+            $('.loading-effect').css('display','none');
+
+            alert("Status: " + textStatus);
+            alert("Error: " + errorThrown);
         },
     });
 }
@@ -73,6 +81,7 @@ window.fbAsyncInit = function() {
     });
 
     FB.getLoginStatus(function(response) {
+
         if (response.status === 'connected') {
 
             FB.api('/me', function(res) {
@@ -101,6 +110,7 @@ window.fbAsyncInit = function() {
                     });
                 } else {
                     alert('登入失敗');
+                    window.location.href = "index.html";
                 }
             });
         }

@@ -1,3 +1,13 @@
+function getQueryStrByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 function check_FB_Login() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
@@ -85,10 +95,13 @@ function FB_share() { //FB APP 發佈到塗鴉牆
 
 $(document).ready(function() {
 
-    setTimeout(function() {
-        $('.loading-effect').fadeOut('slow');
-        
-    }, 1000);
+    if (!window.location.href.match("record")) {
+        console.log('loading-effect...');
+        setTimeout(function() {
+            $('.loading-effect').fadeOut('slow');
+
+        }, 1000);
+    }
 
     $('.back-to-index').click(function() {
         window.location.href = 'index.html';

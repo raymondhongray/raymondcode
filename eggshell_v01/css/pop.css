@@ -29,6 +29,7 @@
     top: 20px;
     left: 50%;
     display: block;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 
@@ -66,6 +67,7 @@
 .theme-middle {
     position: relative;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     margin: 0 auto;
     display: block;
@@ -273,6 +275,7 @@
     z-index: 1001;
     top: -10px;
     right: -50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 
@@ -281,6 +284,7 @@
     z-index: 300;
     top: -10px;
     right: -50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     text-align: center;
     display: none;

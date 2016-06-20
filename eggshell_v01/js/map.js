@@ -375,6 +375,8 @@ function call_data_share_api(fb_id, fb_name, did, star) {
 
     if (star > 0) {
 
+        $('.loading-effect').css('display','block');
+
         var post_data = { fbid: fb_id, fbname: fb_name, did: did, star: star };
 
         $.ajax({
@@ -388,10 +390,15 @@ function call_data_share_api(fb_id, fb_name, did, star) {
                 if (res.code == 0) {
                     $(".popup-done").css('display', 'block');
                 }
+
+                $('.loading-effect').css('display','none');
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-                console.log("Status: " + textStatus);
-                console.log("Error: " + errorThrown);
+
+                $('.loading-effect').css('display','none');
+
+                alert("Status: " + textStatus);
+                alert("Error: " + errorThrown);
             },
         });
 
@@ -502,6 +509,7 @@ $(document).ready(function() {
     }
 
     if (getQueryStrByName('error_code') != null && getQueryStrByName('error_code') == '4201') {
+        // alert('cancel share fb!');
         $('.popup-done').css('display', 'none');
         deleteCookie('call_data_share_api');
         window.location.href = window.location.protocol + "//" + window.location.hostname + window.location.pathname;

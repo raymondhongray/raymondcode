@@ -115,6 +115,7 @@
 .recommend-img > img {
     position: relative;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     max-width: 165px;
     max-height: 165px;
@@ -339,6 +340,7 @@
     left: 0;
     width: 100%;
     text-align: center;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     font-size: 28px;
     color: #fc3002;
@@ -368,6 +370,7 @@
 #tab-info-window .recommend-img {
     position: relative;
     top: 40%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 
@@ -401,6 +404,7 @@
     position: absolute;
     top: -19px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 

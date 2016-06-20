@@ -38,6 +38,24 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-79220875-2', 'auto');
+    ga('require', 'displayfeatures');
+    ga('require', 'linkid');
+    ga('send', 'pageview');
+    </script>
     <div class="popup" style="display: none;">
         <div class="popup-box">
             <div id="display-area" class="area-box">
@@ -192,7 +210,7 @@
                 </div>
             </div>
             <!-- <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png" /> -->
-            <a href="event.html?popup=1"><img class="new-recommend" src="img/event/event_event_btn.png" /></a>
+            <a href="event.html?popup=1" onclick="ga('send', 'event', '歷程記錄', 'Click', '我要推薦');"><img class="new-recommend" src="img/event/event_event_btn.png" /></a>
         </div>
     </div>
     <footer>

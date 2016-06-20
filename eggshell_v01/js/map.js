@@ -501,6 +501,11 @@ $(document).ready(function() {
         };
     }
 
+    if (getQueryStrByName('error_code') != null && getQueryStrByName('error_code') == '4201') {
+        $('.popup-done').css('display', 'none');
+        deleteCookie('call_data_share_api');
+        window.location.href = window.location.protocol + "//" + window.location.hostname + window.location.pathname;
+    }
 
     $(".fb-share-action").click(function() {
 

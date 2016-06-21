@@ -88,6 +88,9 @@ function call_data_upload_api(fb_id, fb_name) {
             if (res.code == 0) {
                 window.location.href = "event.html?popup=done";
             }
+            if (res.code == 1) {
+                alert('登入臉書才可以推薦景點唷 !')
+            }
             if (res.code == 3) {
                 alert('您推薦的景點是...');
             }

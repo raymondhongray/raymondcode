@@ -12,10 +12,6 @@ function initAutocomplete() {
             } else {
                 if (site == 'southern') {
                     default_center = [22.7559119, 120.3117623];
-                } else {
-                    if (site == 'eastern') {
-                        default_center = [24.158146, 121.6204356];
-                    }
                 }
             }
         }

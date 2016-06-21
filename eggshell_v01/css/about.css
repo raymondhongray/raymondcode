@@ -9,7 +9,7 @@
 }
 
 .about-catch {
-    position: relative;
+	position: relative;
     top: 0;
     left: 0;
     margin: auto;
@@ -17,7 +17,7 @@
 }
 
 .about-text {
-    position: relative;
+	position: relative;
     top: 25px;
     left: 0;
     margin: auto;
@@ -25,7 +25,7 @@
 }
 
 .about-main-pic {
-    position: relative;
+	position: relative;
     top: 65px;
     left: 0;
     margin: auto;
@@ -33,38 +33,28 @@
 }
 
 .about-main {
-    position: relative;
+	position: relative;
     top: 100px;
     left: 0;
     margin: auto;
     display: block;
 }
 
-
 /*0616 james*/
-
 .about-catch,
 .about-text,
 .about-main-pic,
-.about-main {
+.about-main{
     opacity: 0;
-    transition: all 1s;
+    transition: all 1s ;
 }
-
-.about-main {
+.about-main{
     transform: translateY(100px);
 }
 
-*.active {
+*.active{
     opacity: 1;
     transform: none;
 }
 
-
 /*0616 james end*/
-
-.about-return {
-    margin: 150px auto;
-    display: block;
-    margin-bottom: -120px;
-}

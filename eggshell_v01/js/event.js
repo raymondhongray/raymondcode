@@ -248,6 +248,13 @@ $(document).ready(function() {
         }, 500);
     });
 
+    if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'event_taiwan') {
+        var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
+        $('html,body').animate({
+            scrollTop: event_taiwanOffset
+        }, 500);
+    }
+
     if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'event_equipment') {
         var equipmentOffset = $('#event-equipment').offset().top - 250;
         $('html,body').animate({

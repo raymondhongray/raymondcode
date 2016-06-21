@@ -66,16 +66,15 @@
         <div class="loading-effect-opacity"></div>
     </div>
     <!--所有頁面共用的 Menu-->
-    <!--所有頁面共用的 Menu-->
     <nav class="nav-menu">
         <div class="nav-content">
             <ul class="nav-ul">
-                <a href="index.html" onClick="">
+                <a href="index.html" onclick="ga('send', 'event', 'menu', 'Click', '回首頁');">
                     <li class="">
                         <img src="img/menu/index_02.jpg" />
                     </li>
                 </a>
-                <a href="about.html" onClick="">
+                <a href="about.html" onclick="ga('send', 'event', 'menu', 'Click', '關於小鹿山丘');">
                     <li class="">
                         <img src="img/menu/index_03.jpg" />
                     </li>
@@ -98,27 +97,32 @@
                         <img src="img/menu/index_04_3.jpg" />
                     </li>
                 </a> -->
-                <a href="event.html">
+                <a href="event.html" onclick="ga('send', 'event', 'menu', 'Click', '超可惜景點特輯');">
                     <li class="">
                         <img src="img/menu/index_04.jpg" />
                     </li>
                 </a>
-                <a href="event.html?move_to=event_equipment">
+                <a href="event.html?move_to=event_taiwan" onclick="ga('send', 'event', 'menu', 'Click', '小鹿陪你一起玩');">
+                    <li class="">
+                        <img src="img/menu/index_09.jpg" />
+                    </li>
+                </a>
+                <a href="event.html?move_to=event_equipment" onclick="ga('send', 'event', 'menu', 'Click', '酷夏推薦裝備');">
                     <li class="">
                         <img src="img/menu/index_05.jpg" />
                     </li>
                 </a>
-                <a href="friend.html" onClick="">
+                <a href="friend.html" onclick="ga('send', 'event', 'menu', 'Click', '親子團行程');">
                     <li class="">
                         <img src="img/menu/index_06.jpg" />
                     </li>
                 </a>
-                <a href="" onClick="alert('得獎名單還沒出爐喔\n第一階段名單將於7月22日公布\n敬請期待！');return false;">
+                <a href="" onClick="ga('send', 'event', 'menu', 'Click', '得獎名單');alert('得獎名單還沒出爐喔\n第一階段名單將於7月22日公布\n敬請期待！');return false;">
                     <li class="">
                         <img src="img/menu/index_07.jpg" />
                     </li>
                 </a>
-                <a href="https://www.facebook.com/eggshellstyle/" onClick="">
+                <a href="https://www.facebook.com/eggshellstyle/" target="_blank" onclick="ga('send', 'event', 'menu', 'Click', 'eggshell粉絲團');">
                     <li class="">
                         <img src="img/menu/index_08.jpg" />
                     </li>

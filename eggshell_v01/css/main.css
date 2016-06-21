@@ -1,3 +1,27 @@
+@media screen and (min-width: 640px) {
+    body {
+        width: 640px !important;
+    }
+    header {
+        position: absolute !important;
+    }
+    .nav-menu {
+        width: 320px !important;
+    }
+    .nav-menu.active {
+        left: 320px !important;
+    }
+    .popup-box {
+        width: 500px !important;
+    }
+    .popup-done-box {
+        width: 500px !important;
+    }
+    .display-recommend-textarea {
+        width: 95% !important;
+    }
+}
+
 html,
 body {
     position: relative;

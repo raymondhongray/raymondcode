@@ -58,3 +58,10 @@
 }
 
 /*0616 james end*/
+
+.about-return {
+    margin: auto;
+    display: block;
+    margin-top: 150px;
+    margin-bottom: -105px;
+}

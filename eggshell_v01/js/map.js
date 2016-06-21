@@ -173,8 +173,8 @@ function addRankInfoWindow(recommend_sites, start, show_all) {
             var status_code = recommend_site[14];
 
             $('#rank-info-window .info-window-row[data-id=' + i + '] .status-marker').text('● ' + status_marker[status_code] + '●')
-        } 
-        
+        }
+
     };
     nextShowIndex = i;
 
@@ -384,7 +384,7 @@ function call_data_share_api(fb_id, fb_name, did, star) {
 
     if (star > 0) {
 
-        $('.loading-effect').css('display','block');
+        $('.loading-effect').css('display', 'block');
 
         var post_data = { fbid: fb_id, fbname: fb_name, did: did, star: star };
 
@@ -400,11 +400,11 @@ function call_data_share_api(fb_id, fb_name, did, star) {
                     $(".popup-done").css('display', 'block');
                 }
 
-                $('.loading-effect').css('display','none');
+                $('.loading-effect').css('display', 'none');
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
 
-                $('.loading-effect').css('display','none');
+                $('.loading-effect').css('display', 'none');
 
                 alert("Status: " + textStatus);
                 alert("Error: " + errorThrown);
@@ -413,10 +413,12 @@ function call_data_share_api(fb_id, fb_name, did, star) {
 
     } else {
         // 只分享不評分
-        $('.popup-done .recommend-done-title').attr('src', 'img/pop/share_bg_title.png');
-        $('.popup-done .recommend-done-content-long').attr('src', 'img/pop/share_done.png');
-        $('.popup-done .done-link2').css('display', 'none');
-        $(".popup-done").css('display', 'block');
+        if (getQueryStrByName('post_id') != null) {
+            $('.popup-done .recommend-done-title').attr('src', 'img/pop/share_bg_title.png');
+            $('.popup-done .recommend-done-content-long').attr('src', 'img/pop/share_done.png');
+            $('.popup-done .done-link2').css('display', 'none');
+            $(".popup-done").css('display', 'block');
+        }
     }
 }
 
@@ -499,7 +501,7 @@ $(document).ready(function() {
         var share_obj = JSON.parse(getCookie('call_fb_share'));
 
         window.fbAsyncInit = function() {
-           
+
             FB.init({
                 appId: '1033597740066827',
                 xfbml: true,

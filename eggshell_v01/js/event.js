@@ -34,40 +34,54 @@ function setProductTabInfoWindow() {
 // 0615 james end
 function call_data_upload_api(fb_id, fb_name) {
 
-    if (getCookie('call_data_upload')) {
+    // if (getCookie('call_data_upload')) {
 
-        var data_upload_obj = JSON.parse(getCookie('call_data_upload'));
+    //     var data_upload_obj = JSON.parse(getCookie('call_data_upload'));
+    //     console.log(data_upload_obj);
 
-        console.log(data_upload_obj);
+    //     var formData = new FormData();
+    //     formData.append("fbid", fb_id);
+    //     formData.append("fbname", fb_name);
+    //     formData.append("title", data_upload_obj.title);
+    //     formData.append("site", data_upload_obj.select_text);
+    //     formData.append("content", data_upload_obj.content);
+    //     formData.append('fileToUpload_01', JSON.parse(data_upload_obj.fileToUpload_01));
+    //     formData.append('fileToUpload_02', JSON.parse(data_upload_obj.fileToUpload_02));
+    //     formData.append('fileToUpload_03', JSON.parse(data_upload_obj.fileToUpload_03));
 
-        var formData = new FormData();
-        formData.append("fbid", fb_id);
-        formData.append("fbname", fb_name);
-        formData.append("title", data_upload_obj.title);
-        formData.append("site", data_upload_obj.select_text);
-        formData.append("content", data_upload_obj.content);
-        formData.append('fileToUpload_01', data_upload_obj.fileToUpload_01);
-        formData.append('fileToUpload_02', data_upload_obj.fileToUpload_02);
-        formData.append('fileToUpload_03', data_upload_obj.fileToUpload_03);
+    //     deleteCookie('call_data_upload');
 
-        deleteCookie('call_data_upload');
-    } else {
-        console.log(data_upload_obj);
+    // } else {
+    //     console.log(data_upload_obj);
 
-        var title = $("#popup1 .recommend-title > input").val();
-        var select_text = $("#popup1 .recommend-select > select").val();
-        var content = $("#popup1 .recommend-textarea > textarea").val();
+    //     var title = $("#popup1 .recommend-title > input").val();
+    //     var select_text = $("#popup1 .recommend-select > select").val();
+    //     var content = $("#popup1 .recommend-textarea > textarea").val();
 
-        var formData = new FormData();
-        formData.append("fbid", fb_id);
-        formData.append("fbname", fb_name);
-        formData.append("title", title);
-        formData.append("site", select_text);
-        formData.append("content", content);
-        formData.append('fileToUpload_01', $('#fileToUpload_01')[0].files[0]);
-        formData.append('fileToUpload_02', $('#fileToUpload_02')[0].files[0]);
-        formData.append('fileToUpload_03', $('#fileToUpload_03')[0].files[0]);
-    }
+    //     var formData = new FormData();
+    //     formData.append("fbid", fb_id);
+    //     formData.append("fbname", fb_name);
+    //     formData.append("title", title);
+    //     formData.append("site", select_text);
+    //     formData.append("content", content);
+    //     formData.append('fileToUpload_01', $('#fileToUpload_01')[0].files[0]);
+    //     formData.append('fileToUpload_02', $('#fileToUpload_02')[0].files[0]);
+    //     formData.append('fileToUpload_03', $('#fileToUpload_03')[0].files[0]);
+    // }
+
+    var title = $("#popup1 .recommend-title > input").val();
+    var select_text = $("#popup1 .recommend-select > select").val();
+    var content = $("#popup1 .recommend-textarea > textarea").val();
+
+    var formData = new FormData();
+    formData.append("fbid", fb_id);
+    formData.append("fbname", fb_name);
+    formData.append("title", title);
+    formData.append("site", select_text);
+    formData.append("content", content);
+    formData.append('fileToUpload_01', $('#fileToUpload_01')[0].files[0]);
+    formData.append('fileToUpload_02', $('#fileToUpload_02')[0].files[0]);
+    formData.append('fileToUpload_03', $('#fileToUpload_03')[0].files[0]);
 
 
 
@@ -133,41 +147,47 @@ function is_ios_device() {
     };
 }
 
-// window.fbAsyncInit = function() {
-//     FB.init({
-//         appId: '1033597740066827',
-//         xfbml: true,
-//         version: 'v2.6'
-//     });
+$(".event-event-btn").click(function() {
 
-//     FB.getLoginStatus(function(response) {
-//         if (response.status !== 'connected') {
-//             var appId = '1033597740066827';
-//             var app_permissions = 'public_profile';
-//             var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
-//             window.location = permissionUrl;
-//         } else {
-//             console.log(response);
-//         }
-//     });
-// };
+    // 先登入臉書
+    FB.getLoginStatus(function(response) {
+        if (response.status !== 'connected') {
+
+            setCookie('popup_input', 1, 180);
+
+            var appId = '1033597740066827';
+            var app_permissions = 'public_profile';
+            var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+            window.location = permissionUrl;
+        } else {
+            console.log(response);
+            $("#popup1").css('display', 'block');
+        }
+    });
+});
+
 
 $(document).ready(function() {
 
     setProductTabInfoWindow();
 
-    if (getCookie('call_data_upload')) {
+    // if (getCookie('call_data_upload')) {
+    //     setTimeout(function() {
+    //         FB.api('/me', function(response) {
 
-        setTimeout(function() {
-            FB.api('/me', function(response) {
+    //             var fb_name = response['name'];
+    //             var fb_id = response['id'];
+    //             alert('/me' + fb_id);
+    //             call_data_upload_api(fb_id, fb_name);
+    //         });
+    //     }, 3000);
+    // }
 
-                var fb_name = response['name'];
-                var fb_id = response['id'];
+    if (getCookie('popup_input')) {
 
-                call_data_upload_api(fb_id, fb_name);
-            });
-        }, 1500);
+        $("#popup1").css('display', 'block');
 
+        deleteCookie('popup_input');
     }
 
     $(window).scroll(function() {
@@ -177,11 +197,6 @@ $(document).ready(function() {
     $(document).on('click touchstart', '.show-more.by-event-page', function() {
 
         showPopup2($(this).parents('.info-window-row-content'));
-    });
-
-    $(".event-event-btn").click(function() {
-
-        $("#popup1").css('display', 'block');
     });
 
     $(".event-map-btn").click(function() {
@@ -206,31 +221,33 @@ $(document).ready(function() {
 
                         call_data_upload_api(fb_id, fb_name);
                     });
-                } else {
-                    // alert('q2');
-                    var title = $(".recommend-title > input").val();
-                    var select_text = $(".recommend-select > select").val();
-                    var content = $(".recommend-textarea > textarea").val();
-                    var fileToUpload_01 = $('#fileToUpload_01')[0].files[0];
-                    var fileToUpload_02 = $('#fileToUpload_02')[0].files[0];
-                    var fileToUpload_03 = $('#fileToUpload_03')[0].files[0];
-
-                    // 臉書登入
-                    var cookie_call_data_upload = {
-                        title: title,
-                        select_text: select_text,
-                        content: content,
-                        fileToUpload_01: fileToUpload_01,
-                        fileToUpload_02: fileToUpload_02,
-                        fileToUpload_03: fileToUpload_03
-                    }
-
-                    setCookie('call_data_upload', JSON.stringify(cookie_call_data_upload), 180);
-                    var appId = '1033597740066827';
-                    var app_permissions = 'public_profile';
-                    var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
-                    window.location = permissionUrl;
                 }
+                // else {
+
+                //     var title = $(".recommend-title > input").val();
+                //     var select_text = $(".recommend-select > select").val();
+                //     var content = $(".recommend-textarea > textarea").val();
+                //     var fileToUpload_01 = $('#fileToUpload_01')[0].files[0];
+                //     var fileToUpload_02 = $('#fileToUpload_02')[0].files[0];
+                //     var fileToUpload_03 = $('#fileToUpload_03')[0].files[0];
+
+                //     // 臉書登入
+                //     var cookie_call_data_upload = {
+                //         title: title,
+                //         select_text: select_text,
+                //         content: content,
+                //         fileToUpload_01: JSON.stringify(fileToUpload_01),
+                //         fileToUpload_02: JSON.stringify(fileToUpload_02),
+                //         fileToUpload_03: JSON.stringify(fileToUpload_03)
+                //     };
+
+                //     setCookie('call_data_upload', JSON.stringify(cookie_call_data_upload), 180);
+
+                //     var appId = '1033597740066827';
+                //     var app_permissions = 'public_profile';
+                //     var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + window.location + "&scope=" + app_permissions;
+                //     window.location = permissionUrl;
+                // }
             });
         }
     });

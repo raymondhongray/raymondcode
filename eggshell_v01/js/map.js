@@ -498,15 +498,20 @@ $(document).ready(function() {
 
     if (getCookie('call_fb_share')) {
 
-        var share_obj = JSON.parse(getCookie('call_fb_share'));
+        // var share_obj = JSON.parse(getCookie('call_fb_share'));
 
-        window.fbAsyncInit = function() {
+        var share_obj = [];
 
-            FB.init({
-                appId: '1033597740066827',
-                xfbml: true,
-                version: 'v2.6'
-            });
+        share_obj['did'] = getCookie('call_fb_share_did');
+        share_obj['scores'] = getCookie('call_fb_share_scores');
+        share_obj['share_link'] = getCookie('call_fb_share_share_link');
+        share_obj['pic_url'] = getCookie('call_fb_share_pic_url');
+        share_obj['set_star_scores'] = getCookie('call_fb_share_set_star_scores');
+
+        share_obj['title'] = '這是我最愛的超可惜景點！快一起來玩';
+        share_obj['description'] = '小鹿山丘親子旅遊網獨家推薦！人少又好玩的【超可惜景點地圖】';
+
+        setTimeout(function() {
             FB.api('/me', function(response) {
 
                 var fb_name = response['name'];
@@ -515,8 +520,13 @@ $(document).ready(function() {
                 call_fb_share(fb_id, fb_name, share_obj.did, share_obj.scores, share_obj.title, share_obj.description, share_obj.share_link, share_obj.pic_url, 0);
 
                 deleteCookie('call_fb_share');
+                deleteCookie('call_fb_share_did');
+                deleteCookie('call_fb_share_scores');
+                deleteCookie('call_fb_share_share_link');
+                deleteCookie('call_fb_share_pic_url');
+                deleteCookie('call_fb_share_set_star_scores');
             });
-        };
+        }, 3000);
     }
 
     if (getQueryStrByName('error_code') != null && getQueryStrByName('error_code') == '4201') {
@@ -559,17 +569,24 @@ $(document).ready(function() {
                 });
             } else {
 
-                var cookie_call_fb_share = {
-                    did: 0,
-                    scores: 0,
-                    title: title,
-                    description: description,
-                    share_link: share_link,
-                    pic_url: pic_url,
-                    set_star_scores: 0,
-                }
+                // var cookie_call_fb_share = {
+                //     did: 0,
+                //     scores: 0,
+                //     title: title,
+                //     description: description,
+                //     share_link: share_link,
+                //     pic_url: pic_url,
+                //     set_star_scores: 0,
+                // }
 
-                setCookie('call_fb_share', JSON.stringify(cookie_call_fb_share), 180);
+                setCookie('call_fb_share_did', 0, 180);
+                setCookie('call_fb_share_scores', 0, 180);
+                setCookie('call_fb_share_share_link', share_link, 180);
+                setCookie('call_fb_share_pic_url', pic_url, 180);
+                setCookie('call_fb_share_set_star_scores', 0, 180);
+
+                // setCookie('call_fb_share', JSON.stringify(cookie_call_fb_share), 180);
+                setCookie('call_fb_share', 1, 180);
 
                 var appId = '1033597740066827';
                 var app_permissions = 'public_profile';
@@ -611,17 +628,24 @@ $(document).ready(function() {
                 });
             } else {
 
-                var cookie_call_fb_share = {
-                    did: $("#map-info-window").attr('data-id'),
-                    scores: scores,
-                    title: title,
-                    description: description,
-                    share_link: share_link,
-                    pic_url: pic_url,
-                    set_star_scores: 1,
-                }
+                // var cookie_call_fb_share = {
+                //     did: $("#map-info-window").attr('data-id'),
+                //     scores: scores,
+                //     title: title,
+                //     description: description,
+                //     share_link: share_link,
+                //     pic_url: pic_url,
+                //     set_star_scores: 1,
+                // }
 
-                setCookie('call_fb_share', JSON.stringify(cookie_call_fb_share), 180);
+                setCookie('call_fb_share_did', $("#map-info-window").attr('data-id'), 180);
+                setCookie('call_fb_share_scores', scores, 180);
+                setCookie('call_fb_share_share_link', share_link, 180);
+                setCookie('call_fb_share_pic_url', pic_url, 180);
+                setCookie('call_fb_share_set_star_scores', 1, 180);
+
+                // setCookie('call_fb_share', JSON.stringify(cookie_call_fb_share), 180);
+                setCookie('call_fb_share', 1, 180);
 
                 var appId = '1033597740066827';
                 var app_permissions = 'public_profile';

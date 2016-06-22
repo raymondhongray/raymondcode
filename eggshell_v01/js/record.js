@@ -11,10 +11,12 @@ $(document).ready(function() {
     // $(".say-hi-count").text(record_count);
 
     // $('.loading-effect').css('display','block');
+
+    alert('document ready in');
 });
 
 function call_data_list_by_fbid(fb_id) {
-
+    alert('in');
 	$.ajax({
         type: 'POST',
         url: '../api/data_list.php',

@@ -261,10 +261,10 @@ $(document).ready(function() {
     });
     // 0616 james end
 
-    var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
+    var theme_groupOffset = $('.tab-theme-group').offset().top - 150;
     $('.event_index_btn1').click(function() {
         $('html,body').animate({
-            scrollTop: event_taiwanOffset
+            scrollTop: theme_groupOffset
         }, 500);
     });
 
@@ -276,7 +276,7 @@ $(document).ready(function() {
     }
 
     if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'event_equipment') {
-        var equipmentOffset = $('#event-equipment').offset().top - 250;
+        var equipmentOffset = $('#event-equipment').offset().top - 150;
         $('html,body').animate({
             scrollTop: equipmentOffset
         }, 500);

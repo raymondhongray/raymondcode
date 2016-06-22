@@ -540,8 +540,8 @@ $(document).ready(function() {
         var description = $("#tab-info-window").find('.map-content-description').text();
         var gps_x = gps_list[tab_index][0];
         var gps_y = gps_list[tab_index][1];
-        var share_link = window.location.hostname + '/eggshell_v01/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
-        var pic_url = window.location.hostname + "/eggshell_v01/img/fbshare/FB_" + tab_index + ".jpg";
+        var share_link = window.location.hostname + '/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
+        var pic_url = window.location.hostname + "/img/fbshare/FB_" + tab_index + ".jpg";
         // var pic_url = 'https://unsplash.it/300/300';
 
 
@@ -591,8 +591,8 @@ $(document).ready(function() {
         var description = $("#map-info-window").find('.map-content-description').text();
         var gps_x = $("#map-info-window").attr('gps-x');
         var gps_y = $("#map-info-window").attr('gps-y');
-        var share_link = window.location.hostname + '/eggshell_v01/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
-        var pic_url = window.location.hostname + "/eggshell_v01/img/fbshare/FB_map.jpg";
+        var share_link = window.location.hostname + '/map.html?set_gps=1&gps_x=' + gps_x + '&gps_y=' + gps_y;
+        var pic_url = window.location.hostname + "/img/fbshare/FB_map.jpg";
         // var pic_url = 'https://unsplash.it/300/300';
 
         console.log(share_link);

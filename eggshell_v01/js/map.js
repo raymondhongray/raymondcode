@@ -424,6 +424,8 @@ function call_data_share_api(fb_id, fb_name, did, star) {
 
 function call_fb_share(fb_id, fb_name, did, star, title, description, share_link, pic_url, set_star_scores) {
 
+    $('.loading-effect-fb').css('display', 'block');
+
     insert_fb_log(fb_id, fb_name);
 
     var publish = {
@@ -499,7 +501,6 @@ $(document).ready(function() {
     if (getCookie('call_fb_share')) {
 
         // var share_obj = JSON.parse(getCookie('call_fb_share'));
-
         var share_obj = [];
 
         share_obj['did'] = getCookie('call_fb_share_did');
@@ -513,7 +514,7 @@ $(document).ready(function() {
 
         setTimeout(function() {
             FB.api('/me', function(response) {
-
+                
                 var fb_name = response['name'];
                 var fb_id = response['id'];
 
@@ -526,7 +527,7 @@ $(document).ready(function() {
                 deleteCookie('call_fb_share_pic_url');
                 deleteCookie('call_fb_share_set_star_scores');
             });
-        }, 3000);
+        }, 1500);
     }
 
     if (getQueryStrByName('error_code') != null && getQueryStrByName('error_code') == '4201') {

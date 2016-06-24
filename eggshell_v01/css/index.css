@@ -118,6 +118,52 @@ body {
 /*0616 james for transition end*/
 
 .flexslider-wrap {
-	margin-top: 20px !important;
-	margin-bottom: 30px !important;
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+}
+
+.j-effect {
+    -webkit-animation: jump .8s infinite;
+}
+
+.j-effect:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 128px;
+    left: 40px;
+    width: 44px;
+    height: 10px;
+    background: #eaeaea;
+    border-radius: 100%;
+    -webkit-animation: effec_shadow .8s infinite;
+}
+
+@-webkit-keyframes jump {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: -30px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@-webkit-keyframes effec_shadow {
+    0%,
+    100% {
+        left: 45px;
+        width: 40px;
+        background: #eaeaea;
+    }
+    50% {
+        top: 158px;
+        left: 40px;
+        /*讓陰影保持在原位*/
+        width: 50px;
+        height: 7px;
+        background: #eee;
+    }
 }

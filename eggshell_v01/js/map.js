@@ -414,10 +414,41 @@ function call_data_share_api(fb_id, fb_name, did, star) {
     } else {
         // 只分享不評分
         if (getQueryStrByName('post_id') != null) {
-            $('.popup-done .recommend-done-title').attr('src', 'img/pop/share_bg_title.png');
-            $('.popup-done .recommend-done-content-long').attr('src', 'img/pop/share_done.png');
-            $('.popup-done .done-link2').css('display', 'none');
-            $(".popup-done").css('display', 'block');
+
+            $('.loading-effect').css('display', 'block');
+
+            $.ajax({
+                type: 'POST',
+                url: "../api/fb_share.php",
+                type: "POST",
+                data: {
+                    fbid: fb_id,
+                    fbname: fb_name
+                },
+                dataType: "json",
+                success: function(res) {
+                    console.log(res);
+                    if (res.code == 0) {
+                        $('.popup-done .recommend-done-title').attr('src', 'img/pop/share_bg_title.png');
+                        $('.popup-done .recommend-done-content-long').attr('src', 'img/pop/share_done.png');
+                        $('.popup-done .done-link2').css('display', 'none');
+                        $(".popup-done").css('display', 'block');
+                    }
+
+                    $('.loading-effect').css('display', 'none');
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+
+                    $('.loading-effect').css('display', 'none');
+
+                    alert("Status: " + textStatus);
+                    alert("Error: " + errorThrown);
+                },
+            });
+            // $('.popup-done .recommend-done-title').attr('src', 'img/pop/share_bg_title.png');
+            // $('.popup-done .recommend-done-content-long').attr('src', 'img/pop/share_done.png');
+            // $('.popup-done .done-link2').css('display', 'none');
+            // $(".popup-done").css('display', 'block');
         }
     }
 }
@@ -514,7 +545,7 @@ $(document).ready(function() {
 
         setTimeout(function() {
             FB.api('/me', function(response) {
-                
+
                 var fb_name = response['name'];
                 var fb_id = response['id'];
 

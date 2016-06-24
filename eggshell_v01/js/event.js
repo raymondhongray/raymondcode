@@ -1,6 +1,8 @@
 // 0615 james
 function setProductTabInfoWindow() {
 
+    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=193" target="_blank"><img class="product-intro-more product-intro-more-pos5" src="img/event/more1.png" />');
+    $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=193" target="_blank"><img class="product-intro-more product-intro-more-pos4" src="img/event/more1.png" />');
     $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=196" target="_blank"><img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
     $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=65" target="_blank"><img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
     $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=65" target="_blank"><img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');
@@ -21,6 +23,8 @@ function setProductTabInfoWindow() {
         $('#product-info-window .info-window-row').find('img').attr('src', img);
 
         if (tab_index == 0) {
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=193" target="_blank"><img class="product-intro-more product-intro-more-pos5" src="img/event/more1.png" />');
+            $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=193" target="_blank"><img class="product-intro-more product-intro-more-pos4" src="img/event/more1.png" />');
             $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=196" target="_blank"><img class="product-intro-more product-intro-more-pos3" src="img/event/more1.png" />');
             $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=65" target="_blank"><img class="product-intro-more product-intro-more-pos2" src="img/event/more1.png" />');
             $('.product-intro-group').append('<a href="https://www.maobao2.com.tw/eggshell/product/index.php?bid=65" target="_blank"><img class="product-intro-more product-intro-more-pos1" src="img/event/more1.png" />');

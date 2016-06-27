@@ -256,6 +256,27 @@ $(document).ready(function() {
         }
     });
 
+    $('.event-taiwan-0').click(function() {
+        $('.tab-theme[data-id="0"]').click();
+        $('.fb-share-action').click();
+    });
+
+    $('.event-taiwan-1').click(function() {
+        $('.tab-theme[data-id="1"]').click();
+        $('.fb-share-action').click();
+    });
+
+    $('.event-taiwan-2').click(function() {
+        $('.tab-theme[data-id="2"]').click();
+        $('.fb-share-action').click();
+    });
+
+    $('.event-taiwan-3').click(function() {
+        $('.tab-theme[data-id="3"]').click();
+        $('.fb-share-action').click();
+    });
+   
+    
     // 0616 james 
     var recommendOffset = $('.activity-group').offset().top - 500;
     $('.event_index_btn2, .activitie').click(function() {
@@ -265,10 +286,10 @@ $(document).ready(function() {
     });
     // 0616 james end
 
-    var theme_groupOffset = $('.tab-theme-group').offset().top - 150;
+    var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
     $('.event_index_btn1').click(function() {
         $('html,body').animate({
-            scrollTop: theme_groupOffset
+            scrollTop: event_taiwanOffset
         }, 500);
     });
 

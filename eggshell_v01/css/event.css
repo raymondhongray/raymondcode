@@ -159,11 +159,18 @@
     transform: none!important;
 }
 
-
 .event-event-btn,
-.activitie {
+.activitie,
+.fb-share-action,
+.event_index_btn1 {
     animation: shake 3s infinite;
 }
+
+.event_index_btn2 {
+    animation: shake 3s infinite;
+    animation-delay: 2s;
+}
+
 
 /*-webkit-@keyframes shake {
     0% {
@@ -185,6 +192,7 @@
         -webkit-transform: rotate(0deg)!important;
     }
 }*/
+
 -webkit-@keyframes shake {
     0% {
         -webkit-transform: rotate(0deg);
@@ -205,6 +213,7 @@
         -webkit-transform: rotate(0deg);
     }
 }
+
 @keyframes shake {
     0% {
         transform: rotate(0deg);
@@ -243,6 +252,7 @@
         -webkit-transform: translateY(2px);
     }
 }
+
 @keyframes up_down {
     0% {
         transform: translateY(2px);
@@ -277,7 +287,13 @@
     margin-left: 75px;
 }
 
+#event-index-img {
+    position: relative;
+}
+
 .event-index-btn-group {
     text-align: center;
-    margin-top: -20px;
+    position: absolute;
+    top: 200px;
+    left: 23%;
 }

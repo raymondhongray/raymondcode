@@ -1,6 +1,7 @@
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 function get_spots() {
     $.ajax({
         type: 'POST',
@@ -12,10 +13,15 @@ function get_spots() {
         },
         dataType: "json",
         success: function(res) {
-            
+
             data_lists = res.list;
 
             $('.event_index_btn2_text > .p1').text(data_lists.length);
+
+            setTimeout(function() {
+                $(".event_index_btn1_text").fadeIn();
+                $(".event_index_btn2_text").fadeIn();
+            }, 2000);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             console.log("Status: " + textStatus);
@@ -23,9 +29,10 @@ function get_spots() {
         },
     });
 }
+
 function set_share_numbers() {
     $('.event_index_btn1_text > .p1').text(getRandomInt(40, 120));
-    
+
     $('.share-p-0').text(getRandomInt(10, 30));
     $('.share-p-1').text(getRandomInt(10, 30));
     $('.share-p-2').text(getRandomInt(10, 30));
@@ -312,8 +319,8 @@ $(document).ready(function() {
         $('.tab-theme[data-id="3"]').click();
         $('.fb-share-action').click();
     });
-   
-    
+
+
     // 0616 james 
     var recommendOffset = $('.activity-group').offset().top - 500;
     $('.activitie').click(function() {

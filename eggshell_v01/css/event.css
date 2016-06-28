@@ -300,6 +300,7 @@
 }
 
 .event_index_btn1_text {
+    display: none;
     background-color: #fff;
     width: 200px;
     height: 100px;
@@ -310,6 +311,7 @@
 }
 
 .event_index_btn2_text {
+    display: none;
     background-color: #fff;
     width: 200px;
     height: 100px;

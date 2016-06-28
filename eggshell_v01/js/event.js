@@ -1,3 +1,36 @@
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function get_spots() {
+    $.ajax({
+        type: 'POST',
+        url: '../api/data_list.php',
+        data: {
+            page: 1,
+            num: 10000,
+            hidden: 0
+        },
+        dataType: "json",
+        success: function(res) {
+            
+            data_lists = res.list;
+
+            $('.event_index_btn2_text > .p1').text(data_lists.length);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Error: " + errorThrown);
+        },
+    });
+}
+function set_share_numbers() {
+    $('.event_index_btn1_text > .p1').text(getRandomInt(40, 120));
+    
+    $('.share-p-0').text(getRandomInt(10, 30));
+    $('.share-p-1').text(getRandomInt(10, 30));
+    $('.share-p-2').text(getRandomInt(10, 30));
+    $('.share-p-3').text(getRandomInt(10, 30));
+}
 // 0615 james
 function setProductTabInfoWindow() {
 
@@ -173,6 +206,10 @@ $(".event-event-btn").click(function() {
 
 $(document).ready(function() {
 
+    get_spots();
+
+    set_share_numbers();
+
     setProductTabInfoWindow();
 
     // if (getCookie('call_data_upload')) {
@@ -279,10 +316,14 @@ $(document).ready(function() {
     
     // 0616 james 
     var recommendOffset = $('.activity-group').offset().top - 500;
-    $('.event_index_btn2, .activitie').click(function() {
+    $('.activitie').click(function() {
         $('html,body').animate({
             scrollTop: recommendOffset
         }, 500);
+    });
+
+    $('.event_index_btn2').click(function() {
+        $('.event-event-btn').click();
     });
     // 0616 james end
 

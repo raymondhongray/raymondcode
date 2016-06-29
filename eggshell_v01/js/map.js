@@ -378,7 +378,7 @@ function insert_fb_log(fb_id, fb_name) {
     });
 }
 
-function call_data_share_api(fb_id, fb_name, did, star) {
+function call_data_share_api(fb_id, fb_name, did, star, vid) {
 
     console.log('in call_data_share_api');
 
@@ -423,7 +423,8 @@ function call_data_share_api(fb_id, fb_name, did, star) {
                 type: "POST",
                 data: {
                     fbid: fb_id,
-                    fbname: fb_name
+                    fbname: fb_name,
+                    vid: vid
                 },
                 dataType: "json",
                 success: function(res) {
@@ -453,7 +454,7 @@ function call_data_share_api(fb_id, fb_name, did, star) {
     }
 }
 
-function call_fb_share(fb_id, fb_name, did, star, title, description, share_link, pic_url, set_star_scores) {
+function call_fb_share(fb_id, fb_name, did, star, title, description, share_link, pic_url, set_star_scores, vid) {
 
     $('.loading-effect-fb').css('display', 'block');
 
@@ -471,6 +472,7 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
     var cookie_call_data_share = {
         did: did,
         scores: star,
+        vid: vid
     }
 
     setCookie('call_data_share_api', JSON.stringify(cookie_call_data_share), 180);
@@ -519,7 +521,7 @@ $(document).ready(function() {
                     var fb_name = response['name'];
                     var fb_id = response['id'];
 
-                    call_data_share_api(fb_id, fb_name, obj.did, obj.scores);
+                    call_data_share_api(fb_id, fb_name, obj.did, obj.scores, obj.vid);
 
                     deleteCookie('call_data_share_api');
                 });
@@ -536,6 +538,7 @@ $(document).ready(function() {
 
         share_obj['did'] = getCookie('call_fb_share_did');
         share_obj['scores'] = getCookie('call_fb_share_scores');
+        share_obj['vid'] = getCookie('call_fb_share_vid');
         share_obj['share_link'] = getCookie('call_fb_share_share_link');
         share_obj['pic_url'] = getCookie('call_fb_share_pic_url');
         share_obj['set_star_scores'] = getCookie('call_fb_share_set_star_scores');
@@ -549,11 +552,12 @@ $(document).ready(function() {
                 var fb_name = response['name'];
                 var fb_id = response['id'];
 
-                call_fb_share(fb_id, fb_name, share_obj.did, share_obj.scores, share_obj.title, share_obj.description, share_obj.share_link, share_obj.pic_url, 0);
+                call_fb_share(fb_id, fb_name, share_obj.did, share_obj.scores, share_obj.title, share_obj.description, share_obj.share_link, share_obj.pic_url, 0,  share_obj.vid);
 
                 deleteCookie('call_fb_share');
                 deleteCookie('call_fb_share_did');
                 deleteCookie('call_fb_share_scores');
+                deleteCookie('call_fb_share_vid');
                 deleteCookie('call_fb_share_share_link');
                 deleteCookie('call_fb_share_pic_url');
                 deleteCookie('call_fb_share_set_star_scores');
@@ -597,7 +601,7 @@ $(document).ready(function() {
                     fb_id = res['id'];
                     fb_name = res['name'];
 
-                    call_fb_share(fb_id, fb_name, 0, 0, title, description, share_link, pic_url, 0);
+                    call_fb_share(fb_id, fb_name, 0, 0, title, description, share_link, pic_url, 0, (parseInt(tab_index) + 1));
                 });
             } else {
 
@@ -613,6 +617,7 @@ $(document).ready(function() {
 
                 setCookie('call_fb_share_did', 0, 180);
                 setCookie('call_fb_share_scores', 0, 180);
+                setCookie('call_fb_share_vid', (parseInt(tab_index) + 1), 180);
                 setCookie('call_fb_share_share_link', share_link, 180);
                 setCookie('call_fb_share_pic_url', pic_url, 180);
                 setCookie('call_fb_share_set_star_scores', 0, 180);
@@ -656,7 +661,7 @@ $(document).ready(function() {
                     fb_id = res['id'];
                     fb_name = res['name'];
 
-                    call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores, title, description, share_link, pic_url, 1);
+                    call_fb_share(fb_id, fb_name, $("#map-info-window").attr('data-id'), scores, title, description, share_link, pic_url, 1, 0);
                 });
             } else {
 
@@ -672,6 +677,7 @@ $(document).ready(function() {
 
                 setCookie('call_fb_share_did', $("#map-info-window").attr('data-id'), 180);
                 setCookie('call_fb_share_scores', scores, 180);
+                setCookie('call_fb_share_vid', 0, 180);
                 setCookie('call_fb_share_share_link', share_link, 180);
                 setCookie('call_fb_share_pic_url', pic_url, 180);
                 setCookie('call_fb_share_set_star_scores', 1, 180);

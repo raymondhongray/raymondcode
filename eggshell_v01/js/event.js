@@ -3,6 +3,7 @@ function getRandomInt(min, max) {
 }
 
 function get_spots() {
+    // unused
     $.ajax({
         type: 'POST',
         url: '../api/data_list.php',
@@ -31,12 +32,40 @@ function get_spots() {
 }
 
 function set_share_numbers() {
-    $('.event_index_btn1_text > .p1').text(getRandomInt(40, 120));
 
-    $('.share-p-0').text(getRandomInt(10, 30));
-    $('.share-p-1').text(getRandomInt(10, 30));
-    $('.share-p-2').text(getRandomInt(10, 30));
-    $('.share-p-3').text(getRandomInt(10, 30));
+    $.ajax({
+        type: 'POST',
+        url: '../api/all.php',
+        dataType: "json",
+        success: function(res) {
+
+           
+            $('.event_index_btn2_text > .p1').text(res.s);
+
+            $('.event_index_btn1_text > .p1').text(res.d);
+
+            $('.share-p-0').text(res.v1);
+            $('.share-p-1').text(res.v2);
+            $('.share-p-2').text(res.v3);
+            $('.share-p-3').text(res.v4);
+
+            setTimeout(function() {
+                $(".event_index_btn1_text").fadeIn();
+                $(".event_index_btn2_text").fadeIn();
+            }, 2000);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Error: " + errorThrown);
+        },
+    });
+
+    // $('.event_index_btn1_text > .p1').text(getRandomInt(40, 120));
+
+    // $('.share-p-0').text(getRandomInt(10, 30));
+    // $('.share-p-1').text(getRandomInt(10, 30));
+    // $('.share-p-2').text(getRandomInt(10, 30));
+    // $('.share-p-3').text(getRandomInt(10, 30));
 }
 // 0615 james
 function setProductTabInfoWindow() {
@@ -212,8 +241,6 @@ $(".event-event-btn").click(function() {
 
 
 $(document).ready(function() {
-
-    get_spots();
 
     set_share_numbers();
 

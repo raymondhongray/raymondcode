@@ -33,7 +33,7 @@ function initAutocomplete() {
             lat: default_center[0],
             lng: default_center[1]
         },
-        zoom: 16,
+        zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 

@@ -1,3 +1,16 @@
+function createJsonFile(object, linkId) {
+    //Get the file contents
+    var str = JSON.stringify(object);
+
+    //Save the file contents as a DataURI
+    var dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(str);
+
+    $('<a style="position: fixed;top: 110px;z-index: 100000;" href="#" id="' + linkId +'" download="' + linkId + '.json">Download ' + linkId + ' as JSON</a>').appendTo("body");
+
+    //Write it as the href for the link
+    var link = document.getElementById(linkId).href = dataUri;
+}
+
 function getQueryStrByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");

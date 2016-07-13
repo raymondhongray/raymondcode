@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="zh-tw">
 
 <head>
@@ -172,7 +172,7 @@
                         </select>
                     </div>
                     <div class="recommend-textarea">
-                        <p style="color: #FFFF01;">好玩的的原因是......</p>
+                        <p style="color: #FFFF01;">好玩的原因是......</p>
                         <textarea placeholder="至多一百字內"></textarea>
                     </div>
                 </div>
@@ -336,8 +336,9 @@
                     </div>
                 </div>
                 <div>
-                    <div style="display: inline-block;">
+                    <div style="display: inline-block;position: relative;">
                         <img src="img/event/event_taiwan_3.png" class="event-taiwan-2" onclick="ga('send', 'event', '活動頁', 'Click', 'event taiwan 圖3');" />
+                        <div class="luster"></div>
                         <div class="share-p">
                             <i class="fa fa-share" aria-hidden="true"></i>
                             <p class="share-p-2">0</p>
@@ -393,18 +394,22 @@
             <div class="green-line"></div>
             <img src="img/event/catch@2x.png" />
             <div class="pretty-pics">
-                <img src="img/event/pretty_pic_01.png" />
-                <img src="img/event/pretty_pic_02.png" />
-                <img src="img/event/pretty_pic_03.png" />
+                <a href="map.html" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖 補充入口');"><img src="img/event/pretty_pic_01.png" /></a>
+                <a href="map.html" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖 補充入口');"><img src="img/event/pretty_pic_02.png" /></a>
+                <a href="map.html" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖 補充入口');"><img src="img/event/pretty_pic_03.png" /></a>
+
+                <img class="pretty-pics-icon icon0" src="img/event/event_map_btn_2.png" />
+                <img class="pretty-pics-icon icon1" src="img/event/event_map_btn_2.png" />
+                <img class="pretty-pics-icon icon2" src="img/event/event_map_btn_2.png" />
             </div>
             <div class="activity-group">
                 <div class="activity-group-text">
                     <p>小鹿也邀請大朋友們小朋友們，趕快來推薦你心目中人少又好玩的景點，就有機會把大獎帶回家，一個點只能推薦一次，先搶先贏喔!</p>
                 </div>
-                <img id="event-event-btn" class="event-event-btn" src="img/event/event_event_btn.png" />
+                <img id="event-event-btn" class="event-event-btn" src="img/event/event_event_btn.png" onclick="ga('send', 'event', '活動頁', 'Click', '我要推薦');"/>
                 <!-- <img class="event-map-btn" src="img/event/event_map_btn.png" /> -->
                 <div class="event-map-btn">
-                    <img src="img/event/event_map_btn_1.png" onclick="ga('send', 'event', '活動頁', 'Click', '我要推薦');">
+                    <img src="img/event/event_map_btn_1.png" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖');">
                     <img src="img/event/event_map_btn_2.png" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖');">
                 </div>
             </div>

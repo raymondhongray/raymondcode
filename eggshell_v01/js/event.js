@@ -33,16 +33,53 @@ function get_spots() {
 
 function set_share_numbers() {
 
+    $('.share-p').css('display', 'none');
+
     $.ajax({
         type: 'POST',
         url: '../api/all.php',
         dataType: "json",
         success: function(res) {
 
-           
-            $('.event_index_btn2_text > .p1').text(res.s);
+            console.log(res.s);
+            console.log(res.d);
+            
+            var now = new Date().getTime() / 1000;
+            var date = new Date().getDate();
+            var m = 0;
+            // from July 5th, 2016 12:00 AM
+            var m_d_arr = [
+                "5.4",  "6.3",  "6.8",  "7.3",  
+                "7.9",  "8.4",  "10.2", "12.1", 
+                "14.1", "15.4", "17",   "17.4", 
+                "17.5", "17.8", "18.4", "19.1", 
+                "19.6", "19.9"
+            ];
 
-            $('.event_index_btn1_text > .p1').text(res.d);
+            if (typeof m_d_arr[parseInt(date) - 5] != 'undefined') {
+                m = m_d_arr[parseInt(date) - 5];
+            }
+
+            var res_offset = Math.round(m * Math.round((Math.round(now) - 1467648000) / 7200));
+
+            $('.event_index_btn1_text > .p1').text(parseInt(res.d) + res_offset);
+
+            m = 0;
+            var m_s_arr = [
+                "1.6",  "2",    "2.2",  "2.3",  
+                "2.4",  "2.5",  "3",    "3.5",  
+                "4",    "4.4",  "4.8",  "4.9",  
+                "4.9",  "5",    "5.1",  "5.4",  
+                "5.7",  "6.1"
+            ];
+
+            if (typeof m_s_arr[parseInt(date) - 5] != 'undefined') {
+                m = m_s_arr[parseInt(date) - 5];
+            }
+
+            var res_offset = Math.round(m * Math.round((Math.round(now) - 1467648000) / 7200));
+
+            $('.event_index_btn2_text > .p1').text(parseInt(res.s) + res_offset);
 
             $('.share-p-0').text(res.v1);
             $('.share-p-1').text(res.v2);

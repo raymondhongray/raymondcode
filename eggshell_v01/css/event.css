@@ -48,6 +48,47 @@
 
 .pretty-pics {
     margin-top: 30px;
+    position: relative;
+}
+
+.pretty-pics-icon {
+    position: absolute;
+    top: 95px;
+    border: 0 !important;
+    animation: shake_fierce 3s infinite;
+    -webkit-animation: shake_fierce 3s infinite;
+}
+
+.pretty-pics-icon.icon0 {
+    left: 44px;
+}
+
+.pretty-pics-icon.icon1 {
+    left: 212px;
+}
+
+.pretty-pics-icon.icon2 {
+    left: 380px;
+}
+
+@keyframes shake_fierce {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+@-webkit-keyframes shake_fierce {
+    0%,
+    100% {
+        -webkit-transform: translateX(0);
+    }
+    50% {
+        -webkit-transform: translateX(5px);
+    }
 }
 
 .pretty-pics > img {
@@ -169,7 +210,7 @@
 .event_index_btn2 {
     animation: shake 3s infinite;
     animation-delay: 2s;
-    margin-left: 75px; 
+    margin-left: 75px;
 }
 
 
@@ -322,7 +363,7 @@
 }
 
 .event_index_btn1_text > .p1,
-.event_index_btn2_text > .p1{
+.event_index_btn2_text > .p1 {
     top: 22px;
     left: -38px;
     font-size: 28px;
@@ -338,6 +379,48 @@
     color: #669900;
 }
 
-.share-p *{
+.share-p * {
     color: #395304;
+}
+
+.luster {
+    position: absolute;
+    overflow: hidden;
+    width: 245px;
+    height: 300px;
+    top: 0;
+    left: 20px;
+}
+
+.luster:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: -10%;
+    top: 15px;
+    width: 50%;
+    height: 100%;
+    animation: flashBlur 1.5s infinite;
+    webkit-animation: flashBlur 1.5s infinite;
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url(../img/event/light01.png);
+}
+
+-webkit-@keyframes flashBlur {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes flashBlur {
+    0% {
+        left: -10%;
+    }
+    100% {
+        left: 100%;
+    }
 }

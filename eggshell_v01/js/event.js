@@ -60,7 +60,7 @@ function set_share_numbers() {
                 m = m_d_arr[parseInt(date) - 5];
             }
 
-            var res_offset = Math.round(m * Math.round((Math.round(now) - 1467648000) / 7200));
+            var res_offset = Math.round(m * Math.round((Math.round(now) - 1467648000) / (3600 * 4)));
 
             $('.event_index_btn1_text > .p1').text(parseInt(res.d) + res_offset);
 
@@ -77,7 +77,7 @@ function set_share_numbers() {
                 m = m_s_arr[parseInt(date) - 5];
             }
 
-            var res_offset = Math.round(m * Math.round((Math.round(now) - 1467648000) / 7200));
+            var res_offset = Math.round(m * Math.round((Math.round(now) - 1467648000) / (3600 * 4)));
 
             $('.event_index_btn2_text > .p1').text(parseInt(res.s) + res_offset);
 

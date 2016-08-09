@@ -396,7 +396,7 @@ function call_data_share_api(fb_id, fb_name, did, star, vid) {
             dataType: "json",
             success: function(res) {
                 console.log(res);
-                if (res.code == 0) {
+                if (res.code == 0 || res.code == 99) {
                     $(".popup-done").css('display', 'block');
                 }
 
@@ -429,7 +429,7 @@ function call_data_share_api(fb_id, fb_name, did, star, vid) {
                 dataType: "json",
                 success: function(res) {
                     console.log(res);
-                    if (res.code == 0) {
+                    if (res.code == 0 || res.code == 99) {
                         $('.popup-done .recommend-done-title').attr('src', 'img/pop/share_bg_title.png');
                         $('.popup-done .recommend-done-content-long').attr('src', 'img/pop/share_done.png');
                         $('.popup-done .done-link2').css('display', 'none');
@@ -452,6 +452,22 @@ function call_data_share_api(fb_id, fb_name, did, star, vid) {
             // $(".popup-done").css('display', 'block');
         }
     }
+}
+
+function trigger_fb_share(title, link, description, picture) {
+    // for FB browser
+    // 就先不寫入我們的資料庫了
+    FB.ui({
+        method: 'feed',
+        display: 'touch',
+        name: title,
+        link: link,
+        description: description,
+        picture: picture,
+    }, function(response) {
+        window.location.href = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
+    });
+    return;
 }
 
 function call_fb_share(fb_id, fb_name, did, star, title, description, share_link, pic_url, set_star_scores, vid) {
@@ -482,18 +498,6 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
 
     var permissionUrl = "https://m.facebook.com/dialog/feed?app_id=" + appId + "&display=touch&redirect_uri=" + redirect_uri + "&name=" + publish.name + "&description=" + publish.description + "&link=" + publish.link + "&picture=" + publish.picture;
     window.location = permissionUrl;
-
-    // FB.ui(publish, function(response) {
-    //     if (response && !response.error_message) {
-    //         console.log(response, 'fb_share');
-
-    //         if (set_star_scores == 1) {
-    //             call_data_share_api(fb_id, fb_name, did, star);
-    //         }
-    //     } else {
-    //         alert('Oops，沒有分享成功要顯示的訊息！');
-    //     }
-    // });
 }
 
 $(document).ready(function() {
@@ -532,7 +536,6 @@ $(document).ready(function() {
     }
 
     if (getCookie('call_fb_share')) {
-
         // var share_obj = JSON.parse(getCookie('call_fb_share'));
         var share_obj = [];
 
@@ -552,7 +555,7 @@ $(document).ready(function() {
                 var fb_name = response['name'];
                 var fb_id = response['id'];
 
-                call_fb_share(fb_id, fb_name, share_obj.did, share_obj.scores, share_obj.title, share_obj.description, share_obj.share_link, share_obj.pic_url, 0,  share_obj.vid);
+                call_fb_share(fb_id, fb_name, share_obj.did, share_obj.scores, share_obj.title, share_obj.description, share_obj.share_link, share_obj.pic_url, 0, share_obj.vid);
 
                 deleteCookie('call_fb_share');
                 deleteCookie('call_fb_share_did');
@@ -590,6 +593,14 @@ $(document).ready(function() {
         var pic_url = window.location.hostname + "/img/fbshare/FB_" + tab_index + ".jpg";
         // var pic_url = 'https://unsplash.it/300/300';
 
+        if (navigator.userAgent.match(/FBAV|FBAN|FB_IAB|FB4A/i) && /Android/i.test(navigator.userAgent)) {
+            // for FB browser
+            // 不用登入，因為已經在臉書瀏覽器了
+            var parameter = '\'' + title + '\',\'' + encodeURIComponent(share_link) + '\',\'' + encodeURIComponent(description) + '\',\'' + pic_url + '\'';
+            $('<button class="trigger-fb-share" onclick="trigger_fb_share(' + parameter + ')">點此分享</button>').appendTo($('.currnent-path'));
+            $('.trigger-fb-share').click();
+            return;
+        }
 
         FB.getLoginStatus(function(response) {
 

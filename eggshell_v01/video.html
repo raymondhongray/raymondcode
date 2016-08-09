@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="utf-8">
+    <title>eggshell 小鹿山丘</title>
+    <meta name="keywords" content="eggshell 小鹿山丘">
+    <meta name="description" content="敲開您的美好生活～這裡是簡單生活的祕密花園，隨時分享簡單、美好、有品味的生活。">
+    <meta name="viewport" content="width=640, user-scalable=no, maximum-scale=1.0">
+    <meta property="og:title" content="eggshell 小鹿山丘" />
+    <meta property="og:image" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="eggshell 小鹿山丘" />
+    <link rel="shortcut icon" href="img/main/short_icon.jpg">
+    <!-- CSS -->
+    <link href="css/reset.css?c_ver=7" rel="stylesheet" type="text/css" />
+    <link href="css/main.css?c_ver=7" rel="stylesheet" type="text/css" />
+    <link href="css/flexslider.css" rel="stylesheet" />
+</head>
+
+<body id="index-body">
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1033597740066827',
+            xfbml: true,
+            version: 'v2.6'
+        });
+        // 判斷是不是有登入
+           
+        FB.getLoginStatus(function(response) {    
+            if (response.status === 'connected') {      // 已認證
+                     
+                var uid = response.authResponse.userID;     
+                var accessToken = response.authResponse.accessToken;     
+                alert(uid);     
+                alert(accessToken);    
+
+                FB.api(
+                    '/546643875370469_1173253309376186/likes',
+                    // '/122822427816568_845397065559097/likes',
+                    'GET', {
+                        "summary": "true"
+                    },
+                    function(response) {
+                        console.log(response);
+                    }
+                );
+            } else if (response.status === 'not_authorized') {      // 未認證
+                     
+                alert(response.status);    
+            } else {      // 未登入
+                     
+                alert(未登入);   
+                FB.login(function(response) {
+                    if (response.authResponse) {
+                        console.log('Welcome!  Fetching your information.... ');
+
+                    } else {
+                        console.log('User cancelled login or did not fully authorize.');
+                    }
+                }); 
+            }   
+        });
+
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <header>
+        <div class="header-content">
+        </div>
+    </header>
+    <div id="wrap">
+        <div id="content">
+            <style type="text/css">
+            .flex-control-nav.flex-control-paging {
+                display: none;
+            }
+            
+            .fb_video-wrap {
+                margin: 20px auto;
+                width: 90%;
+            }
+            </style>
+            <div class="flexslider flexslider-wrap">
+                <ul class="slides">
+                    <li>
+                        <div class="fb_video-wrap">
+                            <!-- Your embedded video player code -->
+                            <div class="fb-video" data-href="https://www.facebook.com/adidasWomenTW/videos/1173253309376186/" data-width="640" data-show-text="true">
+                                <div class="fb-xfbml-parse-ignore">
+                                    <blockquote cite="https://www.facebook.com/adidasWomenTW/videos/1173253309376186/">
+                                        <a href="https://www.facebook.com/adidasWomenTW/videos/1173253309376186/">How to Share With Just Friends</a>
+                                        <p>How to share with just friends.</p>
+                                        Posted by <a href="https://www.facebook.com/facebook/">Facebook</a> on Friday, December 5, 2014
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="fb_video-wrap">
+                            <!-- Your embedded video player code -->
+                            <div class="fb-video" data-href="https://www.facebook.com/PTTInternetAgency/videos/845397065559097/" data-width="640" data-show-text="true">
+                                <div class="fb-xfbml-parse-ignore">
+                                    <blockquote cite="https://www.facebook.com/PTTInternetAgency/videos/845397065559097/">
+                                        <a href="https://www.facebook.com/PTTInternetAgency/videos/845397065559097/">How to Share With Just Friends</a>
+                                        <p>How to share with just friends.</p>
+                                        Posted by <a href="https://www.facebook.com/facebook/">Facebook</a> on Friday, December 5, 2014
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="fb_video-wrap">
+                            <!-- Your embedded video player code -->
+                            <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/10153231379946729/" data-width="640" data-show-text="true">
+                                <div class="fb-xfbml-parse-ignore">
+                                    <blockquote cite="https://www.facebook.com/facebook/videos/10153231379946729/">
+                                        <a href="https://www.facebook.com/facebook/videos/10153231379946729/">How to Share With Just Friends</a>
+                                        <p>How to share with just friends.</p>
+                                        Posted by <a href="https://www.facebook.com/facebook/">Facebook</a> on Friday, December 5, 2014
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <img src="img/main/eggshell_footer.png" />
+    </footer>
+    <script src="js/GA.pageview.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-ui-1.10.2.custom.min.js"></script>
+    <script type="text/javascript" src="js/libs/jqueryEasing-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/libs/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/main.js?c_ver=7"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".flexslider").flexslider({
+            slideshow: false,
+        });
+    });
+    </script>
+</body>
+
+</html>

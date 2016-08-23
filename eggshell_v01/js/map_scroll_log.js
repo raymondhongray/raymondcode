@@ -12,7 +12,7 @@ function scroll_log() {
             is_google_map = false;
         }
     }
-    if (document.body.scrollTop >= $('#tab-info-window').offset().top) {
+    if (0 && document.body.scrollTop >= $('#tab-info-window').offset().top) {
         if (is_tab_info_window) {
             ga('send', 'event', '地圖頁', 'Click', '滑到 tab-info-window');
             is_tab_info_window = false;

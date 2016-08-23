@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-tw">
 
 <head>
@@ -22,6 +22,7 @@
     <link href="css/event.css?c_ver=7" rel="stylesheet" type="text/css" />
     <link href="css/pop.css?c_ver=7" rel="stylesheet" type="text/css" />
     <link href="css/pop_done.css?c_ver=7" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <script>
     ! function(f, b, e, v, n, t, s) {
         if (f.fbq) return;
@@ -294,7 +295,7 @@
         </div>
     </header>
     <div id="wrap">
-        <div id="content"> 
+        <div id="content">
             <div class="currnent-path">
                 <p>首頁 > 超可惜景點特輯</p>
             </div>
@@ -328,7 +329,7 @@
                     </div>
                     <div style="display: inline-block;position: relative;">
                         <img src="img/event/event_taiwan_2.png" class="event-taiwan-1" onclick="ga('send', 'event', '活動頁', 'Click', 'event taiwan 圖2');" />
-                        <div class="luster"></div>
+                        <div class="luster" onClick="$(this).parent().find('img').click();"></div>
                         <div class="share-p">
                             <i class="fa fa-share" aria-hidden="true"></i>
                             <p class="share-p-1">0</p>
@@ -391,13 +392,105 @@
                     </div>
                 </div>
             </div>
+            <!-- 把map.html的element搬到這一塊 start-->
+            <img class="main-map-pic" src="img/map/main_map_pic.png" />
+            <div id="map-search-box">
+                <p style="color: #663300;">地圖搜尋 : </p>
+                <input id="map-search" class="map-search" type="text" name="map_search" value="" placeholder="台北內湖運動公園">
+                <input id="map-submit" class="map-submit" type="button" value="搜尋">
+            </div>
+            <div class="google-map-bg">
+                <!--Google Map-->
+                <div id="google-map">
+                    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                    <div id="map"></div>
+                </div>
+                <div id="map-info-window" data-id="0" gps-x="0" , gps-y="0">
+                    <div class="info-window-row">
+                        <div class="info-window-row-content col-left">
+                            <div class="show-star-avg-box">
+                                <div class="sm-star-group">
+                                    <i data-id="1" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="2" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="3" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="4" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="5" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <p class="avg-score"></p>
+                                <p>顆星</p>
+                            </div>
+                            <div class="recommend-img"><img src="" /></div>
+                            <div class="lg-star-group">
+                                <i data-id="1" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="2" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="3" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="4" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                                <i data-id="5" class="lg-star fa fa-star-o" aria-hidden="true"></i>
+                            </div>
+                            <p class="share-text">評分分享即抽大獎 !</p>
+                        </div>
+                        <div class="info-window-row-content col-right">
+                            <p class="map-content-title"></p>
+                            <!-- <p class="map-content-slogan">自在跑跳，釋放體力極限</p> -->
+                            <p class="map-content-addr addr-key">地址 : </p>
+                            <p class="map-content-addr addr-value"></p>
+                            <p style="display: block;">好玩的原因 : </p>
+                            <p class="map-content-description"></p>
+                            <div>
+                                <p>......</p>
+                                <p class="show-more"> 繼續閱讀</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="map-close-icon" class="map-close-icon"></div>
+            </div>
+            <div style="width: 100%;height: 1px;margin-bottom: 50px;"></div>
+            <div id="rank-info-window">
+                <img class="rank-title" src="img/map/rank_title.png " />
+                <div class="info-window-wrap">
+                    <div class="info-window-header"></div>
+                    <div data-id="clone_me" class="info-window-row">
+                        <div class="index-marker">
+                            <img src="img/map/marker_icon.png" />
+                            <p>1</p>
+                        </div>
+                        <div class="info-window-row-content col-left">
+                            <div class="recommend-img"><img src="" /></div>
+                            <div class="show-star-avg-box">
+                                <div class="sm-star-group">
+                                    <i data-id="1" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="2" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="3" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="4" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                    <i data-id="5" class="sm-star fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <p class="avg-score"></p>
+                                <p>顆星</p>
+                            </div>
+                        </div>
+                        <div class="info-window-row-content col-right">
+                            <p class="map-content-title"></p>
+                            <p class="map-content-addr addr-key">地址 : </p>
+                            <p class="map-content-addr addr-value"></p>
+                            <p style="display: block; ">好玩的原因 : </p>
+                            <p class="map-content-description"></p>
+                            <div>
+                                <p>......</p>
+                                <p class="show-more " onclick="ga( 'send', 'event', '地圖頁', 'Click', '繼續閱讀_列表'); "> 繼續閱讀</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img id="rank-show-btn" class="rank-show-btn" src="img/map/green_more.png" />
+            <!-- 把map.html的element搬到這一塊 end-->
             <div class="green-line"></div>
             <img src="img/event/catch@2x.png" />
             <div class="pretty-pics">
                 <a href="map.html" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖 補充入口');"><img src="img/event/pretty_pic_01.png" /></a>
                 <a href="map.html" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖 補充入口');"><img src="img/event/pretty_pic_02.png" /></a>
                 <a href="map.html" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖 補充入口');"><img src="img/event/pretty_pic_03.png" /></a>
-
                 <img class="pretty-pics-icon icon0" src="img/event/event_map_btn_2.png" />
                 <img class="pretty-pics-icon icon1" src="img/event/event_map_btn_2.png" />
                 <img class="pretty-pics-icon icon2" src="img/event/event_map_btn_2.png" />
@@ -406,7 +499,7 @@
                 <div class="activity-group-text">
                     <p>小鹿也邀請大朋友們小朋友們，趕快來推薦你心目中人少又好玩的景點，就有機會把大獎帶回家，一個點只能推薦一次，先搶先贏喔!</p>
                 </div>
-                <img id="event-event-btn" class="event-event-btn" src="img/event/event_event_btn.png" onclick="ga('send', 'event', '活動頁', 'Click', '我要推薦');"/>
+                <img id="event-event-btn" class="event-event-btn" src="img/event/event_event_btn.png" onclick="ga('send', 'event', '活動頁', 'Click', '我要推薦');" />
                 <!-- <img class="event-map-btn" src="img/event/event_map_btn.png" /> -->
                 <div class="event-map-btn">
                     <img src="img/event/event_map_btn_1.png" onclick="ga('send', 'event', '活動頁', 'Click', '超可惜景點地圖');">
@@ -453,20 +546,23 @@
         </div>
     </div>
     <footer>
-        <img src="img/main/eggshell_footer.png" />
+        <img src="img/main/eggshell_footer.png " />
     </footer>
-    <script src="js/GA.pageview.js"></script>
-    <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="js/libs/jquery-ui-1.10.2.custom.min.js"></script>
-    <script type="text/javascript" src="js/libs/jqueryEasing-1.9.1.min.js"></script>
-    <script type="text/javascript" src="js/libs/modernizr-2.6.2.min.js"></script>
-    <script type="text/javascript" src="js/libs/TweenMax.min.js"></script>
-    <script type="text/javascript" src="js/main.js?c_ver=7"></script>
-    <script type="text/javascript" src="js/map.js?c_ver=7"></script>
-    <script type="text/javascript" src="js/event.js?c_ver=7"></script>
-    <script type="text/javascript" src="js/pop.js?c_ver=7"></script>
-    <script type="text/javascript" src="js/pop_done.js?c_ver=7"></script>
-    <script type="text/javascript" src="js/event_scroll_log.js?c_ver=7"></script>
+    <script type="text/javascript " src="js/libs/jquery-1.10.2.min.js "></script>
+    <script type="text/javascript " src="js/libs/jquery-ui-1.10.2.custom.min.js "></script>
+    <script type="text/javascript " src="js/libs/jqueryEasing-1.9.1.min.js "></script>
+    <script type="text/javascript " src="js/libs/modernizr-2.6.2.min.js "></script>
+    <script type="text/javascript " src="js/libs/TweenMax.min.js "></script>
+    <script type="text/javascript " src="js/main.js?c_ver=7 "></script>
+    <script type="text/javascript " src="js/google_map.js?c_ver=7 "></script>
+    <script type="text/javascript " src="js/map.js?c_ver=7 "></script>
+    <script type="text/javascript " src="js/event.js?c_ver=7 "></script>
+    <script type="text/javascript " src="js/pop.js?c_ver=7 "></script>
+    <script type="text/javascript " src="js/pop_done.js?c_ver=7 "></script>
+    <script type="text/javascript " src="js/map_scroll_log.js?c_ver=7 "></script>
+    <script type="text/javascript " src="js/event_scroll_log.js?c_ver=7 "></script>
+    <script src="js/GA.pageview.js "></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl2EAHevxmchRs8P7yXkT7xA5wV09bf2U&libraries=places&callback=initAutocomplete " async defer></script>
 </body>
 
 </html>

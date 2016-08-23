@@ -313,8 +313,11 @@ $(document).ready(function() {
 
     $(".event-map-btn").click(function() {
 
-        // window.location.href = 'event.html?popup=1';
-        window.location.href = 'map.html';
+        // window.location.href = 'map.html';
+        var map_Offset = $('.google-map-bg').offset().top - 250;
+        $('html,body').animate({
+            scrollTop: map_Offset
+        }, 500);
     });
 
     $("#submit-btn").click(function() {
@@ -386,24 +389,30 @@ $(document).ready(function() {
 
 
     // 0616 james 
-    var recommendOffset = $('.activity-group').offset().top - 500;
-    $('.activitie').click(function() {
+    var map_Offset = $('.google-map-bg').offset().top - 250;
+    $('.event_index_btn1, .activitie').click(function() {
         $('html,body').animate({
-            scrollTop: recommendOffset
+            scrollTop: map_Offset
         }, 500);
     });
+    // var recommendOffset = $('.activity-group').offset().top - 500;
+    // $('.activitie').click(function() {
+    //     $('html,body').animate({
+    //         scrollTop: recommendOffset
+    //     }, 500);
+    // });
 
     $('.event_index_btn2').click(function() {
         $('.event-event-btn').click();
     });
     // 0616 james end
 
-    var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
-    $('.event_index_btn1').click(function() {
-        $('html,body').animate({
-            scrollTop: event_taiwanOffset
-        }, 500);
-    });
+    // var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
+    // $('.event_index_btn1').click(function() {
+    //     $('html,body').animate({
+    //         scrollTop: event_taiwanOffset
+    //     }, 500);
+    // });
 
     if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'event_taiwan') {
         var event_taiwanOffset = $('.event-taiwan').offset().top - 100;
@@ -413,6 +422,7 @@ $(document).ready(function() {
     }
 
     if (getQueryStrByName('move_to') != null && getQueryStrByName('move_to') == 'event_equipment') {
+        $('#rank-info-window, #rank-show-btn').css('display', 'none');
         var equipmentOffset = $('#event-equipment').offset().top - 150;
         $('html,body').animate({
             scrollTop: equipmentOffset

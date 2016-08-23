@@ -148,7 +148,7 @@ function addRankInfoWindow(recommend_sites, start, show_all) {
     for (var i = start; i < end; i++) {
 
         var recommend_site = recommend_sites[i];
-
+       
         var title = recommend_site[0];
         var scores = recommend_site[4];
         var img = recommend_site[5];
@@ -476,6 +476,8 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
 
     insert_fb_log(fb_id, fb_name);
 
+    pic_url = 'https://' + pic_url;
+
     var publish = {
         name: title,
         method: 'feed',
@@ -501,6 +503,12 @@ function call_fb_share(fb_id, fb_name, did, star, title, description, share_link
 }
 
 $(document).ready(function() {
+    // 把map頁轉到event頁
+    var patt = new RegExp("map");
+    var res = patt.test(window.location.pathname);
+    if (res) {
+        window.location.href = 'event.html';
+    }
 
     setTabInfoWindow();
 
@@ -712,7 +720,14 @@ $(document).ready(function() {
 
     $(document).on('click touchstart', '.show-more', function() {
 
-        showPopup($(this).parents('.info-window-row-content'));
+        // 如果是event page
+        var patt = new RegExp("event");
+        var res = patt.test(window.location.pathname);
+        if (res) {
+            showPopup2($(this).parents('.info-window-row-content'));
+        } else {
+            showPopup($(this).parents('.info-window-row-content'));
+        }
     });
 });
 

@@ -9,7 +9,7 @@ var is_event_rule = true;
 
 function scroll_log() {
 
-    if (document.body.scrollTop >= $('.event-taiwan').offset().top) {
+    if (0 && document.body.scrollTop >= $('.event-taiwan').offset().top) {
         if (is_event_taiwan) {
             ga('send', 'event', '活動頁', 'Click', '滑到 event-taiwan');
             is_event_taiwan = false;

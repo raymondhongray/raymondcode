@@ -356,6 +356,7 @@
     border-left: 1px solid #91c322;
     border-right: 1px solid #91c322;
     border-bottom: 1px solid #91c322;
+    display: none;
 }
 
 #tab-info-window > .info-window-wrap {
@@ -376,6 +377,7 @@
 
 .tab-theme-group {
     margin-top: 60px;
+    display: none;
 }
 
 .tab-theme {
